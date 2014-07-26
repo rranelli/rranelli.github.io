@@ -1,12 +1,32 @@
-# Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-baseurl: ""
-url: "http://yourdomain.com"
-twitter_username: jekyllrb
-github_username:  jekyll
-
-# Build settings
+# Dependencies
 markdown: kramdown
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
+
+highlighter: true
+
+input: GFM
+
+# Permalinks
 permalink: pretty
+
+# Setup
+title: Blog do Milhouse
+tagline: engenharia, dev e emacs.
+url: http://rranelli.github.io
+paginate: 5
+baseurl: /
+author:
+  name: Renan Ranelli
+  url: https://twitter.com/rranelli
+  email: (concat "rranelli" "@" "gmail")
+
+  #Custom vars
+  version: 1.0.0
+  github:
+    repo: https://github.com/rranelli/rranelli.github.io
