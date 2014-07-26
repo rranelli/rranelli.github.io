@@ -1,16 +1,9 @@
 # Dependencies
-markdown: kramdown
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  use_coderay: false
-
+markdown: redcarpet
 highlighter: true
 
-input: GFM
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
 # Permalinks
 permalink: pretty
@@ -21,6 +14,7 @@ tagline: engenharia, dev e emacs.
 url: http://rranelli.github.io
 paginate: 5
 baseurl: /
+
 author:
   name: Renan Ranelli
   url: https://twitter.com/rranelli
