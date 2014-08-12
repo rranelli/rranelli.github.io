@@ -14,7 +14,13 @@ pra isso surgiu ao ler uns dos capítulos finais do
 ["The mythical man month"](http://www.amazon.com/The-Mythical-Man-Month-Engineering-Anniversary/dp/0201835959)
 onde explica-se o paralelo entre uma planta piloto e o desenvolvimento iterativo de software. Ora,
 sendo eu o engenheiro químico mais nerd que eu conheço (e olha que não conheço poucos), a descrição
-faz todo o sentido. Também quero mostrar conteúdo sobre Emacs, já que é bem difícil encontrar
+faz todo o sentido.
+
+Também quero mostrar conteúdo sobre Emacs, já que é bem difícil encontrar
 informações sobre o editor editável em português. Bastante gente julga o editor "impossível de
 aprender". Vou tentar gastar um pouco de teclado explicando como na realidade a maior parte das
 coisas é simples uma vez que você aprende como "descobrir" as funcionalidades do editor.
+
+Este blog é escrito usando o Emacs, jekyll e poole. O `gfm-mode` é bem bacana também. Seria bem
+bacana escrever o texto com o `org-mode` por cause do suporte _fantástico_ a código fonte, mas
+exportar `.org` para `.md` não me pareceu tão fácil.
