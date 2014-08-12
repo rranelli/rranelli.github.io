@@ -7,8 +7,8 @@ title: Primeiro Post
 Esse é o primeiro post do meu primeiro blog. Depois de passar um bom tempo sem escrever nada na
 vida, resolvi me organizar para dividir conteúdo interessante e pensamentos.
 
-Tenho várias ideias para escrever sobre a relação entre engenharia de software e engenharia de
-projetos. Acredito que o meu caminho para vir parar no mundo do software é bem diferente da maioria
+Tenho várias ideias para escrever sobre a relação entre engenharia de software e engenharia
+industrial. Acredito que o meu caminho para vir parar no mundo do software é bem diferente da maioria
 das pessoas e possivelmente é possível que eu tenha algo interessante para compartilhar. O impeto
 pra isso surgiu ao ler uns dos capítulos finais do
 ["The mythical man month"](http://www.amazon.com/The-Mythical-Man-Month-Engineering-Anniversary/dp/0201835959)
