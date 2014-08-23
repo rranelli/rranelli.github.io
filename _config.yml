@@ -9,7 +9,7 @@ redcarpet:
 permalink: pretty
 
 # Setup
-title: Blog do Milhouse
+title: Blog do Renan
 tagline: engenharia, dev e emacs.
 url: http://rranelli.github.io
 paginate: 5
