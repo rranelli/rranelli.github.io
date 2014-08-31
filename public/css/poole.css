@@ -320,7 +320,10 @@ tbody tr:nth-child(odd) th {
     color: #c0c0c0;
     letter-spacing: 0;
 }
-
+.masthead-links {
+    display: inline-block;
+    float: right;
+}
 
 /*
  * Posts and pages

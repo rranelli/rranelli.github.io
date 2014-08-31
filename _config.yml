@@ -24,3 +24,5 @@ author:
   version: 1.0.0
   github:
     repo: https://github.com/rranelli/rranelli.github.io
+
+page_list:  {'About':'/about','Archive':'/archive','Feed':'/atom.xml'}
