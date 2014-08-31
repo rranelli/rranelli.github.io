@@ -14,6 +14,7 @@ tagline: engenharia, dev e emacs.
 url: http://rranelli.github.io
 paginate: 5
 baseurl: /
+exclude: ["*.org"]
 
 author:
   name: Renan Ranelli
