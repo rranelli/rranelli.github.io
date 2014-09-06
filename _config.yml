@@ -11,14 +11,14 @@ permalink: pretty
 # Setup
 title: Blog do Renan
 tagline: engenharia, dev e emacs.
-url: http://rranelli.github.io
+url: http://rranelli.com
 paginate: 5
 baseurl: /
 exclude: ["*.org"]
 
 author:
   name: Renan Ranelli
-  url: https://twitter.com/rranelli
+  url: https://github.com/rranelli
   email: (concat "rranelli" "@" "gmail")
 
   #Custom vars
