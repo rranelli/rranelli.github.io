@@ -1,9 +1,13 @@
 # Dependencies
 markdown: redcarpet
-highlighter: true
 
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+  auto_ids:      true
+  footnote_nr:   1
+  entity_output: as_char
+  toc_levels:    1..6
+  smart_quotes:  lsquo,rsquo,ldquo,rdquo
 
 # Permalinks
 permalink: pretty
