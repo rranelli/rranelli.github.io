@@ -7,7 +7,7 @@
 ---
 language: brasileiro
 layout: default
-title: Monkey patch de briqueixon with me.
+title: Monkey patch de briqueixon with me
 ---
 #+END_HTML
 
