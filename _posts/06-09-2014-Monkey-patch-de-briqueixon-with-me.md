@@ -1,7 +1,7 @@
 ---
 language: brasileiro
-layout: post
-title: Monkey patch de briqueixon with me.
+layout: default
+title: Monkey patch de briqueixon with me
 ---
 
 Quem trabalha com linguagens dinâmicas sabe dos perigos do [monkey patch](http://en.wikipedia.org/wiki/Monkey_patch). Apesar
@@ -123,12 +123,12 @@ RecursiveOpenStruct.
 
 Para matar a dúvida, olhando na [implementação](https://github.com/ruby/ruby/blob/eeb05e8c119f8cab6434d90f21551b6bb2954778/lib/ostruct.rb) do próprio OpenStruct,
 verifica-se que ele <span class="underline">não sobreescreve métodos que já existem</span>, o que certamente
-é uma decisão sabia.
+é uma decisão sabia (Imagina o caos se o json definir um `object_id` como chave&#x2026;).
 
 ```ruby
 def new_ostruct_member(name)
   name = name.to_sym
-  unless respond_to?(name)
+  unless respond_to?(name) #<= !!!!!
     define_singleton_method(name) { @table[name] }
     define_singleton_method("#{name}=") { |x| modifiable[name] = x }
   end

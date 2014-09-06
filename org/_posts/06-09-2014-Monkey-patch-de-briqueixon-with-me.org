@@ -89,6 +89,7 @@ Estranho, pois fica parecendo que o RecursiveOpenStruct não converteu a =hash=
 corretamenta, ou que a chamada para a API estava quebrada.
 
 Depois de muito tentar, entrei no irb e fiz:
+
 #+begin_src ruby
 repo.links.clone.last #=> nil
 #+end_src
@@ -100,12 +101,14 @@ repo.links.clone.class #=> RecursiveOpenStruct
 #+end_src
 
 E ai veio a bizarrice:
+
 #+begin_src ruby
 repo.links.clone.clone.class #=> RecursiveOpenStruct
 #+end_src
 
 Será que RecursiveOpenStruct estava convertendo errado ?? Seria um bug na gem??
 Investigando um pouco mais:
+
 #+begin_src ruby
 repo.links.clone.object_id #=> 459863456
 repo.links.clone.clone.object_id #=> 58565758
@@ -123,11 +126,12 @@ RecursiveOpenStruct.
 
 Para matar a dúvida, olhando na [[https://github.com/ruby/ruby/blob/eeb05e8c119f8cab6434d90f21551b6bb2954778/lib/ostruct.rb][implementação]] do próprio OpenStruct,
 verifica-se que ele _não sobreescreve métodos que já existem_, o que certamente
-é uma decisão sabia.
+é uma decisão sabia (Imagina o caos se o json definir um =object_id= como chave...).
+
 #+begin_src ruby
 def new_ostruct_member(name)
   name = name.to_sym
-  unless respond_to?(name)
+  unless respond_to?(name) #<= !!!!!
     define_singleton_method(name) { @table[name] }
     define_singleton_method("#{name}=") { |x| modifiable[name] = x }
   end
