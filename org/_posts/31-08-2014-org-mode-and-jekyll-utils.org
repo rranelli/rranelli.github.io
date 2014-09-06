@@ -21,7 +21,8 @@ title: Org-mode e Jekyll
   - Cria um novo =draft= para um post.
   - Insere a data atual no nome do arquivo, formatada do jeito que o =Jekyll= quer. (coisa chata).
   - Promove um =draft= para um post.
-  - Exporta o =.org= para =.md= usando o [[http://orgmode.org/manual/Markdown-export.html][org-md-export-to-markdown]].
+  - Exporta o =.org= para =.md= usando o [[http://orgmode.org/cgit.cgi/org-mode.git/plain/contrib/lisp/ox-gfm.el][org-gfm-export-to-md]]. Esse exporter já
+    cospe um github-flavored-markdown.
   - Escolhe automaticamente o dicionário correto do =ispell=.
 
   Com isso, dá pra escrever em =org-mode= e praticamente que existe um markdown =).
