@@ -1,6 +1,6 @@
 ---
 language: brasileiro
-layout: default
+layout: post
 title: Monkey patch de briqueixon with me.
 ---
 

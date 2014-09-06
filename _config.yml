@@ -9,9 +9,6 @@ redcarpet:
   toc_levels:    1..6
   smart_quotes:  lsquo,rsquo,ldquo,rdquo
 
-# Permalinks
-permalink: pretty
-
 # Setup
 title: Blog do Renan
 tagline: engenharia, dev e emacs.
@@ -19,6 +16,7 @@ url: http://rranelli.com
 paginate: 5
 baseurl: /
 exclude: ["*.org"]
+permalink: pretty
 
 author:
   name: Renan Ranelli
