@@ -6,7 +6,7 @@
 #+BEGIN_HTML
 ---
 language: brasileiro
-layout: default
+layout: post
 title: Primeiro Post
 ---
 #+END_HTML

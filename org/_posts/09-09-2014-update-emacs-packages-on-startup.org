@@ -1,0 +1,51 @@
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: showall indent
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: brasileiro
+layout: post
+title: Atualizando os pacotes do Emacs
+---
+#+END_HTML
+
+Se você usa o [[http://melpa.milkbox.net/][Melpa]], provavelmente já se deparou com a situação em que percebeu
+os seus pacotes bem desatualizados. Isso acontece por que para atualizar os
+pacotes você precisa fazer:
+
+#+begin_src
+M-x list-packages RET U x y
+#+end_src
+
+=list-packages= vai listar todos os pacotes dos seus sources, =U= marca todos os
+seus pacotes instalados para atualização e =x= de fato atualiza os pacotes.
+E para listar os pacotes ainda leva alguns segundos, e para atualizar mais uns
+bons segundos (as vezes minutos se você usa o [[https://github.com/capitaomorte/yasnippet][yasnippet]].). É por conta desse
+tipo de coisa que a galera do =vim= sacaneia o Emacs.
+
+Sem dúvida, esse processo é "nada a ver", e não é nem um pouco amigável pro
+iniciante.
+
+Mas nenhum problema é insolúvel pro editor editável: e nesse caso é bem simples
+com um pouco de Elisp:
+
+#+begin_src emacs-lisp :tangle yes
+(defun rr-update-packages ()
+  "Update installed Emacs packages."
+  (interactive)
+  (package-list-packages)
+  (package-menu-mark-upgrades)
+  (package-menu-execute t)
+  (kill-buffer))
+#+end_src
+
+E se você quiser atualizar tudo toda vez que iniciar o Emacs, basta colocar a
+linha abaixo em algum lugar no seu `load-path`:
+
+#+begin_src emacs-lisp :tangle yes
+(rr-update-packages)
+#+end_src
+
+Easy-peezy.
