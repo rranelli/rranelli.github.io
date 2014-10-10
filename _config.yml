@@ -17,7 +17,7 @@ redcarpet:
   smart_quotes:  lsquo,rsquo,ldquo,rdquo
 
 # Setup
-title: Blog do Renan
+title: Blog do Milhouse
 tagline: engenharia, dev e emacs.
 url: http://rranelli.com
 paginate: 5
