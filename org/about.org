@@ -10,4 +10,9 @@ layout: default
 title: About
 ---
 #+END_HTML
-Ainda não tem nada aqui.
+Eu sou o Renan Ranelli. Sou engenheiro químico, desenvolvedor de software, nerd,
+Emacs aficionado, ocasionalmente jogador de videogame, e dono de um hamster.
+
+Neste blog vou falar sobre computação em geral, um pouco do contraste desta com
+a engenharia de projetos (com o que trabalhei por 2 anos e meio), linguagens de
+programação e outros 'brain dumps'.
