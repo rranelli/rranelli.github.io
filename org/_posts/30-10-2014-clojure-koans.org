@@ -1,0 +1,82 @@
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: brasileiro
+layout: post
+title: 'Aprendendo por exemplo: Koans e afins'
+---
+#+END_HTML
+
+* <p hidden>Aprendendo por exemplo: Koans e afins<p hidden>
+
+  *TL;DR*: [[http://clojurekoans.com/][Clojure koans]] é da hora. [[https://pragprog.com/book/shcloj2/programming-clojure][Programming Clojure]] é da hora também.
+
+  ---
+
+  Depois de decidir encarar o SICP como expliquei no post anterior, resolvi
+  aprender mais alguns detalhes da biblioteca padrão de Clojure. Lembrei que
+  quando fui começar a trabalhar com Ruby pra valer fiz os [[http://rubykoans.com/][Ruby Koans]] durante as
+  férias, e com isso, fui ver se não existia algo similar para Clojure. Acabei
+  encontrando o [[http://clojurekoans.com/][Clojure koans]].
+
+  A idéia básica desses /Language Koans/ é apresentar a linguagem através de um
+  conjunto de =assertions= / =testes= que você deve completar para passar. Algo
+  do tipo:
+
+  #+begin_src clojure
+  "Counting them is like counting other collections"
+  (= __ (count #{1 2 3}))
+  #+end_src
+
+  O objetivo é que você entenda o código e seja capaz de substituir o =__= pelo
+  resultado da expressão. Com isso, você aprende por exemplo. É comum apresentar
+  o contraste entre duas formas possíveis de realizar uma tarefa. O conjunto de
+  exercícios contribui para que você interaja com a linguagem de forma
+  controlada, e como na programação (e na real qualquer atividade que /problem
+  solving/) você só aprende de verdade quando de fato escreve o código, a
+  experiência interativa certamente vai ser mais proveitosa para o _início_ dos
+  estudos do que ir direto ler um [[https://pragprog.com/book/shcloj2/programming-clojure][Programming Clojure]] da vida. Repare que eu dei
+  enfase na palavra _inicio_.
+
+  O [[http://clojurekoans.com/][Clojure Koans]] é consideravelmente mais curto que o [[http://rubykoans.com/][Ruby Koans]]. Provavelmente
+  por que Clojure, apesar de não parecer em primeiro momento, é uma linguagem
+  bem mais simples que Ruby. A API unificada de coleções é consideravelmente
+  mais simples e concisa (e com certeza sem surpresas do tipo =a_hash.map {|x|
+  x}= retornar um =array= e não uma =hash=). Existem poucos 'casos especiais' e
+  você não precisa lidar tanto com um modelo de objetos sofisticado.
+
+  O [[http://clojurekoans.com/][Clojure Koans]] apresenta de forma bem sucinta a sintaxe e os mecanismos de
+  =sequences= & =comprehensions=, =destructuring=, os modelos para lidar com
+  dados mutáveis (=agents=, =refs= e =atoms=), =macros=, =datatypes= e
+  =multimethods=. Todos esses conceitos são bem 'exotéricos' pra quem vem de um
+  /background/ OO puro.
+
+  Se você está buscando começar com uma linguagem nova, recomendo algo no estilo
+  dos Koans para dar um pontapé inicial. Além disso, é bem divertido ir rodando
+  os testes e ir vendo o progresso =).
+
+  Porém, se você não tem um conhecimento prévio dos paradigmas principais da
+  linguagem, eu aconselho você a estudá-los primeiro: Se você tentar encarar o
+  [[http://clojurekoans.com/][Clojure Koans]] sem saber o que significam =macros=, =pattern matching=,
+  =destructuring=, =lexical bnding= e afins, o proveito será pouco e você vai
+  ficar mais no 'chutometro' sem absorver muita coisa.
+
+  Depois de completar o [[http://clojurekoans.com/][Clojure Koans]] em mais ou menos umas 6-8 horas (incluindo
+  o tempo total /googlando/ e entendendo melhor uma coisa ou outra) eu encarei o
+  Programming Clojure do Stuart Halloway. Foi uma leitura incrivelmente leve:
+  pouco mais de 2 semanas e li o livro de cabo a rabo. O livro é sem dúvida uma
+  excelente introdução às idiossincrasias da linguagem e aos =idioms= mais
+  comuns. Leitura recomendada para os curiosos, sem dúvida.
+
+***** Afterthoughts:
+
+      Alias, hoje em dia existe uma pancada de exercícios na mesma pegada:
+      Python, Java, Go, Scala, Perl, Haskell, Erlang, Lua, Groovy. Todas tem uma
+      versão mais ou menos parecida^1 . Provavelmente essa deve ser uma forma
+      bem bacana de adquirir um /feel/ dessas linguagens e entender um pouco
+      melhor o modelo das linguagens para entender para o que elas são boas (e
+      para o que elas são péssimas). [[http://www.google.com.br/url?sa%3Dt&rct%3Dj&q%3D&esrc%3Ds&source%3Dweb&cd%3D5&cad%3Drja&uact%3D8&ved%3D0CEEQFjAE&url%3Dhttp%253A%252F%252Fwww.lauradhamilton.com%252Flearn-a-new-programming-language-today-with-koans&ei%3DCsBRVL_EJIWmgwSwxILoAw&usg%3DAFQjCNFTi0ah2xKKF7nOy1ClRYfwbkdxeQ&sig2%3DkwIqDSnfVwl3TvxKq8rZWw][Aqui tem uma lista com koans para várias
+      linguagens e frameworks]]
