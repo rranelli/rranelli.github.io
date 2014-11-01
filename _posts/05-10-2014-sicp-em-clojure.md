@@ -17,21 +17,21 @@ decisão de encarar a jornada do [SICP](https://mitpress.mit.edu/sicp/full-text/
 das coisas e acabar falando um pouco sobre como estudar coisas 'nada a ver'
 podem trazer surpresas bem interessantes.
 
-### Primórdios.
+##### Primórdios.
 
 Durante a minha graduação em Engenharia Química^1 eu trabalhei com [controle de
 processos](http://en.wikipedia.org/wiki/Process_control) no [LCAP](http://www.feq.unicamp.br/~lcap/home.html) (de 2009 ao final de 2012). Meu primeiro trabalho foi
 aplicando "inteligência artificial" ^2 para fins que eu não vou explicar por que
-não deve interessar ninguém ;). E quando se procura por inteligência artificial,
-é inevitável trombar com "Lisp". Até tentei na época entender do que se tratava
-"Lisp", mas minha imaturidade não colaborou e acabou virando uma sigla sem
+não deve interessar ninguém. E quando se procura por inteligência artificial, é
+inevitável trombar com "Lisp". Até tentei na época entender o que era esse tal
+de "Lisp", mas minha imaturidade não colaborou e acabou virando uma sigla sem
 significado na minha memória. No primeiro momento, pegar um livro que ninguém
 pega desde 2006 na biblioteca do [IMECC](http://www.ime.unicamp.br/) não parece que vai ser útil pra alguma
 coisa.
 
-### MOOCs to the rescue.
+##### MOOCs to the rescue.
 
-Já em janeiro de 2013, eu comecei no Coursera o curso [Programming Languages](https://www.coursera.org/course/proglang). Se
+Em janeiro de 2013, eu comecei no Coursera o curso [Programming Languages](https://www.coursera.org/course/proglang). Se
 você já conversou comigo sobre computação, eu provavelmente te falei o quão
 fantástico esse curso é. Nesse curso são utilizadas 3 linguagens: [SML](http://www.smlnj.org/), [Racket](http://racket-lang.org/) e
 [Ruby](https://www.ruby-lang.org/en/). Racket é uma modificação de outro dialeto Lisp, [Scheme](http://en.wikipedia.org/wiki/Scheme_%2528programming_language%2529).
@@ -41,7 +41,7 @@ peguei na época da iniciação científica. Isso aguçou a minha curiosidade so
 curso, e me ajudou a decidir começá-lo.
 
 Quando fiz o curso deu pra entender 'mais ou menos' por que Lisp é tão bom pra
-inteligência articial: Código e dados são intercambíveis. Macros permitem que
+inteligência artificial: Código e dados são intercambíveis. Macros permitem que
 você manipule a estrutura da linguagem da forma que quiser.
 
 Mais que isso. No final do curso eu aprendi umas coisas 'nada-a-ver' tipo
@@ -51,7 +51,7 @@ computação, então não tinha muito filtro sobre o que a galera da área sabia
 devo ser um dos únicos sujeitos dessa geração que aprendeu programação funcional
 <span class="underline">antes</span> de orientação a objeto.)
 
-### Seven Languages in 11 weeks (sic).
+##### Seven Languages in 11 weeks (sic).
 
 Em outra thread de estudo, eu li o fantástico livro [Seven Languages in Seven
 Weeks](https://pragprog.com/book/btlang/seven-languages-in-seven-weeks) do Bruce Tate. O livro fala bastante de programação funcional. Graças ao
@@ -64,7 +64,11 @@ na JVM, especialmente interessante para o mundo moderno da concorrência.
 > the Java virtual machine can offer, and the Java community needs a serious
 > update and an injection of fun.
 >
-> <div align="right"><i> Bruce A. Tate </i></div>
+> <div align="right"><i>
+>
+> Bruce A. Tate
+>
+> </i></div>
 
 Depois de ler o livro até que fiquei interessado, mas acabei não fazendo nada a
 respeito. Apesar de ter achado o livro simples por culpa do Programming
@@ -72,15 +76,15 @@ Languages, já ouvi de mais de uma pessoa que começou a ler o livro sem
 experiência em FP que o livro era "pesado". Até escutei de alguns: "Mas pra que
 você vai ler sobre SETE linguagens se você só trabalha com uma?"
 
-### Escrevendo Elisp.
+##### Escrevendo Elisp.
 
 Depois de ter tido uma certa exposição a 2 dialetos de Lisp, e já um pouco mais
 maduro no funcionamento do Emacs, resolvi escrever um pouco de Elisp e
 customizar alguns aspectos do editor. Acabei contribuindo com o [rspec-mode](https://github.com/pezra/rspec-mode) e o
-[neo-tree](https://github.com/jaypei/emacs-neotree), e já nesse momento sentia falta de coisas como pattern-matching,
-escopo léxico, namespaces, etc.^3
+[neo-tree](https://github.com/jaypei/emacs-neotree), e já nesse momento sentia falta das coisas 'nada-a-ver' do Programming
+Languages: pattern-matching, escopo léxico, namespaces, etc.^3
 
-### An then comes the rain.
+##### An then comes the rain.
 
 Não sei exatamente em que momento eu descobri o SICP. A poucas semanas eu
 comecei a ler o livro, li o primeiro capítulo e o foreword e fiquei [perplecto](https://www.youtube.com/watch?v%3De0yPV-pqmbU)
@@ -117,10 +121,10 @@ primeiro capítulo:
 
 O SICP não é um livro sobre programação, mas sim um livro sobre abstrações. É
 sem dúvida um texto que faz jus à 'ciência' em ciência da computação. Desta
-forma, provavelmente usar Clojure, Scheme ou Javascript provavelmente não é tão
-relevante, desde que ofereçam as abstrações necessárias.
+forma, usar Clojure, Scheme ou Javascript provavelmente não é tão relevante,
+desde que ofereçam as abstrações necessárias.
 
-### Comentários finais
+##### Comentários finais
 
 Com isso, acabo juntando o útil ao agradável: Estudar um material clássico de CS
 e aprender o Lisp da vez. Depois disso acho que vou estar pronto pra estudar o
@@ -128,11 +132,7 @@ e aprender o Lisp da vez. Depois disso acho que vou estar pronto pra estudar o
 
 O que eu acho mais legal nessa história toda é que todas as coisas que me
 trouxeram ao ponto de entender por que o SICP seria legal de estudar aconteceram
-"por acaso". Lisp não serviu pra nada na minha iniciação, pattern-matching não
-me ajudou a sair do meu emprego em engenharia de projetos, e ler sobre 7
-linguagens não me ensinou como escrever Rails. Porém, aqui estou eu achando
-ultra-divertido ler um texto que compara computação a bruxaria, e entendendo um
-pouco mais dos problemas que o desenvolvimento de software enfrenta.
+"por acaso".
 
 Como já disse o Jobs:
 
@@ -143,18 +143,28 @@ Como já disse o Jobs:
 > you the confidence to follow your heart, even when it leads you off the well
 > worn path.
 >
-> <div align="right"><i> Steve Jobs </i></div>
+> <div align="right"><i>
+>
+> Steve Jobs
+>
+> </i></div>
 
-Ou como já dizia um amigo gaúcho bem menos famoso:
+E também como já dizia um amigo gaúcho bem menos famoso:
 
 > Você só sabe que você tem um problema quando você sabe que tem um problema. Se
 > não tem problema, não tem problema.
 >
 > <div align="right"><i> Fabrizio Tissot </i></div>
 
-Nas próximas semanas vou atualizar o blog com posts relatando a experiência.
-Provavelmente as soluções dos exercícios e comentários vão ser disponibilizados
-em algum github da vida.
+Lisp não serviu pra nada na minha iniciação científica, pattern-matching não me
+ajudou a sair do meu emprego em engenharia de projetos, e ler sobre 7 linguagens
+não me ensinou como escrever Rails. Porém, aqui estou eu achando ultra-divertido
+ler um texto que compara computação a bruxaria, e entendendo um pouco mais dos
+problemas que o desenvolvimento de software enfrenta.
+
+Nas próximas semanas vou atualizar o blog com posts relatando a experiência. As
+soluções dos exercícios e comentários vão ser disponibilizados em algum github
+da vida.
 
 Ps: Pra você que acha que eu sou louco: Não vou ser o primeiro a encarar a
 jornada em Clojure: Já achei [este](https://github.com/deobald/sicp-clojure) e [mais este](https://github.com/stuartellis/sicp-clojure) repositório no github com
@@ -162,16 +172,16 @@ soluções.
 
 Ps²: Agradeço ao brother Narciso por emprestar o SICP fisico ;). Valeu mano.
 
-#### Footnotes:
+1.  Footnotes:
 
- ^1 É, apesar de a um bom tempo não estudar outra coisa, eu não sou um
-Computeiro. Tenho planos de um dia escrever um post explicando por que eu sai da
-EQ e resolvi trabalhar com software.
+    ^1 É, apesar de a um bom tempo não estudar outra coisa, eu não sou um
+    Computeiro. Tenho planos de um dia escrever um post explicando por que eu sai da
+    EQ e resolvi trabalhar com software.
 
-^2 As aspas significam que hoje eu não acredito mais que aquilo era inteligência
-artificial. Mais explicações em algum post futuro.
+    ^2 As aspas significam que hoje eu não acredito mais que aquilo era inteligência
+    artificial. Mais explicações em algum post futuro.
 
-^3 Tem uma [thread](https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00339.htmll) **gigantesca** na lista [emacs-devel](https://lists.gnu.org/mailman/listinfo/emacs-devel) falando sobre a
-possibilidade de utilizar o [Guile](http://www.gnu.org/software/guile/) como plataforma para o Emacs. Se vingar, será
-possível estender o Emacs com qualquer linguagem disponível no Guile, que já tem
-Scheme e Common Lisp.
+    ^3 Tem uma [thread](https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00339.htmll) **gigantesca** na lista [emacs-devel](https://lists.gnu.org/mailman/listinfo/emacs-devel) falando sobre a
+    possibilidade de utilizar o [Guile](http://www.gnu.org/software/guile/) como
+    plataforma para o Emacs. Se vingar, será possível estender o Emacs com qualquer
+    linguagem disponível no Guile, que já tem Scheme e Common Lisp.
