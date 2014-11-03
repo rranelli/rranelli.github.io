@@ -5,7 +5,7 @@ title: About
 ---
 
 Eu sou o Renan Ranelli. Sou engenheiro químico, desenvolvedor de software, nerd,
-Emacs aficionado, ocasionalmente jogador de videogame, e dono de um hamster.
+Emacs aficionado, ocasionalmente gamer, permanentemente nerd.
 
 Neste blog vou falar sobre computação em geral, um pouco do contraste desta com
 a engenharia de projetos (com o que trabalhei por 2 anos e meio), linguagens de
