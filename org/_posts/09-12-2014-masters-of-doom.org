@@ -1,0 +1,30 @@
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: brasileiro
+layout: post
+title: 'Masters of Doom'
+---
+#+END_HTML
+
+* <p hidden>Masters of Doom<p hidden>
+
+*TL;DR*: Leia [[http://en.wikipedia.org/wiki/Masters_of_Doom][Masters of Doom]].
+
+---
+
+Ontem terminei de ler o fantástico livro [[http://en.wikipedia.org/wiki/Masters_of_Doom][Masters of Doom]]. O livro conta a
+história do [[http://en.wikipedia.org/wiki/John_Carmack][John Carmack]] e do [[http://en.wikipedia.org/wiki/John_Romero][John Romero]]. O livro frisa muito a questão da
+'libertação' proporcionada pela computação: Dois caras com vinte-e-poucos anos,
+PCs baratos, coca diet e pizza infinita conseguiram revolucionar a indústria dos
+jogos eletrônicos.
+
+Vários temos que discutimos no dia-a-dia, como formação de equipe, aspirações
+pessoais e comprometimento com o trabalho são descritas no livro. Não vou fazer
+um review do livro. Se você tem algum remoto interesse por games e/ou
+computação, a leitura de [[http://en.wikipedia.org/wiki/Masters_of_Doom][Masters of Doom]] é *obrigatória*.
+
+Era isso.
