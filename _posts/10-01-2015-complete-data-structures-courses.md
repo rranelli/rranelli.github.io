@@ -11,13 +11,12 @@ for free and from the best material out there.
 
 &#x2014;
 
-This week I was looking for a course in <http://coursera.org/> and
-<https://www.edx.org/> about data structures, the kind of course you take at
-your first year in Computer Science. Since I have no formal education in
-computer science (and by that I mean that I have not actually took the classes
-while in college), I thought it was already due time for me to actually learn
-about all sorts of trees, heaps, arrays, vectors, garbage collection, and so
-forth.
+This week I was looking for a course in [Coursera](http://coursera.org/) and [EDX](https://www.edx.org/) about data
+structures, the kind of course you take at your first year in Computer
+Science. Since I have no formal education in computer science (and by that I
+mean that I have not actually took the classes while in college), I thought it
+was already due time for me to actually learn about all sorts of trees, heaps,
+arrays, vectors, garbage collection, and so forth.
 
 The trigger to this decision was the chapter 3 of [Beautiful Code](http://shop.oreilly.com/product/9780596510046.do) written by
 Joe Bentley. Joe shows how you can express the duality between the `quicksort`
@@ -55,5 +54,6 @@ That's it.
 
 ###### Footnotes:
 
-1: Actually, I found more than one, but they were in Chinese. If you don't
-mind following the course by the transcripts, you can find them [here](https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg) and [here](https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg).
+1: Actually, I found more than one, but they were in Chinese. If you
+don't mind following the course by the transcripts, you can find
+them [here](https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg) and [here](https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg).
