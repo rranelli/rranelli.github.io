@@ -18,7 +18,7 @@ redcarpet:
 
 # Setup
 title: Blog do Milhouse
-tagline: engenharia, dev e emacs.
+tagline: engineering, dev and Emacs.
 url: http://rranelli.com
 paginate: 5
 baseurl: /
