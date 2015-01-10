@@ -1,0 +1,65 @@
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: english
+layout: post
+title: 'Complete Data Structures Courses'
+---
+#+END_HTML
+
+* <p hidden>Complete Data Structures Courses<p hidden>
+
+  *TL;DR*: The internet is amazing and you can learn almost anything you want
+  for free and from the best material out there.
+
+  ---
+
+  This week I was looking for a course in http://coursera.org/ and
+  https://www.edx.org/ about data structures, the kind of course you take at
+  your first year in Computer Science. Since I have no formal education in
+  computer science (and by that I mean that I have not actually took the classes
+  while in college), I thought it was already due time for me to actually learn
+  about all sorts of trees, heaps, arrays, vectors, garbage collection, and so
+  forth.
+
+  The trigger to this decision was the chapter 3 of [[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code]] written by
+  Joe Bentley. Joe shows how you can express the duality between the =quicksort=
+  algorithm execution under ideal partition and a sorted binary search tree. He
+  states that "data structures are algorithms frozen". I did not understand the
+  claim for some time, but then the whole thing clicked in my head. My mind was
+  blown. I knew that algorithms and data structures were related, but the
+  duality never occurred to me.
+
+  Surprisingly, I could not find an offering of such course in any of those
+  sites^1. So, I tuned down the search a little bit and googled for 'data
+  structures open course' and found these two complete courses:
+
+  1. [[http://www.cs.berkeley.edu/~jrs/61b/][Data Structures - CS61B]] ([[https://www.youtube.com/playlist?list%3DPL4BBB74C7D2A1049C][full lectures here]]) from UC Berkley (2006)
+  2. [[http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/][Advanced Data Structures]] (lecture videos no on youtube) from MIT (2012)
+
+  You can get all of the material of the course in their websites, like lecture
+  notes, assignments, projects and so forth. Although Coursera and Edx's
+  platform are way more user friendly, those websites will not let you short on
+  materials.
+
+  Also, you can download the full CS61B with the amazing python library
+  [[http://rg3.github.io/youtube-dl/download.html][youtube-dl]]:
+
+  #+begin_src bash
+$ pip install youtube-dl # or brew install youtube-dl if you're using homebrew
+$ mkdir /path/where/you/want/your/videos && cd /path/where/you/want/your/videos
+$ youtube-dl https://www.youtube.com/playlist?list=PL4BBB74C7D2A1049C # <= link to the full CS61B youtube playlist
+  #+end_src
+
+  And then, the whole playlist will be automagically downloaded, renamed and
+  sorted. I have to take off my hat to the guys over at =youtube-dl=.
+
+  That's it.
+
+*********** Footnotes:
+
+      	    1: Actually, I found more than one, but they were in Chinese. If you don't
+      	    mind following the course by the transcripts, you can find them [[https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg][here]] and [[https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg][here]].
