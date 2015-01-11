@@ -13,31 +13,31 @@ title: 'Complete Data Structures Courses'
 * <p hidden>Complete Data Structures Courses<p hidden>
 
   *TL;DR*: The internet is amazing and you can learn almost anything you want
-  for free and from the best material out there.
+  for free and with the best material out there.
 
   ---
 
   This week I was looking for a course in [[http://coursera.org/][Coursera]] and [[https://www.edx.org/][EDX]] about data
   structures, the kind of course you take at your first year in Computer
   Science. Since I have no formal education in computer science (and by that I
-  mean that I have not actually took the classes while in college), I thought it
-  was already due time for me to actually learn about all sorts of trees, heaps,
-  arrays, vectors, garbage collection, and so forth.
+  mean that I have not actually took the classes while in *college*), I thought
+  it was already due time to actually learn about trees, heaps, arrays, vectors,
+  garbage collection, and so forth.
 
-  The trigger to this decision was the chapter 3 of [[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code]] written by
-  Joe Bentley. Joe shows how you can express the duality between the =quicksort=
-  algorithm execution under ideal partition and a sorted binary search tree. He
-  states that "data structures are algorithms frozen". I did not understand the
-  claim for some time, but then the whole thing clicked in my head. My mind was
-  blown. I knew that algorithms and data structures were related, but the
-  duality never occurred to me.
+  The trigger of this decision was the chapter 3 of [[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code]] written by
+  Joe Bentley. Joe shows how you can express the duality between the
+  =quick-sort= algorithm execution under ideal partition and a sorted binary
+  search tree. He states that "data structures are algorithms frozen". I did not
+  understand the claim for some time, but then the whole thing clicked in my
+  head. I knew that algorithms and data structures were related, but the duality
+  never occurred to me.
 
   Surprisingly, I could not find an offering of such course in any of those
   sites^1. So, I tuned down the search a little bit and googled for 'data
   structures open course' and found these two complete courses:
 
   1. [[http://www.cs.berkeley.edu/~jrs/61b/][Data Structures - CS61B]] ([[https://www.youtube.com/playlist?list%3DPL4BBB74C7D2A1049C][full lectures here]]) from UC Berkley (2006)
-  2. [[http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/][Advanced Data Structures]] (lecture videos no on youtube) from MIT (2012)
+  2. [[http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/][Advanced Data Structures]] (lecture videos not on youtube) from MIT (2012)
 
   You can get all of the material of the course in their websites, like lecture
   notes, assignments, projects and so forth. Although Coursera and Edx's
@@ -48,9 +48,9 @@ title: 'Complete Data Structures Courses'
   [[http://rg3.github.io/youtube-dl/download.html][youtube-dl]]:
 
   #+begin_src bash
-$ pip install youtube-dl # or brew install youtube-dl if you're using homebrew
+$ pip install youtube-dl # people say brew install youtube-dl works too
 $ mkdir /path/where/you/want/your/videos && cd /path/where/you/want/your/videos
-$ youtube-dl https://www.youtube.com/playlist?list=PL4BBB74C7D2A1049C # <= link to the full CS61B youtube playlist
+$ youtube-dl https://www.youtube.com/playlist?list=PL4BBB74C7D2A1049C # <= full CS61B playlist
   #+end_src
 
   And then, the whole playlist will be automagically downloaded, renamed and

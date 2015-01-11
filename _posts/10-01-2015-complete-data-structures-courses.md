@@ -7,31 +7,31 @@ title: 'Complete Data Structures Courses'
 # <p hidden>Complete Data Structures Courses<p hidden>
 
 **TL;DR**: The internet is amazing and you can learn almost anything you want
-for free and from the best material out there.
+for free and with the best material out there.
 
 &#x2014;
 
 This week I was looking for a course in [Coursera](http://coursera.org/) and [EDX](https://www.edx.org/) about data
 structures, the kind of course you take at your first year in Computer
 Science. Since I have no formal education in computer science (and by that I
-mean that I have not actually took the classes while in college), I thought it
-was already due time for me to actually learn about all sorts of trees, heaps,
-arrays, vectors, garbage collection, and so forth.
+mean that I have not actually took the classes while in **college**), I thought
+it was already due time to actually learn about trees, heaps, arrays, vectors,
+garbage collection, and so forth.
 
-The trigger to this decision was the chapter 3 of [Beautiful Code](http://shop.oreilly.com/product/9780596510046.do) written by
-Joe Bentley. Joe shows how you can express the duality between the `quicksort`
-algorithm execution under ideal partition and a sorted binary search tree. He
-states that "data structures are algorithms frozen". I did not understand the
-claim for some time, but then the whole thing clicked in my head. My mind was
-blown. I knew that algorithms and data structures were related, but the
-duality never occurred to me.
+The trigger of this decision was the chapter 3 of [Beautiful Code](http://shop.oreilly.com/product/9780596510046.do) written by
+Joe Bentley. Joe shows how you can express the duality between the
+`quick-sort` algorithm execution under ideal partition and a sorted binary
+search tree. He states that "data structures are algorithms frozen". I did not
+understand the claim for some time, but then the whole thing clicked in my
+head. I knew that algorithms and data structures were related, but the duality
+never occurred to me.
 
 Surprisingly, I could not find an offering of such course in any of those
 sites^1. So, I tuned down the search a little bit and googled for 'data
 structures open course' and found these two complete courses:
 
 1.  [Data Structures - CS61B](http://www.cs.berkeley.edu/~jrs/61b/) ([full lectures here](https://www.youtube.com/playlist?list%3DPL4BBB74C7D2A1049C)) from UC Berkley (2006)
-2.  [Advanced Data Structures](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/) (lecture videos no on youtube) from MIT (2012)
+2.  [Advanced Data Structures](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/) (lecture videos not on youtube) from MIT (2012)
 
 You can get all of the material of the course in their websites, like lecture
 notes, assignments, projects and so forth. Although Coursera and Edx's
@@ -42,9 +42,9 @@ Also, you can download the full CS61B with the amazing python library
 [youtube-dl](http://rg3.github.io/youtube-dl/download.html):
 
 ```bash
-$ pip install youtube-dl # or brew install youtube-dl if you're using homebrew
+$ pip install youtube-dl # people say brew install youtube-dl works too
 $ mkdir /path/where/you/want/your/videos && cd /path/where/you/want/your/videos
-$ youtube-dl https://www.youtube.com/playlist?list=PL4BBB74C7D2A1049C # <= link to the full CS61B youtube playlist
+$ youtube-dl https://www.youtube.com/playlist?list=PL4BBB74C7D2A1049C # <= full CS61B playlist
 ```
 
 And then, the whole playlist will be automagically downloaded, renamed and
@@ -52,8 +52,8 @@ sorted. I have to take off my hat to the guys over at `youtube-dl`.
 
 That's it.
 
-###### Footnotes:
+1.  Footnotes:
 
-1: Actually, I found more than one, but they were in Chinese. If you
-don't mind following the course by the transcripts, you can find
-them [here](https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg) and [here](https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg).
+    1: Actually, I found more than one, but they were in Chinese. If you
+    don't mind following the course by the transcripts, you can find
+    them [here](https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg) and [here](https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg).
