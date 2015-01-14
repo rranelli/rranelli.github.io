@@ -79,3 +79,8 @@ This does not replace integration and acceptance tests *per se*, but since the
 extra cost is almost zero, I see no reason for **not** doing this.
 
 That's it.
+
+EDIT:
+
+Check this [awesome post](http://www.bignerdranch.com/blog/testing-rails-service-oriented-architecture/) about integration tests in SOA apps. Also, take a look
+at the [remote factory girl gem](https://github.com/tdouce/remote_factory_girl).
