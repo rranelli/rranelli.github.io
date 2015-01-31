@@ -6,7 +6,6 @@
 ---
 language: brasileiro
 layout: post
-comments: true
 title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
 ---
 #+END_HTML
@@ -37,64 +36,64 @@ title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
   @@html:</i></div>@@
   #+end_quote
 
-***** Rspec-mode e compilation awesomeness
+*** Rspec-mode e compilation awesomeness
 
-      Quando comecei a trabalhar com Emacs pra valer (ou seja, quando entrei
-      para a Locaweb, uns 5 meses atrás) um dos pacotes que me chamou muita
-      atenção foi o [[https://github.com/pezra/rspec-mode][rspec-mode]] que facilita brutalmente o trabalho com o
-      =rspec=. Basicamente, é possível:
+    Quando comecei a trabalhar com Emacs pra valer (ou seja, quando entrei para
+    a Locaweb, uns 5 meses atrás) um dos pacotes que me chamou muita atenção foi
+    o [[https://github.com/pezra/rspec-mode][rspec-mode]] que facilita brutalmente o trabalho com o =rspec=. Basicamente,
+    é possível:
 
-      - Rodar todos os testes do projeto.
-      - Rodar apenas os testes do arquivo em foco.
-      - Rodar apenas o teste mais próximo do seu cursor.
-      - Navegar entre o arquivo de teste e implementação.
-      - Navegar entre o método e o teste para o método. (essa feature fui [[https://github.com/pezra/rspec-mode/pull/91][eu que fiz!]])
-      - No buffer que mostra os resultados dos testes (que é um buffer de
-	compilação) é possível (clicar|apertar enter) em um erro na stack trace
-        e pular para o código fonte. (!)
+    - Rodar todos os testes do projeto.
+    - Rodar apenas os testes do arquivo em foco.
+    - Rodar apenas o teste mais próximo do seu cursor.
+    - Navegar entre o arquivo de teste e implementação.
+    - Navegar entre o método e o teste para o método. (essa feature fui [[https://github.com/pezra/rspec-mode/pull/91][eu que fiz!]])
+    - No buffer que mostra os resultados dos testes (que é um buffer de
+      compilação) é possível (clicar|apertar enter) em um erro na stack trace e
+      pular para o código fonte. (!)
 
-      A ultima =feature= da lista anterior para mim foi a mais fantástica, pois
-      era uma das vantagens que eu ainda via no visual studio quando comparava
-      com o Emacs. Acabei percebendo que a abordagem /text-only/ do Emacs é
-      extremamente superior: /Keyboard all the way down/, nada de ficar clicando
-      em um erro uma caixinha /output/ espremida.
+    A ultima =feature= da lista anterior para mim foi a mais fantástica, pois
+    era uma das vantagens que eu ainda via no visual studio quando comparava com
+    o Emacs. Acabei percebendo que a abordagem /text-only/ do Emacs é
+    extremamente superior: /Keyboard all the way down/, nada de ficar clicando
+    em um erro uma caixinha /output/ espremida.
 
-***** Can't run away from Java. For now.
+*** Can't run away from Java. For now.
 
-      Nos últimos tempos na pós graduação venho cursando uma disciplina de
-      projeto orientado a objetos. Nessa disciplina tem um tanto de
-      implementação em Java que eu não consegui escapar. Até cogitei a
-      possibilidade de usar o Eclipse para a disciplina, mas desisti quando vi a
-      interface para trocar os atalhos de teclado (O terror!).
+    Nos últimos tempos na pós graduação venho cursando uma disciplina de projeto
+    orientado a objetos. Nessa disciplina tem um tanto de implementação em Java
+    que eu não consegui escapar. Até cogitei a possibilidade de usar o Eclipse
+    para a disciplina, mas desisti quando vi a interface para trocar os atalhos
+    de teclado (O terror!).
 
-      Acabei usando o =maven= para compilação e testes direto no terminal. No
-      começo era bem desengonçado pular para um erro de compilação no código
-      fonte. Anos luz do conforto fornecido pelo =rspec-mode=.
+    Acabei usando o =maven= para compilação e testes direto no terminal. No
+    começo era bem desengonçado pular para um erro de compilação no código
+    fonte. Anos luz do conforto fornecido pelo =rspec-mode=.
 
-      Como o buffer de resultado de testes do =rspec-mode= chamava-se
-      "\*rspec-compilation\*", imaginei que toda aquela interface bacana não
-      devia ser implementação pura do =rspec-mode= (que alias, não tem mais de
-      600 linhas de código). Acabei descobrindo o comando =compile= que recebe
-      qual o /shell command/ que executa a compilação. Bastara então fornecer ao
-      compile o comando que eu usava no terminal. Para o meu espanto, a
-      habilidade de pular para o erro de compilação já vem de fábrica.
+    Como o buffer de resultado de testes do =rspec-mode= chamava-se
+    "\*rspec-compilation\*", imaginei que toda aquela interface bacana não devia
+    ser implementação pura do =rspec-mode= (que alias, não tem mais de 600
+    linhas de código). Acabei descobrindo o comando =compile= que recebe qual o
+    /shell command/ que executa a compilação. Bastara então fornecer ao compile
+    o comando que eu usava no terminal. Para o meu espanto, a habilidade de
+    pular para o erro de compilação já vem de fábrica.
 
-      Apesar de tudo estar mais simples, havia um incomodo: No comando de
-      compilação eu sempre precisava dar um =cd= para o diretório raiz que
-      contém o =pom.xml=. Foi ai que eu pensei: Dado que o =rspec-mode= faz um
-      [[http://en.wikipedia.org/wiki/Piggyback_%2528transportation%2529][piggy-back]] no =compilation-mode= ^(2) o que me impede de escrever um modo
-      análogo para o =maven=? Busquei pela internet e não encontrei nada que
-      oferecesse funcionalidade parecida ao =rspec-mode=, principalmente no
-      quesito de navegação, para Java. Ai eu decidi encarar o desafio de
-      escrever meu próprio modo.
+    Apesar de tudo estar mais simples, havia um incomodo: No comando de
+    compilação eu sempre precisava dar um =cd= para o diretório raiz que contém
+    o =pom.xml=. Foi ai que eu pensei: Dado que o =rspec-mode= faz um [[http://en.wikipedia.org/wiki/Piggyback_%2528transportation%2529][piggy-back]]
+    no =compilation-mode= ^(2) o que me impede de escrever um modo análogo para
+    o =maven=? Busquei pela internet e não encontrei nada que oferecesse
+    funcionalidade parecida ao =rspec-mode=, principalmente no quesito de
+    navegação, para Java. Ai eu decidi encarar o desafio de escrever meu próprio
+    modo.
 
-***** Escrevendo o minor-mode
-******* Encontrando a raiz do diretório.
+*** Escrevendo o minor-mode
+***** Encontrando a raiz do diretório.
 
-	O primeiro passo seria encontrar a raiz do projeto programaticamente
-	para rodar o comando de compilação. Isso é extremamente fácil:
+      O primeiro passo seria encontrar a raiz do projeto programaticamente para
+      rodar o comando de compilação. Isso é extremamente fácil:
 
-	#+begin_src elisp
+      #+begin_src elisp
 (defun maven-test-root-dir ()
   "Locates maven root directory."
   (locate-dominating-file (buffer-file-name) "pom.xml"))
@@ -103,28 +102,28 @@ title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
   "Runs maven tests"
   (interactive)
   (format "cd %s; mvn test" (maven-test-root-dir)))
-	#+end_src
+      #+end_src
 
-	=locate-dominating-file= busca pelo arquivo =pom.xml= a partir do
-	diretório que contém o arquivo sendo editado. Se o =pom.xml= não for
-	encontrado, a busca é feita no diretório pai, e assim sucessivamente.
-	(créditos para o mago [[https://github.com/nicferrier/emacs-mvn/blob/master/mvn-help.el][Nic Ferrier]])
+      =locate-dominating-file= busca pelo arquivo =pom.xml= a partir do
+      diretório que contém o arquivo sendo editado. Se o =pom.xml= não for
+      encontrado, a busca é feita no diretório pai, e assim sucessivamente.
+      (créditos para o mago [[https://github.com/nicferrier/emacs-mvn/blob/master/mvn-help.el][Nic Ferrier]])
 
-	Com isso, a implementação da função que executa os testes é trivial:
-	basta substituir o resultado de =(maven-test-root-dir)= como argumento
-	do =cd= que antes era feito manualmente e voilá.
+      Com isso, a implementação da função que executa os testes é trivial: basta
+      substituir o resultado de =(maven-test-root-dir)= como argumento do =cd=
+      que antes era feito manualmente e voilá.
 
-	As outras opções para rodar testes descritas na lista acima seguem a
-	mesma filosofia, e eu vou omitir elas por brevidade. Se interessar, veja
-	no [[https://github.com/rranelli/rranelli.github.io][Github]].
+      As outras opções para rodar testes descritas na lista acima seguem a mesma
+      filosofia, e eu vou omitir elas por brevidade. Se interessar, veja no
+      [[https://github.com/rranelli/rranelli.github.io][Github]].
 
-******* Encontrando a classe e o teste associado
+***** Encontrando a classe e o teste associado
 
-	Para realizar a navegação entre classe java e teste, tomei nota de que a
-	localização destes arquivos difere das seguintes formas:
+      Para realizar a navegação entre classe java e teste, tomei nota de que a
+      localização destes arquivos difere das seguintes formas:
 
-        + Os arquivos das classes Java ficam abaixo do diretório =src/main/java/=, enquanto que os testes ficam abaixo de =src/test/java/=
-        + Os arquivos de teste são nomeados conforme o padrão =<class>Test.java=.
+        - Os arquivos das classes Java ficam abaixo do diretório =src/main/java/=, enquanto que os testes ficam abaixo de =src/test/java/=
+        - Os arquivos de teste são nomeados conforme o padrão =<class>Test.java=.
 
 	Com isso, bastam 23 linhas e 960 caracteres:
 
@@ -244,21 +243,20 @@ title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
 
 	Era isso. flw vlw.
 
+***** Footnotes:
 
-	---
+      (1) : Na terminologia do Emacs, o 'arquivo visitado' é o arquivo que você
+      tem 'aberto' no =buffer= em foco. Na verdade você não manipula arquivos no
+      Emacs ou qualquer outro editor, você manipula buffers. Quando você "salva"
+      o arquivo, na realidade você está escrevendo o conteúdo do buffer em
+      disco. Pura firulice sintática.
 
-	(1) : Na terminologia do Emacs, o 'arquivo visitado' é o arquivo que você
-	tem 'aberto' no =buffer= em foco. Na verdade você não manipula arquivos no
-	Emacs ou qualquer outro editor, você manipula buffers. Quando você "salva"
-	o arquivo, na realidade você está escrevendo o conteúdo do buffer em
-	disco. Pura firulice sintática.
-
-	(2) : Basicamente muitos modos que precisam "(clicar|apertar enter) em uma
-	ocorrência e pular para o arquivo fonte" fazem uso do =compilation-mode=.
-	Essa é uma das belezas de escrever software generalista: As pessoas vão
-	usar o seu software pra fazer coisas que você não pode nem imaginar. O
-	=compilation-mode= foi escrito para você compilar coisas, mas a galera dos
-	programas para buscar texto em arquivo (Ack, grep, Ag, Pt) usam o
-	=compilation-mode= para pular da saída no console para o código fonte.
-	Para o [[https://github.com/bling/pt.el/blob/master/pt.el][Platinum Searcher (Pt)]] o código que faz isso tudo não tem nem 100
-	linhas, pois faz um /piggy-back/ feroz no =compilation-mode=.
+      (2) : Basicamente muitos modos que precisam "(clicar|apertar enter) em uma
+      ocorrência e pular para o arquivo fonte" fazem uso do =compilation-mode=.
+      Essa é uma das belezas de escrever software generalista: As pessoas vão
+      usar o seu software pra fazer coisas que você não pode nem imaginar. O
+      =compilation-mode= foi escrito para você compilar coisas, mas a galera dos
+      programas para buscar texto em arquivo (Ack, grep, Ag, Pt) usam o
+      =compilation-mode= para pular da saída no console para o código fonte.
+      Para o [[https://github.com/bling/pt.el/blob/master/pt.el][Platinum Searcher (Pt)]] o código que faz isso tudo não tem nem 100
+      linhas, pois faz um /piggy-back/ feroz no =compilation-mode=.
