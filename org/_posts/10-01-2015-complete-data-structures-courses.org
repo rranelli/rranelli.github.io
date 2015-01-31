@@ -58,8 +58,7 @@ $ youtube-dl https://www.youtube.com/playlist?list=PL4BBB74C7D2A1049C # <= full 
 
   That's it.
 
-*********** Footnotes:
+  ---
 
-      	    1: Actually, I found more than one, but they were in Chinese. If you
-      	    don't mind following the course by the transcripts, you can find
-      	    them [[https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg][here]] and [[https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg][here]].
+  (1) Actually, I found more than one, but they were in Chinese. If you don't
+  mind following the course by the transcripts, you can find them [[https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg][here]] and [[https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg][here]].

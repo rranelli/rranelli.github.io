@@ -194,16 +194,16 @@ title: SICP em Clojure
       Ps²: Agradeço ao brother Narciso por emprestar o SICP fisico ;). Valeu
       mano.
 
-******* Footnotes:
+      ---
 
-	^1 É, apesar de a um bom tempo não estudar outra coisa, eu não sou um
-	Computeiro. Tenho planos de um dia escrever um post explicando por que
-	eu sai da EQ e resolvi trabalhar com Software.
+      (1) É, apesar de a um bom tempo não estudar outra coisa, eu não sou um
+      Computeiro. Tenho planos de um dia escrever um post explicando por que
+      eu sai da EQ e resolvi trabalhar com Software.
 
-	^2 As aspas significam que hoje eu não acredito mais que aquilo era
-	inteligência artificial. Mais explicações em algum post futuro.
+      (2) As aspas significam que hoje eu não acredito mais que aquilo era
+      inteligência artificial. Mais explicações em algum post futuro.
 
-	^3 Tem uma [[https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00339.htmll][thread]] *gigantesca* na lista [[https://lists.gnu.org/mailman/listinfo/emacs-devel][emacs-devel]] falando sobre a
-	possibilidade de utilizar o [[http://www.gnu.org/software/guile/][Guile]] como plataforma para o Emacs. Se
-	vingar, será possível estender o Emacs com qualquer linguagem disponível
-	no Guile, que já tem Scheme e Common Lisp.
+      (3) Tem uma [[https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00339.htmll][thread]] *gigantesca* na lista [[https://lists.gnu.org/mailman/listinfo/emacs-devel][emacs-devel]] falando sobre a
+      possibilidade de utilizar o [[http://www.gnu.org/software/guile/][Guile]] como plataforma para o Emacs. Se
+      vingar, será possível estender o Emacs com qualquer linguagem disponível
+      no Guile, que já tem Scheme e Common Lisp.

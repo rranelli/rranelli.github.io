@@ -243,20 +243,21 @@ title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
 
 	Era isso. flw vlw.
 
-***** Footnotes:
 
-      (1) : Na terminologia do Emacs, o 'arquivo visitado' é o arquivo que você
-      tem 'aberto' no =buffer= em foco. Na verdade você não manipula arquivos no
-      Emacs ou qualquer outro editor, você manipula buffers. Quando você "salva"
-      o arquivo, na realidade você está escrevendo o conteúdo do buffer em
-      disco. Pura firulice sintática.
+	---
 
-      (2) : Basicamente muitos modos que precisam "(clicar|apertar enter) em uma
-      ocorrência e pular para o arquivo fonte" fazem uso do =compilation-mode=.
-      Essa é uma das belezas de escrever software generalista: As pessoas vão
-      usar o seu software pra fazer coisas que você não pode nem imaginar. O
-      =compilation-mode= foi escrito para você compilar coisas, mas a galera dos
-      programas para buscar texto em arquivo (Ack, grep, Ag, Pt) usam o
-      =compilation-mode= para pular da saída no console para o código fonte.
-      Para o [[https://github.com/bling/pt.el/blob/master/pt.el][Platinum Searcher (Pt)]] o código que faz isso tudo não tem nem 100
-      linhas, pois faz um /piggy-back/ feroz no =compilation-mode=.
+	(1) : Na terminologia do Emacs, o 'arquivo visitado' é o arquivo que você
+	tem 'aberto' no =buffer= em foco. Na verdade você não manipula arquivos no
+	Emacs ou qualquer outro editor, você manipula buffers. Quando você "salva"
+	o arquivo, na realidade você está escrevendo o conteúdo do buffer em
+	disco. Pura firulice sintática.
+
+	(2) : Basicamente muitos modos que precisam "(clicar|apertar enter) em uma
+	ocorrência e pular para o arquivo fonte" fazem uso do =compilation-mode=.
+	Essa é uma das belezas de escrever software generalista: As pessoas vão
+	usar o seu software pra fazer coisas que você não pode nem imaginar. O
+	=compilation-mode= foi escrito para você compilar coisas, mas a galera dos
+	programas para buscar texto em arquivo (Ack, grep, Ag, Pt) usam o
+	=compilation-mode= para pular da saída no console para o código fonte.
+	Para o [[https://github.com/bling/pt.el/blob/master/pt.el][Platinum Searcher (Pt)]] o código que faz isso tudo não tem nem 100
+	linhas, pois faz um /piggy-back/ feroz no =compilation-mode=.
