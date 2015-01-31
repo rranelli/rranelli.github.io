@@ -1,6 +1,7 @@
 ---
 language: brasileiro
 layout: post
+comments: true
 title: "Poor man's Future in Ruby"
 ---
 

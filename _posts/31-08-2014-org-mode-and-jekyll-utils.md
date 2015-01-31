@@ -1,6 +1,7 @@
 ---
 language: brasileiro
 layout: post
+comments: true
 title: Org-mode e Jekyll
 ---
 

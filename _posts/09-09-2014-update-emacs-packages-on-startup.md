@@ -1,6 +1,7 @@
 ---
 language: brasileiro
 layout: post
+comments: true
 title: Atualizando os pacotes do Emacs
 ---
 

@@ -1,6 +1,7 @@
 ---
 language: english
 layout: post
+comments: true
 title: 'Complete Data Structures Courses'
 ---
 
@@ -52,8 +53,7 @@ sorted. I have to take off my hat to the guys over at `youtube-dl`.
 
 That's it.
 
-1.  Footnotes:
+&#x2014;
 
-    1: Actually, I found more than one, but they were in Chinese. If you
-    don't mind following the course by the transcripts, you can find
-    them [here](https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg) and [here](https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg).
+(1) Actually, I found more than one, but they were in Chinese. If you don't
+mind following the course by the transcripts, you can find them [here](https://www.edx.org/course/data-structures-shu-ju-jie-gou-tsinghuax-30240184x#.VLF4nV1AyCg) and [here](https://www.edx.org/course/shu-ju-jie-gou-yu-suan-fa-di-yi-bu-fen-pekingx-04830050x#.VLF4nV1AyCg).
