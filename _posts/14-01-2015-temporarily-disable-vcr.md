@@ -1,6 +1,7 @@
 ---
 language: english
 layout: post
+comments: true
 title: 'Temporarily Disable VCR'
 ---
 

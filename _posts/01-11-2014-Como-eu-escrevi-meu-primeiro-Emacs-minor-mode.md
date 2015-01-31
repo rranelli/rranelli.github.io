@@ -1,6 +1,7 @@
 ---
 language: brasileiro
 layout: post
+comments: true
 title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
 ---
 

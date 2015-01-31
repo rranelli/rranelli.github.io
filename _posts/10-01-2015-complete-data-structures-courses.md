@@ -1,6 +1,7 @@
 ---
 language: english
 layout: post
+comments: true
 title: 'Complete Data Structures Courses'
 ---
 

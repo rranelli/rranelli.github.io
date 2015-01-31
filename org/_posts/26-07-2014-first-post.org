@@ -7,6 +7,7 @@
 ---
 language: brasileiro
 layout: post
+comments: true
 title: Primeiro Post
 ---
 #+END_HTML

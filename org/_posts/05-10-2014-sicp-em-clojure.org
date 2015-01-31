@@ -6,6 +6,7 @@
 ---
 language: brasileiro
 layout: post
+comments: true
 title: SICP em Clojure
 ---
 #+END_HTML
