@@ -1,3 +1,4 @@
+# -*- eval: (org-jekyll-mode) -*-
 #+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
 #+OPTIONS: toc:nil n:3
 #+STARTUP: showall indent
@@ -7,7 +8,6 @@
 ---
 language: brasileiro
 layout: post
-comments: true
 title: Keysnail
 ---
 #+END_HTML

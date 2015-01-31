@@ -1,3 +1,4 @@
+
 ---
 language: brasileiro
 layout: post
@@ -21,7 +22,7 @@ cronologia das coisas e acabar falando um pouco sobre como estudar coisas
 ##### Primórdios.
 
 Durante a minha graduação em Engenharia Química^1 eu trabalhei com
-[controle de processos](http://en.wikipedia.org/wiki/Process_control) no [LCAP](http://www.feq.unicamp.br/~lcap/home.html) (de 2009 ao final de 2012). Meu primeiro
+[controle de processos](http://en.wikipedia.org/wiki/Process_control) no [LCAP](http://lcapsite.blogspot.com.br/p/equipe-iniciacao-cientifica.html) (de 2009 ao final de 2012). Meu primeiro
 trabalho foi aplicando "inteligência artificial" ^2 para fins que eu não
 vou explicar por que não deve interessar ninguém. E quando se procura por
 inteligência artificial, é inevitável trombar com "Lisp". Até tentei na

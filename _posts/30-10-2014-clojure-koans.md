@@ -1,3 +1,4 @@
+
 ---
 language: brasileiro
 layout: post
@@ -66,7 +67,7 @@ pouco mais de 2 semanas e li o livro de cabo a rabo. O livro é sem dúvida uma
 excelente introdução às idiossincrasias da linguagem e aos `idioms` mais
 comuns. Leitura recomendada para os curiosos, sem dúvida.
 
-### Afterthoughts:
+##### Afterthoughts:
 
 Alias, hoje em dia existe uma pancada de exercícios na mesma pegada:
 Python, Java, Go, Scala, Perl, Haskell, Erlang, Lua, Groovy. Todas tem uma
