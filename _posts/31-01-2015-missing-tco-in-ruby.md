@@ -1,3 +1,4 @@
+
 ---
 language: english
 layout: post
@@ -66,7 +67,8 @@ $ ./solve.rb
 ```
 
 What a shame! In order to fix this, I had to implement the merge step in this
-terrible and ugly way:
+terrible and ugly way: (actually, the first iteration was way worse than this.
+This ugliness was the best I could achieve)
 
 ```ruby
 def ugly_merge(left, right)
