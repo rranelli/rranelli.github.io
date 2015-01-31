@@ -356,6 +356,13 @@ tbody tr:nth-child(odd) th {
     color: #9a9a9a;
 }
 
+/* Comments */
+.comments {
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid #eee;
+}
+
 /* Related posts */
 .related {
     padding-top: 2rem;
