@@ -1,4 +1,3 @@
-
 ---
 language: brasileiro
 layout: post

@@ -1,4 +1,3 @@
-
 ---
 language: english
 layout: post

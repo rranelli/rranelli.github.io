@@ -1,4 +1,4 @@
-# -*- eval: (org-jekyll-mode) -*-
+#+OPTIONS: -*- eval: (org-jekyll-mode) -*-
 #+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
 #+OPTIONS: toc:nil n:3
 #+STARTUP: oddeven
@@ -11,7 +11,6 @@ comments: true
 title: 'Missing TCO in Ruby'
 ---
 #+END_HTML
-
 * <p hidden>Missing TCO in Ruby<p hidden>
 
   *TL;DR*: Do not rely on non-existing TCO.
