@@ -27,7 +27,7 @@ title: SICP em Clojure
 ***** Primórdios.
 
       Durante a minha graduação em Engenharia Química^1 eu trabalhei com
-      [[http://en.wikipedia.org/wiki/Process_control][controle de processos]] no [[http://www.feq.unicamp.br/~lcap/home.html][LCAP]] (de 2009 ao final de 2012). Meu primeiro
+      [[http://en.wikipedia.org/wiki/Process_control][controle de processos]] no [[http://lcapsite.blogspot.com.br/p/equipe-iniciacao-cientifica.html][LCAP]] (de 2009 ao final de 2012). Meu primeiro
       trabalho foi aplicando "inteligência artificial" ^2 para fins que eu não
       vou explicar por que não deve interessar ninguém. E quando se procura por
       inteligência artificial, é inevitável trombar com "Lisp". Até tentei na
