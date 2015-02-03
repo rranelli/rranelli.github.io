@@ -89,4 +89,7 @@ end
 
 I find this much harder to read and reason. Well, you can't win everyday.
 
-TCO, I miss you.
+**[EDIT]**: But Wait! Ruby **actually** implements TCO (!), and you can activate it if
+you want to. I have actually used the stuff from [this](http://nithinbekal.com/posts/ruby-tco/), [this](http://timelessrepo.com/tailin-ruby), [and this](http://blog.tdg5.com/tail-call-optimization-ruby-deep-dive/) to solve
+this problem with the <span class="underline">pretty\_merge</span> version. In the near future I will write
+a post about the process. Stay tuned!
