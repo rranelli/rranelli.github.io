@@ -17,8 +17,8 @@ redcarpet:
   smart_quotes:  lsquo,rsquo,ldquo,rdquo
 
 # Setup
-title: Blog do Milhouse
-tagline: engineering, dev and Emacs.
+title: Milhouse
+tagline: on software engineering, and Emacs.
 url: http://rranelli.com
 paginate: 5
 baseurl: /
