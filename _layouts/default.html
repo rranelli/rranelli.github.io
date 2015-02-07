@@ -9,6 +9,7 @@
         <h3 class="masthead-title">
           <a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a>
           <small>{{ site.tagline }}</small>
+
           <div class="masthead-links">
             {% for page in site.page_list %}
             &nbsp;&nbsp;<small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
@@ -20,7 +21,17 @@
       {{ content }}
 
       <div class="footer">
-        <p>
+	{% if site.footer-links.twitter %}
+	<a href="http://twitter.com/{{ site.footer-links.twitter }}">
+	  {% include twitter-logo.html %}
+	</a>
+	{% endif %}
+	{% if site.footer-links.github %}
+	<a href="http://github.com/{{ site.footer-links.github }}">
+	  {% include github-logo.html %}
+	</a>
+	{% endif %}
+	<p>
           &copy; {{ site.time | date: '%Y' }}. All rights reserved.
         </p>
       </div>

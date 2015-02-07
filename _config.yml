@@ -18,7 +18,7 @@ redcarpet:
 
 # Setup
 title: Milhouse
-tagline: on software engineering, and Emacs.
+tagline: on software, engineering, and Emacs.
 url: http://rranelli.com
 paginate: 5
 baseurl: /
@@ -30,9 +30,11 @@ author:
   url: https://github.com/rranelli
   email: (concat "rranelli" "@" "gmail")
 
-  #Custom vars
-  version: 1.0.0
   github:
     repo: https://github.com/rranelli/rranelli.github.io
 
 page_list:  { 'About':'/about','Archive':'/archive', 'CV':'/cv/en.pdf','Feed':'/atom.xml' }
+
+footer-links:
+  github: rranelli
+  twitter: rranelli
