@@ -32,5 +32,8 @@ optimization problems with non-trivial mathematical methods in {Mat,Sci}lab and
 Octave. I even had to code some of my code in Fortran for raw speed on
 number-crunching.
 
+I'm an voracious reader. I keep up with my reading using [[http://goodreads.com][goodreads]]. Here is my
+[[https://www.goodreads.com/user/show/19870807-renan-ranelli][profile]] there.
+
 If you're interested can get my CV [[cv/cv.pdf][here]] (still in Portuguese only, probably
 gonna translate it in the nar future).
