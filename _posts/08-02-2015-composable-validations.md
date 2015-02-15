@@ -186,11 +186,10 @@ it to something bind accepts with the function `predicateToValidator`.
 
 Here, I have expressed Validation as a Monad. I can do this because even
 errors chain forward a &#x2013; possibly different &#x2013; validation value. [Scalaz](http://stackoverflow.com/questions/12211776/why-isnt-validation-a-monad-scalaz7) and
-the [Haskell standard library](https://hackage.haskell.org/package/Validation-0.2.0/docs/Data-Validation.html) both consider
-validations as [Applicative Functors](https://wiki.haskell.org/Applicative_functor) which are more general (i.e. put on less
-restrictions) than Monads. In short, their approach is that when combining a
-failure with a success, you get a failure, without carrying onward the
-validated value.
+the [Haskell standard library](https://hackage.haskell.org/package/Validation-0.2.0/docs/Data-Validation.html) both consider validations as [Applicative
+Functors](https://wiki.haskell.org/Applicative_functor) which are more general (i.e. put on less restrictions) than Monads.
+In short, their approach is that when combining a failure with a success,
+you get a failure, without carrying onward the validated value.
 
 I recognize that my approach is less elegant when considering types:
 `Validated` values with `Errors` and `Valid` ones are not actually that
@@ -405,8 +404,9 @@ Semigroups. I won't discuss them here because many [others](http://blog.sigfpe.c
 already explored their structure and usefulness way more eloquently than I
 can hope to be.
 
-We can also see our `Validated` Monad as an instance of the [Writer Monad](http://learnyouahaskell.com/for-a-few-monads-more).
-The writer Monad allows one to "log" the result of operations.
+We can also see our `Validated` Monad as an instance of the
+[Writer Monad](http://learnyouahaskell.com/for-a-few-monads-more). The
+writer Monad allows one to "log" the result of operations.
 
 As you can see, knowing these Algebras allows one to think in a higher level
 of abstraction:
@@ -419,9 +419,10 @@ of abstraction:
 
 Also, remember how we used `Array#reduce` to apply the chain of validators
 in our refactored `RealWorldValidator` ? There is also a typeclass for that:
-[Data.Foldable](https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html) in Haskell, with `Array#reduce` being equivalent to `foldl`.
-Lists are instances of `Foldable` and hence we can use them, but we could
-easily define our own `Foldable` for validation purposes.
+[Data.Foldable](https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html)
+in Haskell, with `Array#reduce` being equivalent to `foldl`. Lists are
+instances of `Foldable` and hence we can use them, but we could easily
+define our own `Foldable` for validation purposes.
 
 While the solution offered by Avdi's video is a clever one, I think that
 seasoned ^3 FP hackers wouldn't actually be very impressed with it, since it
@@ -437,9 +438,9 @@ That's it.
 &#x2014;
 
 (1) If you're interested in Ruby you should definitely get ruby-tapas
-<link>. Seriously, Avdi's content is top-notch. Also, the [ruby-rogues](http://devchat.tv/ruby-rogues/)
-Podcast is amazing too. They have a great panel and their guests are
-awesome. Go check them out.
+<link>. Seriously, Avdi's content is top-notch. Also, the
+[ruby-rogues](http://devchat.tv/ruby-rogues/) Podcast is amazing too. They
+have a great panel and their guests are awesome. Go check them out.
 
 (2) This actually fairly common in math textbooks, and there is good
 argument for that. Working out the gruesome details of the path to find the

@@ -126,7 +126,7 @@ puts my_auditor.results if due
 
     My whole script fits under 50 lines:
 
-#+INCLUDE: ../../_code/validator.hs src haskell
+#+INCLUDE: ../../_code/composable-validations/validator.hs src haskell
 
     Actually, everything after line 20 is superfluous and only serves the
     purpose of demonstration.
@@ -138,11 +138,10 @@ puts my_auditor.results if due
 
     Here, I have expressed Validation as a Monad. I can do this because even
     errors chain forward a -- possibly different -- validation value. [[http://stackoverflow.com/questions/12211776/why-isnt-validation-a-monad-scalaz7][Scalaz]] and
-    the [[https://hackage.haskell.org/package/Validation-0.2.0/docs/Data-Validation.html][Haskell standard library]] both consider
-    validations as [[https://wiki.haskell.org/Applicative_functor][Applicative Functors]] which are more general (i.e. put on less
-    restrictions) than Monads. In short, their approach is that when combining a
-    failure with a success, you get a failure, without carrying onward the
-    validated value.
+    the [[https://hackage.haskell.org/package/Validation-0.2.0/docs/Data-Validation.html][Haskell standard library]] both consider validations as [[https://wiki.haskell.org/Applicative_functor][Applicative
+    Functors]] which are more general (i.e. put on less restrictions) than Monads.
+    In short, their approach is that when combining a failure with a success,
+    you get a failure, without carrying onward the validated value.
 
     I recognize that my approach is less elegant when considering types:
     =Validated= values with =Errors= and =Valid= ones are not actually that
@@ -160,11 +159,11 @@ puts my_auditor.results if due
     Turns out it is, and the solution is actually highly parallel to the Haskell
     one:
 
-#+INCLUDE: ../../_code/validator.rb src ruby
+#+INCLUDE: ../../_code/composable-validations/validator.rb src ruby
 
     And the =RSpec= tests:
 
-#+INCLUDE: ../../_code/validator_spec.rb src ruby
+#+INCLUDE: ../../_code/composable-validations/validator_spec.rb src ruby
 
     You can rename =with= to <code>>>=</code> and see that both Haskell and Ruby
     solutions are pretty close. Just by looking the ruby code you absolutely no
@@ -182,7 +181,7 @@ puts my_auditor.results if due
     keeping state and couldn't agree on what would be a good and simple
     implementation approach. We ended up with something like the following:
 
-#+INCLUDE: ../../_code/product_manager_validator.rb src ruby
+#+INCLUDE: ../../_code/composable-validations/product_manager_validator.rb src ruby
 
     The problems with this is that we throw an exception on the first validation
     failure. This hinders us on showing the most useful error message to our
@@ -191,7 +190,7 @@ puts my_auditor.results if due
 
     We could refactor =RealWorldValidator= as such:
 
-#+INCLUDE: ../../_code/refactored_product_manager_validator.rb src ruby
+#+INCLUDE: ../../_code/composable-validations/refactored_product_manager_validator.rb src ruby
 
     See ? We could attach all of the validation problems in the raised
     exception's message. I find this beautiful, and it's not even away from
@@ -207,8 +206,9 @@ puts my_auditor.results if due
     already explored their structure and usefulness way more eloquently than I
     can hope to be.
 
-    We can also see our =Validated= Monad as an instance of the [[http://learnyouahaskell.com/for-a-few-monads-more][Writer Monad]].
-    The writer Monad allows one to "log" the result of operations.
+    We can also see our =Validated= Monad as an instance of the
+    [[http://learnyouahaskell.com/for-a-few-monads-more][Writer Monad]]. The
+    writer Monad allows one to "log" the result of operations.
 
     As you can see, knowing these Algebras allows one to think in a higher level
     of abstraction:
@@ -221,9 +221,10 @@ puts my_auditor.results if due
 
     Also, remember how we used =Array#reduce= to apply the chain of validators
     in our refactored =RealWorldValidator= ? There is also a typeclass for that:
-    [[https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html][Data.Foldable]] in Haskell, with =Array#reduce= being equivalent to =foldl=.
-    Lists are instances of =Foldable= and hence we can use them, but we could
-    easily define our own =Foldable= for validation purposes.
+    [[https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html][Data.Foldable]]
+    in Haskell, with =Array#reduce= being equivalent to =foldl=. Lists are
+    instances of =Foldable= and hence we can use them, but we could easily
+    define our own =Foldable= for validation purposes.
 
     While the solution offered by Avdi's video is a clever one, I think that
     seasoned ^3 FP hackers wouldn't actually be very impressed with it, since it
@@ -239,9 +240,9 @@ puts my_auditor.results if due
     ---
 
     (1) If you're interested in Ruby you should definitely get ruby-tapas
-    <link>. Seriously, Avdi's content is top-notch. Also, the [[http://devchat.tv/ruby-rogues/][ruby-rogues]]
-    Podcast is amazing too. They have a great panel and their guests are
-    awesome. Go check them out.
+    <link>. Seriously, Avdi's content is top-notch. Also, the
+    [[http://devchat.tv/ruby-rogues/][ruby-rogues]] Podcast is amazing too. They
+    have a great panel and their guests are awesome. Go check them out.
 
     (2) This actually fairly common in math textbooks, and there is good
     argument for that. Working out the gruesome details of the path to find the
