@@ -435,10 +435,10 @@ That's it.
 
 &#x2014;
 
-(1) If you're interested in Ruby you should definitely get ruby-tapas
-<link>. Seriously, Avdi's content is top-notch. Also, the [ruby-rogues](http://devchat.tv/ruby-rogues/)
-Podcast is amazing too. They have a great panel and their guests are
-awesome. Go check them out.
+(1) If you're interested in Ruby you should definitely get [ruby-tapas](http://www.rubytapas.com/).
+Seriously, Avdi's content is top-notch. Also, the [ruby-rogues](http://devchat.tv/ruby-rogues/) Podcast is
+amazing too. They have a great panel and their guests are awesome. Go check
+them out.
 
 (2) This actually fairly common in math textbooks, and there is good
 argument for that. Working out the gruesome details of the path to find the

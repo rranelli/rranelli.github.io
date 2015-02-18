@@ -237,10 +237,10 @@ puts my_auditor.results if due
 
     ---
 
-    (1) If you're interested in Ruby you should definitely get ruby-tapas
-    <link>. Seriously, Avdi's content is top-notch. Also, the [[http://devchat.tv/ruby-rogues/][ruby-rogues]]
-    Podcast is amazing too. They have a great panel and their guests are
-    awesome. Go check them out.
+    (1) If you're interested in Ruby you should definitely get [[http://www.rubytapas.com/][ruby-tapas]].
+    Seriously, Avdi's content is top-notch. Also, the [[http://devchat.tv/ruby-rogues/][ruby-rogues]] Podcast is
+    amazing too. They have a great panel and their guests are awesome. Go check
+    them out.
 
     (2) This actually fairly common in math textbooks, and there is good
     argument for that. Working out the gruesome details of the path to find the
