@@ -206,9 +206,8 @@ puts my_auditor.results if due
     already explored their structure and usefulness way more eloquently than I
     can hope to be.
 
-    We can also see our =Validated= Monad as an instance of the
-    [[http://learnyouahaskell.com/for-a-few-monads-more][Writer Monad]]. The
-    writer Monad allows one to "log" the result of operations.
+    We can also see our =Validated= Monad as an instance of the [[http://learnyouahaskell.com/for-a-few-monads-more][Writer Monad]].
+    The writer Monad allows one to "log" the result of operations.
 
     As you can see, knowing these Algebras allows one to think in a higher level
     of abstraction:
@@ -221,10 +220,9 @@ puts my_auditor.results if due
 
     Also, remember how we used =Array#reduce= to apply the chain of validators
     in our refactored =RealWorldValidator= ? There is also a typeclass for that:
-    [[https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html][Data.Foldable]]
-    in Haskell, with =Array#reduce= being equivalent to =foldl=. Lists are
-    instances of =Foldable= and hence we can use them, but we could easily
-    define our own =Foldable= for validation purposes.
+    [[https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html][Data.Foldable]] in Haskell, with =Array#reduce= being equivalent to =foldl=.
+    Lists are instances of =Foldable= and hence we can use them, but we could
+    easily define our own =Foldable= for validation purposes.
 
     While the solution offered by Avdi's video is a clever one, I think that
     seasoned ^3 FP hackers wouldn't actually be very impressed with it, since it
@@ -240,9 +238,9 @@ puts my_auditor.results if due
     ---
 
     (1) If you're interested in Ruby you should definitely get ruby-tapas
-    <link>. Seriously, Avdi's content is top-notch. Also, the
-    [[http://devchat.tv/ruby-rogues/][ruby-rogues]] Podcast is amazing too. They
-    have a great panel and their guests are awesome. Go check them out.
+    <link>. Seriously, Avdi's content is top-notch. Also, the [[http://devchat.tv/ruby-rogues/][ruby-rogues]]
+    Podcast is amazing too. They have a great panel and their guests are
+    awesome. Go check them out.
 
     (2) This actually fairly common in math textbooks, and there is good
     argument for that. Working out the gruesome details of the path to find the
