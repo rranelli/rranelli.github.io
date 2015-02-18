@@ -10,8 +10,6 @@ title: 'Tail Call Optimization in Ruby'
 **TL;DR**: Ruby has TCO, but it is disabled by default. Recursive algorithms
 over big data sets are actually possible! Yay!
 
-&#x2014;
-
 In a previous [post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) I ranted about how I got bitten by the lack of [TCO](http://en.wikipedia.org/wiki/Tail_call) (Tail
 call optimization) in Ruby. Turns out Ruby actually has support for [TCO](http://en.wikipedia.org/wiki/Tail_call), but
 it's not enabled by default.
@@ -33,8 +31,8 @@ I will show in a moment) would work correctly in the MRI but not in [JRuby](http
 
 The JVM has a long history with TCO that I will not replicate here. The lack
 of native support for TCO in the JVM is the very reason Clojure introduced the
-whole [loop/recur](https://clojuredocs.org/clojure.core/loop) and [trampoline](https://clojuredocs.org/clojure.core/trampoline) constructs. The interested reader should check
-this [SO question](http://stackoverflow.com/questions/3616483/why-does-the-jvm-still-not-support-tail-call-optimization) for more info & references.
+[loop/recur](https://clojuredocs.org/clojure.core/loop) and [trampoline](https://clojuredocs.org/clojure.core/trampoline) constructs. The interested reader should check this
+[SO question](http://stackoverflow.com/questions/3616483/why-does-the-jvm-still-not-support-tail-call-optimization) for more info & references.
 
 ### A non-aesthetic problem
 
@@ -44,15 +42,15 @@ over-zealous about such stylistic details, and I wouldn't disagree.
 
 This time however, the problem was much more serious. For the fourth week
 assignment of the [algorithms course](https://www.coursera.org/course/algo), we're asked to implement [Kosaraju's
-algorithm](http://en.wikipedia.org/wiki/Kosaraju%2527s_algorithm) for computing [SCCs](http://en.wikipedia.org/wiki/Strongly_connected_component) (strongly connected components). This
+algorithm](http://en.wikipedia.org/wiki/Kosaraju's_algorithm) for computing [SCCs](http://en.wikipedia.org/wiki/Strongly_connected_component) (strongly connected components). This
 implementation must be able to process a graph with approximately 1 million
 nodes (!) and more than 5 million (!!!) edges.
 
-[Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju%2527s_algorithm) relies on a modified version of [DFS](http://en.wikipedia.org/wiki/Depth-first_search) (depth-first
+[Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju's_algorithm) relies on a modified version of [DFS](http://en.wikipedia.org/wiki/Depth-first_search) (depth-first
 search), which is a naturally recursive algorithm. The algorithm's
 implementation presented in the class was elegant, but not tail-recursive.
 
-[Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju%2527s_algorithm) uses two DFS passes in the graph. The first one is used
+[Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju's_algorithm) uses two DFS passes in the graph. The first one is used
 to define the order in which nodes must be visited by the second DFS pass in
 a way that exposes strongly connected components.
 
@@ -95,7 +93,7 @@ The objective of the `dfs` method is to find all nodes that are reachable
 from `node`. To do so, it keeps track of the nodes seem so far in the
 `reached` parameter that gets passed to all its recursive calls, and sets
 the node as `visited` as soon as it's seen. The `record_finishing_time` is
-some additional bookkeeping required by [Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju%2527s_algorithm) .
+some additional bookkeeping required by [Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju's_algorithm) .
 
 The implementation above is **obviously** not tail-recursive. A new
 self-recursive call is made for each arc/edge leaving `node`.
@@ -103,7 +101,7 @@ self-recursive call is made for each arc/edge leaving `node`.
 The glory of this implementation is that it feels natural: There is no need
 to think about backtracking. When every `dfs` call returns, I'm guaranteed
 to have all reached nodes contained in the `reached` array and, most
-importantly to [Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju%2527s_algorithm) , all finishing times correctly
+importantly to [Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju's_algorithm) , all finishing times correctly
 recorded. Alas, when called in a graph with 5 million edges such clarity and
 elegance is of absolutely no use.
 
@@ -159,7 +157,7 @@ as its first argument, and processes its top on each call.
 The catch to make the `finishing times` correct was to push the had of the
 stack **again** into the stack, before pushing its adjacent nodes. That will
 give us the opportunity to set the finishing time of the head **after**
-setting it for all it's adjacent nodes, as required by [Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju%2527s_algorithm).
+setting it for all it's adjacent nodes, as required by [Kosaraju's algorithm](http://en.wikipedia.org/wiki/Kosaraju's_algorithm).
 
 So far so good. Although ugly, this implementation has an actual chance of
 processing the giant graph of the programming assignment. Now, to the
@@ -350,8 +348,10 @@ Sweet.
 
 ### Some pitfalls
 
-This section will get back to the [previous post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) that I ranted about the
-"lack" of TCO in Ruby &#x2013; which we now know how to circumvent.
+This section will get back to the
+[previous post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) that
+I ranted about the "lack" of TCO in Ruby &#x2013; which we now know how to
+circumvent.
 
 When I was applying TCO to the merge subroutine described there, I stumbled
 upon an issue that `RubyVM::InstructionSequence#disasm` helped me

@@ -19,7 +19,7 @@ redcarpet:
 # Setup
 title: Milhouse
 tagline: on software, engineering, and Emacs.
-url: http://rranelli.com
+url: rranelli.com
 paginate: 5
 baseurl: /
 exclude: ["*.org"]
