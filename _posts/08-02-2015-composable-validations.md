@@ -34,7 +34,7 @@ end
 ```
 
 The main idea was to introduce some sort of `auditor` object to kind of
-*remember* the checks and their reasons. This memory is implemented with the
+*remember* the checks and their reasons. This `memory` is implemented with the
 `auditor` object being decorated with information about the checks it
 audits.
 
@@ -398,11 +398,11 @@ idiomatic ruby.
 
 The main feature of the `ValidationError` type is that it can be appended
 to. Our `Validated` Monad actually does not need to care about exactly **how**
-the errors so far and the new errors are combined, as long that they do. Two
+the errors so far and the new errors must combine, as long that they do. Two
 entities that abstract how two things get combined into one are Monoids and
-Semigroups. I won't discuss them here because many [others](http://blog.sigfpe.com/2009/01/haskell-monoids-and-their-uses.html) have [already](http://apfelmus.nfshost.com/articles/monoid-fingertree.html)
-already explored their structure and usefulness way more eloquently than I
-can hope to be.
+Semigroups. I won't discuss them here because [others](http://blog.sigfpe.com/2009/01/haskell-monoids-and-their-uses.html) have [already](http://apfelmus.nfshost.com/articles/monoid-fingertree.html) already
+explored their structure and usefulness way more eloquently than I can hope
+to be.
 
 We can also see our `Validated` Monad as an instance of the [Writer Monad](http://learnyouahaskell.com/for-a-few-monads-more).
 The writer Monad allows one to "log" the result of operations.
@@ -414,7 +414,8 @@ of abstraction:
 
 -   "Oh yeah, some intermediate state has to be passed between these calls, better use the State Monad"
 
--   "These two values need to be combined into one. I don't need to be concerned on **how** they do it. Let me ask for a Monoid/Semigroup instead"
+-   "These two values need to be combined into one. I don't need to be
+    concerned on **how** they do it. Let me ask for a Monoid/Semigroup instead"
 
 Also, remember how we used `Array#reduce` to apply the chain of validators
 in our refactored `RealWorldValidator` ? There is also a typeclass for that:
@@ -423,7 +424,7 @@ Lists are instances of `Foldable` and hence we can use them, but we could
 easily define our own `Foldable` for validation purposes.
 
 While the solution offered by Avdi's video is a clever one, I think that
-seasoned ^3 FP hackers wouldn't actually be very impressed with it, since it
+seasoned ^3 FP hackers wouldn't actually be that impressed with it, since it
 falls so gracefully as a special case of well known patterns.
 
 I hope this will encourage you to dive a little into the FP abstract
@@ -440,7 +441,7 @@ Seriously, Avdi's content is top-notch. Also, the [ruby-rogues](http://devchat.t
 amazing too. They have a great panel and their guests are awesome. Go check
 them out.
 
-(2) This actually fairly common in math textbooks, and there is good
+(2) This is actually fairly common in math textbooks, and there is good
 argument for that. Working out the gruesome details of the path to find the
 answer to a non-trivial problem is by itself as an humongous amount of work
 and is never linear. Presenting the final solution and working out just the
