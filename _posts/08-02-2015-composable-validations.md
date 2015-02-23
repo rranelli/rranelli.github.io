@@ -8,7 +8,7 @@ title: 'Composable Validations'
 # <p hidden>Composable Validations<p hidden>
 
 **TL;DR**: We keep devising smart solutions to all sorts of problems. If we talk
-the language of Monads & company, many of those 'smart solutions' just get
+the language of Monads & company, many of those “smart solutions” just get
 trivial.
 
 &#x2014;
@@ -34,8 +34,8 @@ end
 ```
 
 The main idea was to introduce some sort of `auditor` object to kind of
-*remember* the checks and their reasons. This `memory` is implemented with the
-`auditor` object being decorated with information about the checks it
+*remember* the checks and their reasons. This `memory` is implemented with
+the `auditor` object being decorated with information about the checks it
 audits.
 
 The API of the auditor would be something like this:
@@ -76,7 +76,7 @@ puts my_auditor.results if due
 ##### Why does this matter?
 
 This will help one to debug the reason why something went wrong in the big
-"chain" of validation calls.
+'chain' of validation calls.
 
 This solves exactly the problem we face when we have to fill those
 purchase forms a thousand times. Each time it's validation fails only the
@@ -96,7 +96,7 @@ inspect it for changes. In fact, the `alert_due` method has two return
 values: the mutated state of the auditor object and it's regular boolean
 return.
 
-what if some sloppy programmer used the same auditor for two validations
+What if some sloppy programmer used the same auditor for two validations
 that actually shouldn't share the same context? What if someone uses the
 state of the auditor to decide what to do inside of the validator method?
 I actually don't care all that much about these risks, but they make me
@@ -108,13 +108,13 @@ If you're not familiar with Monads, don't despair. Read on and this will be
 an example on why it is actually kind of cool to understand this whole
 Monad/Monoid/Applicative Endo-Functors nonsense.
 
-After I watched the video I hacked up a Haskell script defining the
+Just After I watched the video I hacked up a Haskell script defining the
 necessary stuff to solve the same problem.
 
 I didn't use the State Monad because I wanted to exercise the main point of
 the problem. Many of the solutions to problems in Haskell show the final
 product and not the path the author took to solve the problem ([write
-yourself a scheme in 48 hours ](http://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours), I'm looking at you!) ^2.
+yourself a scheme in 48 hours](http://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours), I'm looking at you!) ^2.
 
 My whole script fits under 50 lines:
 
@@ -187,21 +187,21 @@ it to something bind accepts with the function `predicateToValidator`.
 Here, I have expressed Validation as a Monad. I can do this because even
 errors chain forward a &#x2013; possibly different &#x2013; validation value. [Scalaz](http://stackoverflow.com/questions/12211776/why-isnt-validation-a-monad-scalaz7) and
 the [Haskell standard library](https://hackage.haskell.org/package/Validation-0.2.0/docs/Data-Validation.html) both consider validations as [Applicative
-Functors](https://wiki.haskell.org/Applicative_functor) which are more general (i.e. put on less restrictions) than Monads.
-In short, their approach is that when combining a failure with a success,
-you get a failure, without carrying onward the validated value.
+Functors](https://wiki.haskell.org/Applicative_functor) which are more general (i.e. put on restrictions) than Monads. In
+short, their approach is that when combining a failure with a success, you
+get a failure, without carrying onward the validated value.
 
 I recognize that my approach is less elegant when considering types:
 `Validated` values with `Errors` and `Valid` ones are not actually that
 different. And you can always recover *some* value from them.
 
 What I ended up with is almost exactly what the State Monad already offers,
-but with more restrictions on how the "state" gets combined with the return
+but with more restrictions on how the “state” gets combined with the return
 value of the functions fed to <code>>>=</code>.
 
 ### OO version of the same thing
 
-How would this solution manifest itself in a Object Oriented language like
+How would this solution manifest itself in an Object Oriented language like
 ruby? Is it possible to avoid the mutable auditor?
 
 Turns out it is, and the solution is actually highly parallel to the Haskell
@@ -390,9 +390,8 @@ class RealWorldValidator
 end
 ```
 
-See ? We could attach all of the validation problems in the raised
-exception's message. I find this beautiful, and it's not even away from
-idiomatic ruby.
+See ? We could attach all the validation problems in the raised exception's
+message. I find this beautiful, and it's not even away from idiomatic ruby.
 
 ### Monoids and even more abstract nonsense
 
@@ -405,20 +404,20 @@ explored their structure and usefulness way more eloquently than I can hope
 to be.
 
 We can also see our `Validated` Monad as an instance of the [Writer Monad](http://learnyouahaskell.com/for-a-few-monads-more).
-The writer Monad allows one to "log" the result of operations.
+The writer Monad allows one to 'log' the result of operations.
 
 As you can see, knowing these Algebras allows one to think in a higher level
 of abstraction:
 
--   "Oh, I need to append intermediate values of a chained computation. I better use the Writer Monad"
+-   'Oh, I need to append intermediate values of a chained computation. I better use the Writer Monad'
 
--   "Oh yeah, some intermediate state has to be passed between these calls, better use the State Monad"
+-   'Oh yeah, some intermediate state has to be passed between these calls, better use the State Monad'
 
--   "These two values need to be combined into one. I don't need to be
-    concerned on **how** they do it. Let me ask for a Monoid/Semigroup instead"
+-   'These two values need to be combined into one. I don't need to be
+    concerned on **how** they do it. Let me ask for a Monoid/Semigroup instead'
 
-Also, remember how we used `Array#reduce` to apply the chain of validators
-in our refactored `RealWorldValidator` ? There is also a typeclass for that:
+Also, remember how we used `Array#reduce` to apply the chain of validators in
+our refactored `RealWorldValidator` ? There is also a typeclass for that:
 [Data.Foldable](https://hackage.haskell.org/package/base-4.7.0.2/docs/Data-Foldable.html) in Haskell, with `Array#reduce` being equivalent to `foldl`.
 Lists are instances of `Foldable` and hence we can use them, but we could
 easily define our own `Foldable` for validation purposes.
@@ -443,12 +442,12 @@ them out.
 
 (2) This is actually fairly common in math textbooks, and there is good
 argument for that. Working out the gruesome details of the path to find the
-answer to a non-trivial problem is by itself as an humongous amount of work
+answer to a non-trivial problem is by itself as a humongous amount of work
 and is never linear. Presenting the final solution and working out just the
-necessary to prove it right may seem like the author put the solution out of
-the hat, but surely is the least demanding way to grasp the concepts needed
-to find the answer and it's consequences. Mathematicians are actually lazy
-guys. There is just too much Math out there to understand, and we can't
+necessary to prove its correctness may seem like the author got the solution
+out of the hat, but surely is the least demanding way to grasp the concepts
+needed to find the answer and it's consequences. Mathematicians are actually
+lazy guys. There is just too much Math out there to understand, and we can't
 afford to lose time, specially if someone has already cleaned the gore
 before us.
 
