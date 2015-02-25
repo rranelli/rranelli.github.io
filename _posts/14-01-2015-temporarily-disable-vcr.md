@@ -7,7 +7,7 @@ title: 'Temporarily Disable VCR'
 
 # <p hidden>Temporarily Disable VCR<p hidden>
 
-**TL;DR**: If you control your application's "external" dependencies, turning
+**TL;DR**: If you control your application's “external” dependencies, turning
 off VCR on your build server can increase the integration exercise of your
 applications for virtually zero cost.
 
@@ -25,7 +25,7 @@ Those applications communicate over HTTP, and we (of course) use [VCR](https://g
 up unit tests. Each application sees the other as an *external* dependency.
 
 Since we still have no integration/acceptance test suite, we realized we could
-achieve a little bit more integration by running our test suite with VCR
+achieve a little more integration by running our test suite with VCR
 turned off in the build server. That itself proved to be not as easy as I
 would've guessed beforehand.
 
@@ -70,7 +70,7 @@ end
 With this setup, you can disable VCR entirely by setting the environment
 variable `VCR_OFF` (e.g. `VCR_OFF=true bundle exec rspec`).
 
-The main trouble I had was [discovering](https://github.com/vcr/vcr/issues/181) that I had to call
+The main trouble was [discovering](https://github.com/vcr/vcr/issues/181) that I had to call
 `WebMock#allow_net_connect!` and `WebMock#disable_net_connect!` [around](https://github.com/vcr/vcr/issues/427) the
 example execution.
 

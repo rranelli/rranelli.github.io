@@ -27,7 +27,7 @@ The problem of counting inversions is the following:
 > The number of inversions in **x** is the sum of inversions for all *i* in [ 0,
 > *n-1* ]
 
-The naive approach to solving this problem would be for each *i* in [0,
+A naive approach to solving this problem would be for each *i* in [0,
 *n*-1], scan the sub-array \*x\*[/i/../n/-1] and count such inversions. This
 approach would lead to O(n²) execution time.
 
@@ -87,7 +87,7 @@ def ugly_merge(left, right)
 end
 ```
 
-I find this much harder to read and reason. Well, you can't win everyday.
+I find this much harder to read and reason. Well, you can't win every day.
 
 **[EDIT]**: But Wait! Ruby **actually** implements TCO (!), and you can activate it if
 you want to. I have actually used the stuff from [this](http://nithinbekal.com/posts/ruby-tco/), [this](http://timelessrepo.com/tailin-ruby), [and this](http://blog.tdg5.com/tail-call-optimization-ruby-deep-dive/) to solve
