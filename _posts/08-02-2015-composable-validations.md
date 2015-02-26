@@ -7,9 +7,11 @@ title: 'Composable Validations'
 
 # <p hidden>Composable Validations<p hidden>
 
-**TL;DR**: We keep devising smart solutions to all sorts of problems. If we talk
-the language of Monads & company, many of those “smart solutions” just get
-trivial.
+**TL;DR**: In this post I will try to show why understanding multiple
+programming paradigms is useful and important (and also fun!). This post
+tackles the common problem of aggregating validation results in a
+comprehensible return value. The problem we solve here is almost the same as
+the one solved by `ActiveRecord`'s `errors`.
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
