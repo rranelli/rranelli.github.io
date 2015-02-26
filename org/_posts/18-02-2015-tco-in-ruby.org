@@ -14,20 +14,15 @@ title: 'Tail Call Optimization in Ruby'
 
 * <p hidden>Tail Call Optimization in Ruby<p hidden>
 
-  *TL;DR*: Ruby has TCO, but it is disabled by default. Recursive algorithms
-  over big data sets are actually possible! Yay!
-
-  In a previous [[http://{{site.url}}/2015/01/31/missing-tco-in-ruby/][post]] I ranted about how I got bitten by the lack of [[http://en.wikipedia.org/wiki/Tail_call][TCO]] (Tail
-  call optimization) in Ruby. Turns out Ruby actually has support for [[http://en.wikipedia.org/wiki/Tail_call][TCO]], but
-  it's not enabled by default.
-
-  In this post I will talk about my experience with it and how it saved my life
-  in the fourth programming assignment of [[https://www.coursera.org/course/algo][Algorithms: Design and Analysis, Part
-  1]] from [[http://coursera.org][Coursera]].
+  *TL;DR*: In a previous [[http://{{site.url}}/2015/01/31/missing-tco-in-ruby/][post]] I ranted about how I got bitten by the lack of [[http://en.wikipedia.org/wiki/Tail_call][TCO]]
+  (Tail call optimization) in Ruby. Turns out Ruby actually has support for [[http://en.wikipedia.org/wiki/Tail_call][TCO]],
+  but it's not enabled by default. In this post I will talk about my experience
+  with it and how it saved my life in the fourth programming assignment of
+  [[https://www.coursera.org/course/algo][Algorithms: Design and Analysis, Part 1]] from [[http://coursera.org][Coursera]].
 
   _<p hidden>excerpt-separator<p hidden>_
 
-  TCO is already available in Ruby since the 1.9.x releases. There are reasons
+    TCO is already available in Ruby since the 1.9.x releases. There are reasons
   for it not to be enabled by default. You can check some discussion in the
   [[https://bugs.ruby-lang.org/issues/6602][Ruby-lang issue tracker]].
 
@@ -48,11 +43,10 @@ title: 'Tail Call Optimization in Ruby'
     over-zealous about such stylistic details, and I wouldn't disagree.
 
     This time however, the problem was much more serious. For the fourth week
-    assignment of the [[https://www.coursera.org/course/algo][algorithms course]], we're asked to implement
-    [[http://en.wikipedia.org/wiki/Kosaraju's_algorithm][Kosaraju's algorithm]]
-    for computing [[http://en.wikipedia.org/wiki/Strongly_connected_component][SCCs]] (strongly connected components). This implementation must
-    be able to process a graph with approximately 1 million nodes (!) and more
-    than 5 million (!!!) edges.
+    assignment of the [[https://www.coursera.org/course/algo][algorithms course]], we're asked to implement [[http://en.wikipedia.org/wiki/Kosaraju's_algorithm][Kosaraju's
+    algorithm]] for computing [[http://en.wikipedia.org/wiki/Strongly_connected_component][SCCs]] (strongly connected components). This
+    implementation must be able to process a graph with approximately 1 million
+    nodes (!) and more than 5 million (!!!) edges.
 
     [[http://en.wikipedia.org/wiki/Kosaraju's_algorithm][Kosaraju's algorithm]] relies on a modified version of [[http://en.wikipedia.org/wiki/Depth-first_search][DFS]] (depth-first
     search), which is a naturally recursive algorithm. The algorithm's
