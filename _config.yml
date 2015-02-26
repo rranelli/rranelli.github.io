@@ -25,6 +25,8 @@ baseurl: /
 exclude: ["*.org"]
 permalink: pretty
 
+excerpt_separator: "<p hidden>excerpt-separator<p hidden>"
+
 author:
   name: Renan Ranelli
   url: https://github.com/rranelli
