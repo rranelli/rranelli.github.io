@@ -9,7 +9,8 @@ title: 'Temporarily Disable VCR'
 
 **TL;DR**: If you control your application's “external” dependencies, turning
 off VCR on your build server can increase the integration exercise of your
-applications for virtually zero cost.
+applications for virtually zero cost. In this post I will show how you can
+disable VCR in your test suite with an environment variable.
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
