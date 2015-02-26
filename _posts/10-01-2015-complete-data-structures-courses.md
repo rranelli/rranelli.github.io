@@ -8,7 +8,8 @@ title: 'Complete Data Structures Courses'
 # <p hidden>Complete Data Structures Courses<p hidden>
 
 **TL;DR**: The internet is amazing and you can learn almost anything you want
-for free and with the best material out there.
+for free and with the best material out there. Today the lack of formal
+education is much less of a barrier than it used to be.
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
@@ -22,19 +23,19 @@ garbage collection, and so forth.
 The trigger of this decision was the chapter 3 of [Beautiful Code](http://shop.oreilly.com/product/9780596510046.do) written by
 Joe Bentley. Joe shows how you can express the duality between the
 `quick-sort` algorithm execution under ideal partition and a sorted binary
-search tree. He states that "data structures are algorithms frozen". I did not
+search tree. He states that “data structures are algorithms frozen”. I did not
 understand the claim for some time, but then the whole thing clicked in my
 head. I knew that algorithms and data structures were related, but the duality
 never occurred to me.
 
 Surprisingly, I could not find an offering of such course in any of those
-sites^1. So, I tuned down the search a little bit and googled for 'data
+sites^1. So, I tuned down the search a little and googled for 'data
 structures open course' and found these two complete courses:
 
 1.  [Data Structures - CS61B](http://www.cs.berkeley.edu/~jrs/61b/) ([full lectures here](https://www.youtube.com/playlist?list%3DPL4BBB74C7D2A1049C)) from UC Berkley (2006)
 2.  [Advanced Data Structures](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/) (lecture videos not on youtube) from MIT (2012)
 
-You can get all of the material of the course in their websites, like lecture
+You can get all the material of the course in their websites, like lecture
 notes, assignments, projects and so forth. Although Coursera and Edx's
 platform are way more user friendly, those websites will not let you short on
 materials.
