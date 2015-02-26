@@ -9,7 +9,7 @@ title: 'Missing TCO in Ruby'
 
 **TL;DR**: Do not rely on non-existing TCO.
 
-&#x2014;
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 I have started the course [Algorithms: Design and Analysis, Part 1](https://www.coursera.org/course/algo) from
 [Coursera](http://coursera.org) last week. The first programming assignment was to implement the

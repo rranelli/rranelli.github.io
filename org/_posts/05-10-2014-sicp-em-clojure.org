@@ -18,7 +18,7 @@ title: SICP em Clojure
   Clojure e postar o progresso por aqui. Se você se interessar por que, continue
   lendo.
 
-  ---
+  _<p hidden>excerpt-separator<p hidden>_
 
   Neste post eu vou explicar como algumas threads de estudo culminaram na minha
   decisão de encarar a jornada do [[https://mitpress.mit.edu/sicp/full-text/book/book.html][SICP]] em [[clojure.org][Clojure]]. Vou tentar passar a

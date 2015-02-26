@@ -4,6 +4,8 @@ layout: default
 title: Org-mode e Jekyll
 ---
 
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+
 No primeiro post do blog eu comentei que seria legal usar o `org-mode` para
 publicar o blog, e que isso não parecia simples. Acabei entrando um pouco no
 mérito e vi que na verdade usar o `org-mode` era bem mais fácil do que

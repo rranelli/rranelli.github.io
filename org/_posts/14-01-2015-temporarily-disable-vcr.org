@@ -18,7 +18,7 @@ title: 'Temporarily Disable VCR'
   off VCR on your build server can increase the integration exercise of your
   applications for virtually zero cost.
 
-  ---
+  _<p hidden>excerpt-separator<p hidden>_
 
   In the project I'm currently working on we have two Rails applications that
   are tightly related. One application acts as a /validator-on-steroids/ and

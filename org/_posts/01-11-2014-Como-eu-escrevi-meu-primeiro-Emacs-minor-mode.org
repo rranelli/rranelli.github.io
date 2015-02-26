@@ -19,7 +19,7 @@ title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
   eu aprendi no caminho. O =minor-mode= está disponível no [[https://github.com/rranelli/rranelli.github.io][Github]] e é
   distribuído no [[http://melpa.org/#/maven-test-mode][Melpa]].
 
-  ---
+  _<p hidden>excerpt-separator<p hidden>_
 
   Apesar do que muita gente imagina, customizar o Emacs não é tão complicado. A
   maior dificuldade na verdade é encontrar qual a /feature/ já implementada que

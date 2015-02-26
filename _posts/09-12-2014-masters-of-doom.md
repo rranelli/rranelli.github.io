@@ -9,7 +9,7 @@ title: 'Masters of Doom'
 
 **TL;DR**: Leia [Masters of Doom](http://en.wikipedia.org/wiki/Masters_of_Doom).
 
-&#x2014;
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 Ontem terminei de ler o fantástico livro [Masters of Doom](http://en.wikipedia.org/wiki/Masters_of_Doom). O livro conta a
 história do [John Carmack](http://en.wikipedia.org/wiki/John_Carmack) e do [John Romero](http://en.wikipedia.org/wiki/John_Romero), que são os sujeitos por trás da Id

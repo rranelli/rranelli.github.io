@@ -10,7 +10,7 @@ title: 'Complete Data Structures Courses'
 **TL;DR**: The internet is amazing and you can learn almost anything you want
 for free and with the best material out there.
 
-&#x2014;
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 This week I was looking for a course in [Coursera](http://coursera.org/) and [EDX](https://www.edx.org/) about data
 structures, the kind of course you take at your first year in Computer

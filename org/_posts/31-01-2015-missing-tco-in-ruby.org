@@ -15,7 +15,7 @@ title: 'Missing TCO in Ruby'
 
   *TL;DR*: Do not rely on non-existing TCO.
 
-  ---
+  _<p hidden>excerpt-separator<p hidden>_
 
   I have started the course [[https://www.coursera.org/course/algo][Algorithms: Design and Analysis, Part 1]] from
   [[http://coursera.org][Coursera]] last week. The first programming assignment was to implement the

@@ -12,7 +12,7 @@ me fez decidir escrever o `maven-test-mode` e algumas coisas interessantes que
 eu aprendi no caminho. O `minor-mode` está disponível no [Github](https://github.com/rranelli/rranelli.github.io) e é
 distribuído no [Melpa](http://melpa.org/#/maven-test-mode).
 
-&#x2014;
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 Apesar do que muita gente imagina, customizar o Emacs não é tão complicado. A
 maior dificuldade na verdade é encontrar qual a *feature* já implementada que

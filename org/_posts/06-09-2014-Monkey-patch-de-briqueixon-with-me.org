@@ -13,6 +13,8 @@ title: Monkey patch de briqueixon with me
 ---
 #+END_HTML
 
+  _<p hidden>excerpt-separator<p hidden>_
+
 Quem trabalha com linguagens dinâmicas sabe dos perigos do [[http://en.wikipedia.org/wiki/Monkey_patch][monkey patch]]. Apesar
 de restringir esse tipo de recurso apenas aos casos em que há um ganho
 substancial, as vezes o patch acontece sem querer . Esse é um dos argumentos de

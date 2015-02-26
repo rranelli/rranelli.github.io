@@ -16,7 +16,7 @@ title: "Poor man's Future in Ruby"
 
   *TL;DR*: Futures são da hora.
 
-  ---
+  _<p hidden>excerpt-separator<p hidden>_
 
   Hoje tivemos uma sessão de
   coding-dojo/live-coding/um-cara-codando-e-outros-reclamando no trabalho e nos

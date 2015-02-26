@@ -9,7 +9,7 @@ title: 'Aprendendo por exemplo: Koans e afins'
 
 **TL;DR**: [Clojure koans](http://clojurekoans.com/) é da hora. [Programming Clojure](https://pragprog.com/book/shcloj2/programming-clojure) é da hora também.
 
-&#x2014;
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 Depois de decidir encarar o SICP como expliquei no post anterior, resolvi
 aprender mais alguns detalhes da biblioteca padrão de Clojure. Lembrei que
