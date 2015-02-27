@@ -1,0 +1,186 @@
+* Disclaimer
+  This talk is *not* for beginners. I will not spend time teaching you what are
+  the basic ideas of the mainstream OOP practice. I won't tell you what a class
+  is, what an instance is, what are fields and methods. Instead, I will try to
+  uncover some of what is under the hood and some alternatives and more deep
+  thoughts on how things actually work.
+
+  This talk is aimed at you that has a practical understanding of OOP but never
+  quite got the meaning of /Dispatch functions/, /messages/, /late binding/,
+  /subtypes/, etc. We will dive into first principles.
+
+* Why should I care about first principles? They won't get my javascript working!
+
+  The first object oriented system was Simula. Simula was designed in the 60s,
+  and almost everything we see today can be reduced to it's concepts. Technology
+  changes too fast, but first principles stay the same. And yet, those
+  principles are the things that guide the way technology will unfold.
+  Understanding those is
+
+* The meaning of object oriented programming
+  Let's see what the person who coined the term says about it:
+
+  The following are [[http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en][answers]] by Dr. Alan Kay (without the mathematical
+  mumbo-jumbo):
+
+  => What is the original conception of OOP ? What did it mean in the beginning?
+  -- I thought of objects being like biological *cells* and/or individual
+  computers on a network only able to communicate with *messages* ...
+  -- It was really important for me to finally understand *LISP* and then using
+  this understanding make much nicer and smaller and more powerful *late bound*
+  under-structures ...
+
+  => What does OOP mean?
+  -- OOP to me means only *messaging*, *local retention* and *protection* and
+  *hiding of state-process*, and extreme late-binding of all things. It can be
+  done in *Smalltalk* and in *Lisp*.
+
+  See? There is absolutely no mention of *classes* in his words. There are no
+  mention of *methods*, *inheritance*, and he even doesn't like the term
+  *polymorphism*. From the four tenets of OOP they teach us in school, only one
+  is explicitly quoted by Alan kay, and other is partly applicable.
+
+  I will try to address some of the confusion and common misconceptions in the
+  rest of this section.
+
+* Methods vs Messages && Encapsulation
+  Many times I've heard people talking about methods and messages
+  interchangeably. Those are actually quite different, but related, concepts.
+
+  A message is an entity that an object can *send* to another. A message can
+  be responded by the receiving object. The [[http://en.wikipedia.org/wiki/Dynamic_dispatch][dispatch function]] is the procedure
+  responsible for, given a message, deciding which procedure/function will be
+  called in response to that message. This procedure/function has come to be
+  named *method*.
+
+  A distinction I like to make when talking about this is the following: A
+  message is concerned with communication and semantics. Methods are about flow
+  control. A single message can be responded by a lot of different methods.
+  Messages are concerned with /what/, and methods are concerned on /how/.
+
+  Consider the following snippet:
+
+  (I'm using Ruby here just for example purposes. You should think about
+  objects, messages and methods in the general sense, not in Ruby's sense.)
+
+  #+begin_src ruby
+class A
+  def foo; 1; end
+end
+
+class B
+  def foo; 2; end
+end
+
+misterious_object = [A, B].sample(1).new
+
+puts misterious_object.send(:foo)
+  #+end_src
+
+  You should read the last line as following: print the response given by the
+  object `misterious_object` to the message `:foo`.
+
+  You actually can't tell just by looking this code what will be its output.
+  That's where the dispatch function kicks in. By looking at the message sent
+  to `misterious_object` and it's type, the dispatch function decides which
+  `foo` method to call.
+
+  This behavior is what gives emergence of *polymorphism*. The same code can
+  call different procedures/functions given the runtime variable types.
+
+  The fact that `:foo` and the method defined in `A` and `B` have the same
+  name is, in my opinion, the main reason for confusion in this topic.
+
+  (As an aside, if you understand messages vs methods, you won't have any trouble
+  when thinking about how to solve problems in Erlang.)
+
+*** The implication for design
+    When you're design you object oriented system you should think first about
+    which OBJECTS you have in your domain. Those objects must divide behavior
+    between themselves and collaborate by sending messages to each other.
+
+    An object actually knows nothing about other objects but what messages they
+    are able to respond to. Hence, an object is completely specified in the eyes
+    of another by which *role* it is able to play, based on the messages it is
+    able to respond to.
+
+    Focusing on the messages an object must pass to each other forces you to
+    think on the communication between objects. What one object knows and what
+    this object asks of its peers ? Objects should depend on *roles* to be
+    fulfilled by other objects and not on classes or implementations. That is
+    the root of how to create behavior from composing objects and ensuring your
+    system is flexible and decoupled.
+
+    In the second moment, you should then *classify* your objects into classes.
+    Actually, classes are really not that important and are language-specific.
+    OOP says nothing about classes and doesn't even need them to exist as we
+    will see in a later section about class-based languages (like Java, C#) vs
+    prototype-based languages (like Javascript and Lua).
+
+    One example of thinking about objects and messages between them:
+
+    [FIXME:
+    Example of well factored behavior; The traffic light coordinates sooo many
+    things, and yet, it knows only about its lights and the passage of time.
+
+    In order to make stuff simpler \/
+
+    Distributed cooperation and communication must replace hierarchical
+    centralized control as an organizational paradigm. (Think about the AI
+    class, where there is an example where the godamn ghosts catch pacman
+    without talking to each other, but by having a *model* of how the fuck the
+    other ghost would behave given the current state of the world. GODAMNit this
+    whole writing down thing is AMAZING). The whole ghost thing is an example of
+    'blind trust'. Do not try to control more than you need. Give up procedural
+    control.]
+
+    [FIXME: Talk about how messages enforce encapsulation of things]
+
+
+* Late binding
+
+  [FIXME: Here I should talk about how one could implement an object system in
+  some language that offers no support for object systems]
+
+  [FIXME: It would be pretty nice to show how procedure calls would be mapped
+  in bytecode/assembly]
+
+* Comment on local retention
+  [FIXME: Talk about how mutable state was encouraged in the early days of oop and
+  how this is the root of all evil when working in concurrent settings.]
+  [2015-02-27 Fri 00:36]
+
+  [FIXME: Talk about referential transparency and how this is related to our
+  object's mutability]
+
+* Prototype languages
+  [FIXME: Explain how a prototype based language differs from a class based one]
+  [FIXME: Show how one would be able to describe one in the other]
+
+* Dispatch on steroids: Multiple dispatch!
+*** First, on double dispatch
+
+    [FIXME: Show the example on lines, points, line segments and stuff. How to
+    decide what to do when you need to dispatch over more than one type.
+
+    >> This arises by you going METHOD FIRST and not message first.
+
+    Show the trick with double dispatch.]
+
+*** This pattern can be generalized
+    [FIXME: Focus on telling people that by understanding how things work under the
+    hood you're actually able to easily understand multiple dispatch, and hence,
+    generic functions, C++ something (check what is C++'s touch in this),
+    clojure's multimethods and so forth.]
+
+    [check this link http://en.wikipedia.org/wiki/Multiple_dispatch]
+
+    [List of which languages support multiple dispatch native and which do it via extensions]
+
+    [Talk shit about c#. They have multimethods http://blogs.msdn.com/b/laurionb/archive/2009/08/13/multimethods-in-c-4-0-with-dynamic.aspx]
+
+    [clojure docs on protocols and multimethods
+    http://clojure-doc.org/articles/language/polymorphism.html]
+
+* Clojures and objects. One is the poor man's of the other
+  [FIXME: http://c2.com/cgi/wiki?ClosuresAndObjectsAreEquivalent]
