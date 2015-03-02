@@ -2,7 +2,7 @@
 language: english
 layout: post
 comments: true
-title: 'Makefiles & Debugging them'
+title: 'Makefiles and Debugging them'
 ---
 
 # <p hidden>Makefiles & Debugging them<p hidden>
