@@ -8,7 +8,7 @@
 language: english
 layout: post
 comments: true
-title: 'Bloom Filter in Elixir'
+title: 'Bloom Filters in Elixir'
 ---
 #+END_HTML
 
@@ -101,11 +101,9 @@ Wikipedia wizards
    want to block. (So they say. I actually know nothing about the details of
    this. Don't judge me.)
 
-   There is an amazing animation of bloom filters [[http://www.jasondavies.com/bloomfilter/][over here]].
-
    But how does Bloom Filters /actually/ achieve this?
 
-** Getting started
+** How does a Bloom Filter work
 
    A Bloom Filter encodes the “membership” of an element by computing =k= hash
    values of this element and using a bit array to “store” such encoded
@@ -137,6 +135,14 @@ Wikipedia Wizards
 
 @@html:</i></div>@@
 #+end_quote
+
+   Here's a graphic representation of this. In the left side you can see what's
+   been already inserted in the Bloom Filter, and to the right a query to see if
+   the value is present in the filter.
+
+   [[https://localhost:4000/public/bloom_filter.png]]
+
+   I've stole this amazing animation of bloom filters [[http://www.jasondavies.com/bloomfilter/][from here]].
 
    Here is the first version of the Elixir code for my Bloom Filter:
 

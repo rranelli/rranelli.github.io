@@ -2,7 +2,7 @@
 language: english
 layout: post
 comments: true
-title: 'Bloom Filter in Elixir'
+title: 'Bloom Filters in Elixir'
 ---
 
 # <p hidden>bloom-filter-in-elixir<p hidden>
@@ -92,11 +92,9 @@ limited amount of memory and you can't waste it storing every IP address you
 want to block. (So they say. I actually know nothing about the details of
 this. Don't judge me.)
 
-There is an amazing animation of bloom filters [over here](http://www.jasondavies.com/bloomfilter/).
-
 But how does Bloom Filters *actually* achieve this?
 
-## Getting started
+## How does a Bloom Filter work
 
 A Bloom Filter encodes the “membership” of an element by computing `k` hash
 values of this element and using a bit array to “store” such encoded
@@ -126,6 +124,14 @@ Filters says:
 > Wikipedia Wizards
 >
 > </i></div>
+
+Here's a graphic representation of this. In the left side you can see what's
+been already inserted in the Bloom Filter, and to the right a query to see if
+the value is present in the filter.
+
+![img](//localhost:4000/public/bloom_filter.png)
+
+I've stole this amazing animation of bloom filters [from here](http://www.jasondavies.com/bloomfilter/).
 
 Here is the first version of the Elixir code for my Bloom Filter:
 
