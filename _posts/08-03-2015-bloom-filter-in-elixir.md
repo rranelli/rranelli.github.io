@@ -8,7 +8,7 @@ title: 'Bloom Filters in Elixir'
 # <p hidden>bloom-filter-in-elixir<p hidden>
 
 **TL;DR**: One of the things I like to do when learning a new language is to
-implement fundamental data structures in them, like stacks, heaps, hash
+implement fundamental data structures in them like stacks, heaps, hash
 tables, and so on. In this post, I am going to show you how I implemented a
 [Bloom Filter](http://en.wikipedia.org/wiki/Bloom_filter) in [Elixir](http://elixir-lang.org/) and talk about the experience.
 
@@ -43,6 +43,8 @@ things liked so far are:
 -   Great short syntax for anonymous functions with \`&\` (e.g. &(&1\*2)). Not as
     good as Haskell's, but still very nice. This feature is probably inspired
     in Scala and Clojure.
+-   Matlab integrated documentation in the shell. You just type `h <function>`
+         and the documentation is returned. Pretty neat.
 -   MACROS !! (Can't emphasize enough how amazing this is)
 
 ## Bloom filters
@@ -86,6 +88,12 @@ Bloom Filters are a probabilistic data structure. There is a greater than
 zero probability of false positives, i.e. getting `true` when asking if
 element `x` is in the set when in reality you never inserted the element in
 the first place.
+
+I won't talk about it here, but its quite simple to derive an upper bound on
+the probability of false positives in function of the bit array size, number
+of elements inserted and number of hashing functions. The more space you use,
+less probability of false positives you get &#x2013; It's the main trade-off of
+this data structure.
 
 One of such applications is blocking IP addresses in a switch. You have a
 limited amount of memory and you can't waste it storing every IP address you
