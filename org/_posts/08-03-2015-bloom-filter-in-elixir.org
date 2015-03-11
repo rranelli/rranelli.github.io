@@ -15,15 +15,15 @@ title: 'Bloom Filters in Elixir'
 * <p hidden>bloom-filter-in-elixir<p hidden>
 
   *TL;DR*: One of the things I like to do when learning a new language is to
-  implement fundamental data structures in them like stacks, heaps, hash
-  tables, and so on. In this post, I am going to show you how I implemented a
-  [[http://en.wikipedia.org/wiki/Bloom_filter][Bloom Filter]] in [[http://elixir-lang.org/][Elixir]] and talk about the experience.
+  implement fundamental data structures in them like stacks, heaps, hash tables,
+  and so on. In this post, I am going to show you how I implemented a [[http://en.wikipedia.org/wiki/Bloom_filter][Bloom
+  Filter]] in [[http://elixir-lang.org/][Elixir]] and talk about the experience.
 
   _<p hidden>excerpt-separator<p hidden>_
 
 ** Elixir? Is this a drink?
 
-   My newest take in programming languages is learning [[http://elixir-lang.org/][Elixir]]. A colleague from
+   My newest thing in programming languages is learning [[http://elixir-lang.org/][Elixir]]. A colleague from
    work lent me his copy of Dave Thomas' [[https://pragprog.com/book/elixir/programming-elixir][Programming Elixir]] book and I'm really
    enjoying it so far. Elixir is a young functional language created by
    [[https://twitter.com/josevalim][@josevalim]] (The first Brazilian guy to work in Rails' core team) that turned
@@ -53,6 +53,9 @@ title: 'Bloom Filters in Elixir'
    - Matlab integrated documentation in the shell. You just type =h <function>=
      and the documentation is returned. Pretty neat.
    - MACROS !! (Can't emphasize enough how amazing this is)
+
+   *EDIT*: According to this [[http://www.erlang-factory.com/static/upload/media/1394467979871467brucetate.pdf][presentation]], I was indeed right that the forward
+   pipe was stolen from F#.
 
 ** Bloom filters
 
@@ -200,7 +203,9 @@ end
 #+end_src
 
    The =PewPewPow= module is shown below. (I actually stole this funny name from
-   this [[https://groups.google.com/forum/#!msg/elixir-lang-core/m7NKiapMMPc/anfM1zIOTasJ][thread]] in elixir-lang-core mailing list)
+   this
+   [[https://groups.google.com/forum/#!msg/elixir-lang-core/m7NKiapMMPc/anfM1zIOTasJ][thread]]
+   in elixir-lang-core mailing list)
 
 #+begin_src elixir
 defmodule PewPewPow do
