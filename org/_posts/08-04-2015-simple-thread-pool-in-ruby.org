@@ -14,9 +14,9 @@ title: 'Simple Thread Pool in Ruby'
 
 * <p hidden>simple-thread-pool-in-ruby<p hidden>
 
-  *TL;DR*: In this post I will show how one could implement a simple thread pool
-  [FIXME: link] in Ruby. With this thread pool implementation, We will implement
-  a /parallel-ish/ task runner. Of course this implementation is not "industrial
+  *TL;DR*: In this post I will show how one could implement a simple [[http://en.wikipedia.org/wiki/Thread_pool_pattern][Thread Pool]]
+  in Ruby. With this thread pool implementation, We will implement a
+  /parallel-ish/ task runner. Of course this implementation is not "industrial
   strength", but it is a fun exercise nonetheless.
 
   _<p hidden>excerpt-separator<p hidden>_
@@ -24,18 +24,22 @@ title: 'Simple Thread Pool in Ruby'
 
 ** What the heck is a thread pool ?
 
-   [FIXME: What is a thread pool]
+   A Thread Pool is an abstraction that you can give a job to, and the job will
+   be executed by one of the many threads contained in a /pool/. The main
+   motivation for using thread pools is that creating and destroying threads
+   have considerable cost. Creating a pool of such threads and repeatedly
+   re-using them for executing jobs asynchronously can have massive performance
+   benefits for a long-running application.
 
-** Why should I care ?
-
-   [FIXME: Why thread pools are important and why one should use them.]
+   In this post I will show a little toy implementation that I hope will give
+   you a feel of how they work.
 
 ** Our home-baked thread pool implementation
 
    The workhorse of our =ThreadPool= implementation is Ruby's =Thread::Queue=.
-   This class is a thread-safe implementation of a queue [FIXME: link], and can
-   be straightforwardly used to implement a /job queue/. By /job/, I mean
-   anything that responds to the =call= method (i.e., quacks like a lambda).
+   This class is a thread-safe implementation of a [[http://en.wikipedia.org/wiki/Queue_%2528abstract_data_type%2529][queue]], and can be
+   straightforwardly used to implement a /job queue/. By /job/, I mean anything
+   that responds to the =call= method (i.e., quacks like a lambda).
 
    The =ThreadPool= implementation is shown below:
 
@@ -65,7 +69,13 @@ class ThreadPool
   private
 
   def pop_job_loop
-    -> { catch(:kill) { loop(&run_job) } }
+    -> { catch(:kill) { loop { rescue_nil(&run_job) } } }
+  end
+
+  def rescue_nil
+    yield
+  rescue => e
+    e
   end
 
   def run_job
@@ -90,7 +100,9 @@ end
    the job queue (via =Thread::Queue#push=). Those lambdas are then executed in
    another thread.
 
-   Easy peezy.
+   One little bit of ugliness is the =#rescue_nil= method. It is there because
+   if a job throws an exception, the thread executing that job is killed and the
+   pool gets drained.
 
    Also, when you want to shutdown the =ThreadPool= while waiting for all it's
    jobs to finish you can call =ThreadPool#shutdown=. That's the first time I
@@ -100,13 +112,11 @@ end
 
 ** Task Runner
 
-   [FIXME: talk about how we lose the return value of our tasks when using the
-   thread pool]
+   Our =ThreadPool= implementation, offers no mechanism for retrieving the
+   /return value/ of a job. In this section I will show how you can harness the
+   power of ruby lambdas to work around this issue.
 
-   [FIXME: Explain that we can use the queue to recover those values by wrapping
-   the lambdas]
-
-   [FIXME: Talk about how this is so akin to higher order functions]
+   Have a look at my solution below:
 
 #+begin_src ruby
 class TaskRunner
@@ -143,8 +153,26 @@ class TaskRunner
 end
 #+end_src
 
-   I couldn't find a better name for =TaskRunner#wrap_with_notify=. If you think
-   you have a better name for it, please, let me know!
+   (I couldn't find a better name for =TaskRunner#wrap_with_notify=. If you
+   think you have a better name for it, please, let me know!)
+
+   The =TaskRunner= receives a list of jobs/tasks in its constructor. Those jobs
+   can be executed by calling the =#call= method on them. Now, in the
+   =TaskRunner#run!= method we wrap those jobs as new jobs that will notify a
+   =result_queue= of the return value of the original job (phew! probably pretty
+   confused if you're not used to higher order functions).
+
+   The wrapped jobs are returned by =tasks.map(&wrap_with_notify)=. We then take
+   those wrapped jobs and schedule each of them with =#map(&schedule)=. Now, we
+   can retrieve the return value of those jobs by =pop='ing the =result_queue=
+   once for each scheduled job. This is done in =#map(&await)=. The careful
+   reader should notice that the return values are retrieved /out of order/.
+
+   As you can see, with this approach we are not dealing well with failure. In
+   the case of an exception, because of the dreaded =ThreadPool#rescue_nil=
+   method, we will end with the raised exception in the =result_queue=. In order
+   to deal with such cases in a more elegant way, we should use a higher level
+   abstraction like a [[http://ruby-concurrency.github.io/concurrent-ruby/Concurrent/Future.html][future]].
 
    That's it.
 
