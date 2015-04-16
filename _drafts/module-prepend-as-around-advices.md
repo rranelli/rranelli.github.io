@@ -1,0 +1,190 @@
+---
+language: english
+layout: post
+comments: true
+title: 'Module prepend as around advices'
+---
+
+# <p hidden>module-prepend-as-around-advices<p hidden>
+
+**TL;DR**: In this post I will show how you can achieve something like `aspect
+  oriented programming`'s (AOP) *around advice* by using plain Ruby modules. I
+will show examples where this technique can be used to DRY out your code by
+centralizing cross-cutting concerns.
+
+<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+
+### Introduction
+
+AOP can be extremely useful for DRY-ing out code of cross-cutting concerns.
+Such concerns are things like logging, authorization, memoization, auditing
+and metric/exception reporting. If you're not familiar with AOP and its
+motivation, [these](http://c2.com/cgi/wiki?AspectOrientedProgramming) [articles](https://msdn.microsoft.com/en-us/library/aa288717%2528v%3Dvs.71%2529.aspx) might be a good start.
+
+Frameworks like Spring and AspectJ in Java-land made AOP somewhat popular.
+Much of the criticism to AOP is directed towards the seemingly magic ways
+that code gets injected or substituted at runtime. It is quite difficult to
+trace a method call when aspects are involved without the help of heavy
+weight tools like Eclipse or IntellijIDEA.
+
+An `Aspect` is the composition of a `join-point` and an `advice`. The
+`join-point` is a definition of *when* some `advice` can be applied. The
+most obvious example of a `join-point` is a simple method call. The `advice`
+is the definition of *what code* will be executed when the `advice` is
+applied. An `Aspect` is therefore the application of `advices` over
+`join-points`.
+
+### Motivation
+
+Suppose that `Expensive#computation` is a method that takes a long time to
+complete and might get called many times. In order not to clutter the
+implementation of `#computation` with memoization details, you could solve
+the problem by subclassing `Expensive` in `Cheap`:
+
+```ruby
+class Expensive
+  def computation
+    # ... a pretty complex method
+  end
+
+  # in a pretty complex class
+end
+
+class Cheap < Expensive
+  # A pretty simple class
+  def computation
+    @__computation ||= super
+  end
+end
+```
+
+That solves the problem. But this problems does not occur in a single class.
+Your application could have a ton of those expensive methods and you don't
+want to keep repeating the same memoization logic over and over again.
+
+It's a long time since I first heard of Ruby's [Module#prepend](http://ruby-doc.org/core-2.0.0/Module.html#method-i-prepend). At that time,
+the feature seemed weird and quite useless to me. Recently I've come across
+a great usage of `Module#prepend` for emulating [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming)-ish behavior without
+resorting to method renaming/aliasing. ^2
+
+With `Module#prepend`, you could "invert" the inheritance and solve the
+problem like this:
+
+```ruby
+module Memoize
+  def computation
+    @__computation ||= super
+  end
+end
+
+class Expensive
+  prepend Memoize
+
+  def computation
+    # ... a pretty complex method
+  end
+
+  # in a pretty complex class
+end
+```
+
+The `Memoize` module could be prepended in a arbitrary number of classes and
+avoid the repetition of memoization logic all over the application.
+
+### Understanding Module#prepend
+
+`Module#prepend` allows you to put the module's methods in a higher priority
+than the methods defined in the class itself. Consider the following
+example:
+
+```ruby
+module A
+  def foo; :bar; end
+end
+
+class B
+  def foo; :foo; end
+end
+
+B.new.foo # => :foo
+
+class B
+  prepend A
+end
+
+B.new.foo # => :bar
+```
+
+As you can see, after prepending module `A` in class `B`, `B.new.foo` will
+dispatch to `A#foo` instead of `B#foo`.
+
+More interestingly, you could use `super` in `A#foo`, and that would
+delegate to `B#foo`:
+
+```ruby
+module A
+  def foo
+    "foo and also #{super}"
+  end
+end
+
+class B
+  prepend A
+
+  def foo
+    :bar
+  end
+end
+
+B.new.foo # => "foo and also bar"
+```
+
+That happens because `Module#prepend` will add the prepended module *before*
+the class itself in it's ancestor chain (it will *prepend* into the ancestor
+list, hence the name):
+
+```ruby
+B.ancestors # => [A, B, Object, Kernel, BasicObject]
+```
+
+With the previous explanation in mind, it would take you no time to figure
+out how to implement an `around-advice` using `Module#prepend`:
+
+```ruby
+module A
+  def foo
+    puts 'stuff can be executed before original implementation'
+    super
+    puts 'and also after'
+
+    puts 'Hence: "Around" advice'
+  end
+end
+```
+
+### On the road to metaprogramming
+
+The astute reader surely have noticed one short-coming in our prepended
+modules: When you invoke `super`, you call the next method with *same name*
+found in the ancestor chain. That is, we have the concepts of `advice` and
+`join-point` coupled in the same place.
+
+In order to achieve the same functionality provided by AOP, we need to
+separate our implementations `join-point` and the `advice`. In order to do
+that, we will need to generate the module to be prepended on the fly.
+
+In the next post of this series I will show how to achieve this level of
+dynamism and write completely non-intrusive (yet discoverable) advices for
+logging, metric reporting and so on.
+
+That's it.
+
+&#x2014;
+
+(1) More references on Module#prepend can be found [here](http://gshutler.com/2013/04/ruby-2-module-prepend/) and [here](http://www.justinweiss.com/blog/2014/09/08/rails-5-module-number-prepend-and-the-end-of-alias-method-chain/).
+
+(2) AOP-like behavior using method-aliasing can be seen in the [after\_do](https://github.com/PragTob/after_do) gem
+and in Rail's old `alias_method_chain`. I have authored an extension gem
+called [after\_do-loader](https://github.com/rranelli/after_do-loader) which applies `after` and `before` advices using a
+magic `.yml` file. That was then. Today I highly recommend you to take a
+`Module#prepend` based approach.
