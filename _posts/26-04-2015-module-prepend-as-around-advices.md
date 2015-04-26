@@ -16,20 +16,21 @@ centralizing cross-cutting concerns.
 
 ### Introduction
 
-AOP can be extremely useful for DRY-ing out code of cross-cutting concerns.
-Such concerns are things like logging, authorization, memoization, auditing
-and metric/exception reporting. If you're not familiar with AOP and its
-motivation, [these](http://c2.com/cgi/wiki?AspectOrientedProgramming) [articles](https://msdn.microsoft.com/en-us/library/aa288717%2528v%3Dvs.71%2529.aspx) might be a good start.
+AOP can be extremely useful for DRY-ing cross-cutting concerns from your
+code. Such concerns are things like logging, authorization, memoization,
+auditing and metric/exception reporting. If you're not familiar with AOP and
+its motivation, [these](http://c2.com/cgi/wiki?AspectOrientedProgramming) [articles](https://msdn.microsoft.com/en-us/library/aa288717%2528v%3Dvs.71%2529.aspx) might be a good start.
 
 Frameworks like Spring and AspectJ in Java-land made AOP somewhat popular.
 Much of the criticism to AOP is directed towards the seemingly magic ways
 that code gets injected or substituted at runtime. It is quite difficult to
-trace a method call when aspects are involved without the help of heavy
-weight tools like Eclipse or IntellijIDEA.
+trace a method call when aspects are involved by just looking at the code.
+Heavyweight tools like Eclipse or IntellijIDEA provide facilities for
+dealing with that.
 
 An `Aspect` is the composition of a `join-point` and an `advice`. The
-`join-point` is a definition of *when* some `advice` can be applied. The
-most obvious example of a `join-point` is a simple method call. The `advice`
+`join-point` is a definition of *when* some `advice` <span class="underline">can</span> be applied. The
+most obvious example of a `join-point` is a simple method call. An `advice`
 is the definition of *what code* will be executed when the `advice` is
 applied. An `Aspect` is therefore the application of `advices` over
 `join-points`.
@@ -58,17 +59,18 @@ class Cheap < Expensive
 end
 ```
 
-That solves the problem. But this problems does not occur in a single class.
-Your application could have a ton of those expensive methods and you don't
-want to keep repeating the same memoization logic over and over again.
+That solves the problem. But these problems does not occur in a single
+class. Your application could have a ton of those expensive methods and you
+don't want to keep repeating the same memoization logic over and over again.
 
 It's a long time since I first heard of Ruby's [Module#prepend](http://ruby-doc.org/core-2.0.0/Module.html#method-i-prepend). At that time,
 the feature seemed weird and quite useless to me. Recently I've come across
 a great usage of `Module#prepend` for emulating [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming)-ish behavior without
-resorting to method renaming/aliasing. ^2
+resorting to method [renaming/aliasing](http://www.justinweiss.com/blog/2014/09/08/rails-5-module-number-prepend-and-the-end-of-alias-method-chain/). ^2
 
-With `Module#prepend`, you could "invert" the inheritance and solve the
-problem like this:
+With `Module#prepend`, you could “invert” the inheritance (see the
+`class.ancestors` discussion below to understand what I mean by that) and
+solve the problem like this:
 
 ```ruby
 module Memoize
@@ -88,10 +90,10 @@ class Expensive
 end
 ```
 
-The `Memoize` module could be prepended in a arbitrary number of classes and
-avoid the repetition of memoization logic all over the application.
+The `Memoize` module could be prepended in an arbitrary number of classes
+and avoid the repetition of memoization logic all over the application.
 
-### Understanding Module#prepend
+### Understanding `Module#prepend`
 
 `Module#prepend` allows you to put the module's methods in a higher priority
 than the methods defined in the class itself. Consider the following
@@ -140,15 +142,15 @@ B.new.foo # => "foo and also bar"
 ```
 
 That happens because `Module#prepend` will add the prepended module *before*
-the class itself in it's ancestor chain (it will *prepend* into the ancestor
-list, hence the name):
+the class itself itsin its ancestor chain (it will *prepend* into the
+ancestor list, hence the name):
 
 ```ruby
 B.ancestors # => [A, B, Object, Kernel, BasicObject]
 ```
 
 With the previous explanation in mind, it would take you no time to figure
-out how to implement an `around-advice` using `Module#prepend`:
+out how to implement an [around-advice](http://www.compiletimeerror.com/2013/05/spring-aop-around-advice-example.html#.VT0-9stAyCg) using `Module#prepend`:
 
 ```ruby
 module A
@@ -160,18 +162,24 @@ module A
     puts 'Hence: "Around" advice'
   end
 end
+
+B.new.foo
+# => "stuff can be executed before original implementation"
+# => "foo and also bar"
+# => "and also after"
 ```
 
-### On the road to metaprogramming
+### On the road to meta-programming
 
 The astute reader surely have noticed one short-coming in our prepended
 modules: When you invoke `super`, you call the next method with *same name*
 found in the ancestor chain. That is, we have the concepts of `advice` and
-`join-point` coupled in the same place.
+`join-point` coupled, which definitely hinders the composability of advices.
 
-In order to achieve the same functionality provided by AOP, we need to
-separate our implementations `join-point` and the `advice`. In order to do
-that, we will need to generate the module to be prepended on the fly.
+In order to achieve the same functionality provided by mature AOP
+frameworks, we need to separate our implementations `join-point` and the
+`advice`. To do that, we will need to generate the prepended module (`A` in
+our previous example) on the fly.
 
 In the next post of this series I will show how to achieve this level of
 dynamism and write completely non-intrusive (yet discoverable) advices for
