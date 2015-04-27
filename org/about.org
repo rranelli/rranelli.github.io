@@ -20,10 +20,10 @@ industrial engineering projects (which I had the {dis,}pleasure of working for
 two and a half years after graduating). I also talk about the stuff I'm
 studying, the stuff I code in Emacs and other brain dumps.
 
-I'm currently working at [[http://www.locaweb.com.br][Locaweb]] as a software engineer. I work full-time with
-Ruby. I also know Java, Lisp (Clojure and Scheme), Javascript, a little bit of
-Scala, F#, Haskell and a bunch of C#. I Never touched PHP, did almost no
-front-end workand. Probably the next thing for is learning Rust or Elixir.
+I'm currently working full-time with Ruby at [[http://www.locaweb.com.br][Locaweb]] as a software engineer. I
+also know Java, Lisp (Clojure and Emacs lisp), Javascript, a little of Scala,
+F#, Haskell and a bunch of C#. I Never touched PHP, and did almost no front-end
+work. I'm currently learning [[http://elixir-lang.org/][Elixir]] and I'm loving it!
 
 During college I worked with /advanced process control/ in a research group.
 There I had the opportunity to program in widely different environments, from
@@ -32,8 +32,8 @@ optimization problems with non-trivial mathematical methods in {Mat,Sci}lab and
 Octave. I even had to code some of my code in Fortran for raw speed on
 number-crunching.
 
-I'm an voracious reader. I keep up with my reading using [[http://goodreads.com][goodreads]]. Here is my
-[[https://www.goodreads.com/user/show/19870807-renan-ranelli][profile]] there.
+I'm a voracious reader. I keep up with my reading using [[http://goodreads.com][goodreads]]. Here is my
+[[https://www.goodreads.com/user/show/19870807-renan-ranelli][profile]] there. My goal this year is to read 16 technical books.
 
-If you're interested can get my CV [[cv/cv.pdf][here]] (still in Portuguese only, probably
-gonna translate it in the nar future).
+If you're interested can get my CV [[cv/en.pdf][here]]. (a version in [[cv/pt.pdf][portuguese]] is also
+available)
