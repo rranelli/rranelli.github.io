@@ -2,7 +2,7 @@
 language: english
 layout: post
 comments: true
-title: 'Fundamental Principles of OOP'
+title: 'A reflection over the fundamental principles of OOP'
 ---
 
 # <p hidden>fundamental-principles-of-oop<p hidden>
