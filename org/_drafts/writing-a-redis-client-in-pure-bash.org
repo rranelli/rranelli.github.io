@@ -14,11 +14,11 @@ title: 'Writing a Redis client in pure bash'
 
 * <p hidden>Writing a Redis client in pure bash<p hidden>
 
-  *TL;DR*: After 180 hours of Witcher 3, it's time to get back to reality. In
-  this post I will walk through the implementation of a simple =cli= for Redis
-  using nothing but pure Bash script. This post has absolutely no practical
-  implications other than providing an example to explain some of Bash's nice
-  features.
+  *TL;DR*: After 180 hours of Witcher 3 gameplay, it's time to get back to
+  reality. In this post I will walk through the implementation of a simple =cli=
+  for Redis using nothing but pure Bash script. This post has absolutely no
+  practical implications other than providing an example to explain some of
+  Bash's nice features.
 
   _<p hidden>excerpt-separator<p hidden>_
 
@@ -27,16 +27,15 @@ title: 'Writing a Redis client in pure bash'
    I can skip this session if you're not interested in where the hell did I get
    the idea for this post.
 
-   Although I work with Ruby, it's sometimes inevitable to feel the need to
-   write bash scripts. Ruby is a much more capable and general (and modern)
-   programming language but cannot beat the extreme availability of Bash.
+   Although I work with Ruby, sometimes inevitable to write bash scripts. Ruby
+   is a much more capable and general (and modern) programming language but
+   cannot beat the extreme availability of Bash.
 
-   Recently I was refactoring the scripts we run at
-   [[https://jenkins-ci.org/][Jenkins]]. I started rewriting those scripts in
-   Ruby but came to an obvious limitation: One of those scripts configured the
-   ruby version to use in the project. Well, setting up the ruby version to be
-   used from *inside* of a ruby script is cumbersome at best. That was when I
-   decided to use raw bash for the scripts.
+   Recently I was refactoring the scripts we run at [[https://jenkins-ci.org/][Jenkins]]. I started rewriting
+   those scripts in Ruby but came to an obvious limitation: One of those scripts
+   configured the ruby version to use in the project. Well, setting up the ruby
+   version to be used from *inside* of a ruby script is cumbersome at best. That
+   was when I decided to use raw bash for the scripts.
 
    Since I have this problem that I can't work with something I don't
    understand, I started looking for materials to learn/understand the workings
