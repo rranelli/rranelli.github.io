@@ -8,7 +8,7 @@
 language: english
 layout: post
 comments: true
-title: 'Writing a Redis client in pure bash'
+title: 'Writing a Redis client in pure bash, part 1'
 ---
 #+END_HTML
 
@@ -24,8 +24,8 @@ title: 'Writing a Redis client in pure bash'
 
 ** The motivation for Bash
 
-   I can skip this session if you're not interested in where the hell did I get
-   the idea for this post.
+   You can skip this session if you're not interested in where the hell did I
+   get the idea for this post.
 
    Although I work with Ruby, sometimes inevitable to write bash scripts. Ruby
    is a much more capable and general (and modern) programming language but
@@ -93,14 +93,33 @@ title: 'Writing a Redis client in pure bash'
 
 ** Talking to Redis
 
-   In order to talk to Redis we need to set up a tcp socket (FIXME: is the thing
-   I'm opening here really a tcp socket ? #idontknowwhatimdoing). Luckily Bash
+   In order to talk to Redis we need to set up a tcp socket. Luckily Bash
    provides us a surprisingly easy way to do so using built-in redirection:
 
 #+INCLUDE: ../../_code/writting-a-redis-client-in-pure-bash/01_mimiredis.sh src sh
 
-   There are examples of using =<>= (FIXME: what is the name of this thing??) to
-   [[http://www.linuxjournal.com/content/more-using-bashs-built-devtcp-file-tcpip][fetch web pages]]. Possibilities are endless. ^1
+   There are examples of using =<>= to [[http://www.linuxjournal.com/content/more-using-bashs-built-devtcp-file-tcpip][fetch web pages]]. From the bash manual:
+
+#+begin_quote
+
+Opening File Descriptors for Reading and Writing
+       The redirection operator
+
+              [n]<>word
+
+       causes the file whose name is the expansion of _word_ to be opened for both
+       reading and writing on file descriptor _n_, or on file descriptor _0_ if _n_ is
+       not specified. If the file does not exist, it is created.
+
+@@html:<div align="right"><i>@@
+
+bash man pages
+
+@@html:</i></div>@@
+#+end_quote
+
+
+   Possibilities are endless. ^1
 
    If you run the script, you'll see the following output:
 
@@ -172,8 +191,8 @@ $ bash redis-cli.sh
 
    Every reply from Redis has as it's first character denoting some a sort of
    "type" for the subsequent data, according to the [[http://www.redis.io/topics/protocol][protocol specification]]. For
-   example, =+= means a regular string will follow, =-= means an error will
-   follow, and so on.
+   example, =+= means a regular string will follow and =-= means an error will
+   follow.
 
    So, we better handle the reply codes in order to show the user of our =REPL=
    what is happening. We can do this with a [[http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html][switch-case]] over the first character
@@ -207,9 +226,9 @@ $ bash redis-cli.sh
 
    The next obvious step now is extract a =function= that will send commands to
    Redis, process Redis' reply and return the value to the caller. With this, we
-   are able to distribute our logic as a library (We actually won't distribute,
-   since [[https://github.com/caquino/redis-bash][there's already a full implementation of what we're doing out there]],
-   but exercise stills the same)
+   are able to distribute our logic as a library (We won't actually distribute
+   this, since [[https://github.com/caquino/redis-bash][there's already a full implementation of what we're doing out
+   there]], but exercise is fun nonetheless)
 
    In a next post, I will walk trough the steps needed to extract what we wrote
    so far into a self contained function. (This will mostly consist of removing

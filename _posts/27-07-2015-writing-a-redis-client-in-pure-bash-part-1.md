@@ -2,7 +2,7 @@
 language: english
 layout: post
 comments: true
-title: 'Writing a Redis client in pure bash'
+title: 'Writing a Redis client in pure bash, part 1'
 ---
 
 # <p hidden>Writing a Redis client in pure bash<p hidden>
@@ -17,8 +17,8 @@ Bash's nice features.
 
 ## The motivation for Bash
 
-I can skip this session if you're not interested in where the hell did I get
-the idea for this post.
+You can skip this session if you're not interested in where the hell did I
+get the idea for this post.
 
 Although I work with Ruby, sometimes inevitable to write bash scripts. Ruby
 is a much more capable and general (and modern) programming language but
@@ -86,8 +86,7 @@ extremely concise and lossy description of the options:
 
 ## Talking to Redis
 
-In order to talk to Redis we need to set up a tcp socket (FIXME: is the thing
-I'm opening here really a tcp socket ? #idontknowwhatimdoing). Luckily Bash
+In order to talk to Redis we need to set up a tcp socket. Luckily Bash
 provides us a surprisingly easy way to do so using built-in redirection:
 
 ```sh
@@ -104,8 +103,26 @@ echo 'set somekey 33' >&${redis_socket} # this writes to the filedescriptor $red
 cat <&${redis_socket}
 ```
 
-There are examples of using `<>` (FIXME: what is the name of this thing??) to
-[fetch web pages](http://www.linuxjournal.com/content/more-using-bashs-built-devtcp-file-tcpip). Possibilities are endless. ^1
+There are examples of using `<>` to [fetch web pages](http://www.linuxjournal.com/content/more-using-bashs-built-devtcp-file-tcpip). From the bash manual:
+
+>
+>
+> Opening File Descriptors for Reading and Writing
+>        The redirection operator
+>
+> [n]<>word
+>
+> causes the file whose name is the expansion of <span class="underline">word</span> to be opened for both
+> reading and writing on file descriptor <span class="underline">n</span>, or on file descriptor <span class="underline">0</span> if <span class="underline">n</span> is
+> not specified. If the file does not exist, it is created.
+>
+> <div align="right"><i>
+>
+> bash man pages
+>
+> </i></div>
+
+Possibilities are endless. ^1
 
 If you run the script, you'll see the following output:
 
@@ -213,8 +230,8 @@ call). That is absolutely not true. We have to fix this.
 
 Every reply from Redis has as it's first character denoting some a sort of
 "type" for the subsequent data, according to the [protocol specification](http://www.redis.io/topics/protocol). For
-example, `+` means a regular string will follow, `-` means an error will
-follow, and so on.
+example, `+` means a regular string will follow and `-` means an error will
+follow.
 
 So, we better handle the reply codes in order to show the user of our `REPL`
 what is happening. We can do this with a [switch-case](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html) over the first character
@@ -314,9 +331,9 @@ seems to be way too long already.
 
 The next obvious step now is extract a `function` that will send commands to
 Redis, process Redis' reply and return the value to the caller. With this, we
-are able to distribute our logic as a library (We actually won't distribute,
-since [there's already a full implementation of what we're doing out there](https://github.com/caquino/redis-bash),
-but exercise stills the same)
+are able to distribute our logic as a library (We won't actually distribute
+this, since [there's already a full implementation of what we're doing out
+there](https://github.com/caquino/redis-bash), but exercise is fun nonetheless)
 
 In a next post, I will walk trough the steps needed to extract what we wrote
 so far into a self contained function. (This will mostly consist of removing
