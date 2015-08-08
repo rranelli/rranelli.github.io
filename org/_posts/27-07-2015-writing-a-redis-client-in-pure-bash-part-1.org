@@ -204,6 +204,9 @@ $ bash redis-cli.sh
    just reading the code. Check Redis' [[http://www.redis.io/topics/protocol][protocol specification]] to understand more
    of it's design rationale.
 
+   One important thing to notice is the special handling of the "exit" and the
+   empty command (when the user input consist only of space/blank characters)
+
    Running a complete example now:
 
    #+begin_src bash
@@ -215,7 +218,9 @@ $ bash redis-cli.sh
 > mimi-redis> get somekey
 > 88 # yeah!
 > mimi-redis> sbrebols
-> [ERROR] ERR unknown command 'sbrebols'
+> (error) ERR unknown command 'sbrebols'
+> mimi-redis>
+> mimi-redis>
 > mimi-redis>
    #+end_src
 

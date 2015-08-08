@@ -256,7 +256,7 @@ read_reply() {
     case $replycode in
         -) # Error
             read -u $redis_socket reply
-            reply="\e[0;31m[ERROR] $reply\e[0m" # the crazy text here means: "paint it red"
+            reply="\e[0;31m(error) $reply\e[0m" # the crazy text here means: "paint it red"
             ;;
         +) # Regular String, response value follows on the same line
             read -u $redis_socket reply
@@ -266,13 +266,20 @@ read_reply() {
             reply="(integer) $reply"
             ;;
         \$) # Bulk string. Size follows on the same line. Next line contains `size` characters.
-            read -u $redis_socket size # reads the size... we actually ignore it
-            read -u $redis_socket reply
-            reply="$reply"
+            read -u $redis_socket size # reads the size
+            size=${size:0:${#size}-1} # eliminates last \r character. Needed for arithmetic comparison
+
+            if [ $size -ge 0 ]; then
+                # Only read the next line if the "size" is not "-1", which means "missing" value
+                read -u $redis_socket reply
+            else
+                reply="(nil)"
+            fi
+
             ;;
         \*) # Array. Size follows on the same line. There will be `size` more replies following
             read -u $redis_socket size
-            size=${size:0:${#size}-1} # eliminates last \r character. Need for arithmetic comparison
+            size=${size:0:${#size}-1} # eliminates last \r character. Needed for arithmetic comparison
 
             reply=""
             for (( i=0; i < $size; i++ )); do # Bash has c-style for loops!
@@ -292,22 +299,24 @@ while :
 do
     read -ep "mimi-redis> " command
 
-    if [ "$command" = "exit" ]; then
-        break;
-    else
-        echo $command >&${redis_socket}
-    fi
+    if [ "$command" == "exit" ]; then break; fi;
+    if [ -z "$command"  ]; then continue; fi;
+
+    echo $command >&${redis_socket}
 
     read_reply
 done
+echo "Bye bye!"
 
-echo "Byebye!"
 exec {redis_socket}>&- # closes the =redis_socket= file descriptor
 ```
 
 I won't walk through every modification because I think you can get it by
 just reading the code. Check Redis' [protocol specification](http://www.redis.io/topics/protocol) to understand more
 of it's design rationale.
+
+One important thing to notice is the special handling of the "exit" and the
+empty command (when the user input consist only of space/blank characters)
 
 Running a complete example now:
 
@@ -320,7 +329,9 @@ $ bash redis-cli.sh
 > mimi-redis> get somekey
 > 88 # yeah!
 > mimi-redis> sbrebols
-> [ERROR] ERR unknown command 'sbrebols'
+> (error) ERR unknown command 'sbrebols'
+> mimi-redis>
+> mimi-redis>
 > mimi-redis>
 ```
 

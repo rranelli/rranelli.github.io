@@ -1,0 +1,32 @@
+DEL x
+GET x
+SET x 10
+GET x
+DEL x
+
+sbrebols
+set u
+
+DEL name
+GET name
+SET name milhouseonsoftware
+GET name
+DEL name
+
+DEL inoexist
+LRANGE inoexist 0 -1
+LPUSH inoexist "lol"
+DEL inoexist
+
+DEL listz
+GET listz
+LPUSH listz 3 4 5 2 1 3 4 5 6 7 8
+LLEN listz
+LPUSH listz 3 4 5
+LRANGE listz 0 -1
+LLEN listz
+RPUSH listz "powerranger"
+LRANGE listz 0 -1
+DEL listz
+
+exit

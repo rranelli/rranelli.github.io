@@ -9,14 +9,13 @@ exec {redis_socket}<>/dev/tcp/$redis_host/$redis_port
 read_reply() {
     local reply
     local size
-    local part
-
-    read -n 1 -u $redis_socket replycode # the first character describes what comes next
+    local redis_socket=$1
+    read -n 1 -u $redis_socket replycode
 
     case $replycode in
         -) # Error
             read -u $redis_socket reply
-            reply="\e[0;31m(error) $reply\e[0m" # the crazy text here means: "paint it red"
+            reply="\e[0;31m(error) $reply\e[0m"
             ;;
         +) # Regular String, response value follows on the same line
             read -u $redis_socket reply
@@ -25,33 +24,51 @@ read_reply() {
             read -u $redis_socket reply
             reply="(integer) $reply"
             ;;
-        \$) # Bulk string. Size follows on the same line. Next line contains `size` characters.
-            read -u $redis_socket size # reads the size
-            size=${size:0:${#size}-1} # eliminates last \r character. Needed for arithmetic comparison
+        \$) # Bulk string. Size follows on the same line.
+            # Next line contains `size` characters.
+            read -u $redis_socket size
+            size=${size:0:${#size}-1}
 
             if [ $size -ge 0 ]; then
-                # Only read the next line if the "size" is not "-1", which means "missing" value
+                # Only read the next line if the "size" is not "-1",
+                # which means "missing" value
                 read -u $redis_socket reply
             else
                 reply="(nil)"
             fi
 
             ;;
-        \*) # Array. Size follows on the same line. There will be `size` more replies following
+        \*) # Array. Size follows on the same line.
+            # There will be `size` more replies following
             read -u $redis_socket size
-            size=${size:0:${#size}-1} # eliminates last \r character. Needed for arithmetic comparison
+            size=${size:0:${#size}-1}
 
             reply=""
-            for (( i=0; i < $size; i++ )); do # Bash has c-style for loops!
-                reply="$reply$i) $(read_reply)\n" # Array replies are recursive.
+            for (( i=1; i < $size; i++ )); do
+                reply="$reply$i) $(read_reply $redis_socket)\n"
             done
+            [ $size -gt 0 ] && reply="$reply$i) $(read_reply $redis_socket)"
             ;;
         *) # Fallback...
             echo 'I DONT KNOW WHAT IM DOING. I DIE NOW'
-            cat <&${redis_socket}
+            exit 1
             ;;
     esac
+
+    reply=$(echo "$reply" | tr -d "\r")
     echo -e $reply
+}
+
+mimiredis() {
+    local redis_socket=$1
+    shift
+    command=$@
+
+    # send the command to redis
+    echo $command >&${redis_socket}
+
+    # reads the reply
+    read_reply $redis_socket
 }
 
 echo 'Welcome to mimi-redis!'
@@ -62,9 +79,7 @@ do
     if [ "$command" == "exit" ]; then break; fi;
     if [ -z "$command"  ]; then continue; fi;
 
-    echo $command >&${redis_socket}
-
-    read_reply
+    mimiredis $redis_socket $command
 done
 echo "Bye bye!"
 
