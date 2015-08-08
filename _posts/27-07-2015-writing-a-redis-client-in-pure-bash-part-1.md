@@ -68,7 +68,7 @@ One of the greatest things I've seen when studying bash is the so-called “[non
 official bash strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)”. By using it I assure you will save yourself a lot
 of debugging time.
 
-```sh
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 ```
@@ -89,7 +89,7 @@ extremely concise and lossy description of the options:
 In order to talk to Redis we need to set up a tcp socket. Luckily Bash
 provides us a surprisingly easy way to do so using built-in redirection:
 
-```sh
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -126,7 +126,7 @@ Possibilities are endless. ^1
 
 If you run the script, you'll see the following output:
 
-```sh
+```bash
 $ bash redis-cli.sh
 > +OK
 >
@@ -146,7 +146,7 @@ A `cli` that asks you to hard-code a command is probably not of use to
 anybody. We will now prompt the user for the command to send Redis. We can do
 this using the fantastic Bash's [read](http://ss64.com/bash/read.html) built-in command:
 
-```sh
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -165,7 +165,7 @@ cat <&${redis_socket}
 
 Running the script again:
 
-```sh
+```bash
 $ bash redis-cli.sh
 > mimi-redis> set somekey 42
 > +OK
@@ -174,7 +174,7 @@ $ bash redis-cli.sh
 The output still hangs. We can run the script again and ask for the result of
 our last operation:
 
-```sh
+```bash
 $ bash redis-cli.sh
 > mimi-redis> get somekey
 > $2 # <<< this means that the size of the next line is “2”
@@ -187,7 +187,7 @@ The user of a `cli` probably wants to send more than one command in a single
 session. We will now change our script to accept commands multiple times. We
 will basically wrap everything in a `while` loop:
 
-```sh
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -212,7 +212,7 @@ exec {redis_socket}>&- # closes the =redis_socket= file descriptor
 
 Running the script again:
 
-```sh
+```bash
 $ bash redis-cli.sh
 > mimi-redis> get somekey
 > $2 # <<< this means that the size of the next line is “2”
@@ -237,7 +237,7 @@ So, we better handle the reply codes in order to show the user of our `REPL`
 what is happening. We can do this with a [switch-case](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html) over the first character
 of the reply.
 
-```sh
+```bash
 #!/usr/bin/env bash
 set -eo pipefail
 
@@ -311,7 +311,7 @@ of it's design rationale.
 
 Running a complete example now:
 
-```sh
+```bash
 $ bash redis-cli.sh
 > mimi-redis> get somekey
 > 44 # alright! No metadata echoed to the screen.
