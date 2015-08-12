@@ -16,7 +16,7 @@ title: 'Writing a Redis client in pure bash, part 2'
 
   *TL;DR*: In a [[http://{{site.url}}/2015/07/27/writing-a-redis-client-in-pure-bash-part-1/][previous post]] we built a Redis REPL from scratch using pure
   bash. In this post we will walk through a refactoring of the original code to
-  turn it into something resembling a library. I wil also show some more bash
+  turn it into something resembling a library. I will also show some more bash
   niceties as we go along.
 
   _<p hidden>excerpt-separator<p hidden>_
@@ -45,17 +45,17 @@ $ echo $?
    but we exited with an exit status different than 0. We also returned a
    welcome message, even though we were not calling the script interactively.
 
-   In the following sessions we will fix this behavior. But first, we need to do
-   it with confidence, so the let's first create some sort of "test suite".
+   In the following sessions we will fix this behaviour. But first, we need to do
+   it with confidence, so let's first create some sort of “test suite”.
 
 ** Refactoring with confidence
 
    Before we start refactoring, we need to find out some way to ensure we did
-   not mess everything up along the way. The simplest form of testing is "black
-   box testing". We pass some input to the program and ensure that the output is
+   not mess everything up along the way. The simplest form of testing is “black
+   box testing”. We pass some input to the program and ensure that the output is
    equal to the expected one.
 
-   We will create this "expected output" like this: (you could of course write
+   We will create this “expected output” like this: (you could of course write
    the test input in a text file, but I won't do it here because I just learned
    about =tee= and =Heredocs=, and I want to play with them.)
 
@@ -100,7 +100,7 @@ TESTINPUT
 
    This crazy =HEREDOC=-ed command creates two files, =test_input.txt= and
    =test_output.txt= using the magical =tee= command. ^1 This input-output pair
-   will be enough for a "black-box" testing approach. The contents of
+   will be enough for a “black-box” testing approach. The contents of
    =test_output.txt= are:
 
 #+results: generate-test-input
@@ -185,7 +185,7 @@ Good Job! You didn\'t mess everything up
 
 #+results:
 
-   If we were to break our program by replacing "integer" by "integur" we would
+   If we were to break our program by replacing “integer” by "integur" we would
    see:
 
 #+name: broken-test-demo
@@ -244,7 +244,7 @@ diff <(cat test_input.txt | ./01_mimiredis_broken.sh) <(cat test_output.txt) \
 YOU FAILED AT LIFE
 #+END_SRC
 
-   Which is probably enough to convince you something is wrong. Now that we have
+   which is probably enough to convince you something is wrong. Now that we have
    built our poor-man's test harness, we can keep on refactoring with
    confidence.
 
@@ -320,11 +320,11 @@ Good Job! You didn\'t mess everything up
 
    We're still on track.
 
-** Are we in a interactive session?
+** Are we in an interactive session?
 
-   Our "eval" code is still too much concerned with presentation of the results
-   to a human. We add "welcome" and "goodbye" messages when starting the
-   process, and we also add color to errors.
+   Our "evil" code is still too much concerned with presentation of the results
+   to a human. We add “welcome” and “goodbye” messages when starting the
+   process, and we also add colour to errors.
 
    We can check if the client output is meant to be consumed by a human being
    using the =-t= unary test operator. From the Bash man page:
@@ -373,7 +373,7 @@ Bash man page
 #+end_src
 
 
-   When running our "testing suite" we now get the following output:
+   When running our “testing suite” we now get the following output:
 
 #+name: mimiredis03-test
 #+begin_src sh :results code :exports both :prologue "cd ../../_code/writing-a-redis-client-in-pure-bash-part-2"
@@ -402,12 +402,12 @@ YOU FAILED AT LIFE
    If you can't read the =diff= output (or if you're too lazy to care), I will
    translate it for you. The =diff= output reads as follows:
 
-   + The file on the right contains an extra "Welcome to mimi-redis!" at line 1;
+   + The file on the right contains an extra “Welcome to mimi-redis!” at line 1;
    + The file on the left lacks [0;31m(error) at the beginning and [0m at
      the end of lines 6-8
-   + The file on the right contains an extra "Bye bye!" at line 53;
+   + The file on the right contains an extra “Bye bye!” at line 53;
 
-   TL;DR: its exactly what we wanted.
+   TL;DR: it is exactly what we wanted.
 
    Re-running our first example:
 
@@ -416,7 +416,7 @@ $ echo GET x | ./03_mimiredis.sh # stdin connected to echo's output.
 > (nil)
 #+end_src
 
-** A little bit debugging
+** A little debugging
 
    We're on track. We have eliminated the spurious welcome message. However, the
    exit status is still wrong.
@@ -548,14 +548,14 @@ YOU FAILED AT LIFE
 
    Nothing changed. We're good. That concludes our refactoring.
 
-   In a future post, I will extend the idea of our "test suite" and apply some
+   In a future post, I will extend the idea of our “test suite” and apply some
    random testing to stress our implementation. See you in the future.
 
    That's it.
 
    ---
 
-   (1) Being a chemical engineer, the name "tee" gives me memories. Those of you
+   (1) Being a chemical engineer, the name “tee” gives me memories. Those of you
    who know nothing about piping might not appreciate the genius behind the
    naming of this command. This is a [[http://img.diytrade.com/smimg/325506/8453841-1167403-0/pipe_fittings_Malleable_iron_Reducing_tee/721e.jpg][tee]]. Also, these are [[https://upload.wikimedia.org/wikipedia/commons/8/89/Metal_tubes_stored_in_a_yard.jpg][pipes]]. Naming things
    is pretty hard since we work solely with abstract entities, and it's much
