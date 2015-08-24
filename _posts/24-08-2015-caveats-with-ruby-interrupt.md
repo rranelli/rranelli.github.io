@@ -26,11 +26,11 @@ rescue SignalException => e
   puts "received Exception #{e}"
   puts <<EOF
 
-Doing some hypothetical cleanup work to terminate things gracefully,
+Doing some hypothetical clean-up work to terminate things gracefully,
 like freeing resources, closing files, checking out database connections,
 that sort of thing ...
 
-done!
+Done!
 EOF
 end
 ```
@@ -40,7 +40,7 @@ Calling it outputs:
     I'm about to be terminated...
     received Exception SIGTERM
 
-    Doing some cleanup work to terminate things gracefully,
+    Doing some clean up work to terminate things gracefully,
     like freeing resources, closing files, checking out database connections,
     that sort of thing ...
 
@@ -53,15 +53,15 @@ I'm serious. ^1
 
 ### A word of caution
 
-If you're running multi-threaded code, you need to be a little bit more
+If you're running multi-threaded code, you need to be a little more
 careful dealing with interrupts. Recently I've been having issues with
-"zombie" database transactions (advice for the wise: Ruby, Linux and MSSQL
+“zombie” database transactions (advice for the wise: Ruby, Linux and MSSQL
 Server don't mix well). The open transactions locked some records in table
-`X`, and when something like "Select count(\*) from X", that operation would
+`X`, and when something like “Select count(\*) from X”, that operation would
 hang forever. (5 minutes actually, which is the same)
 
-Those "zombie" transactions seemed to appear around
-  the time we made a deploy. The reason for the issue turned out to be due to
+Those “zombie” transactions seemed to appear around
+  the time we made a deployment. The reason for the issue turned out to be due to
   the fact that we were not *shutting down* our thread pools properly when
   restarting the application.
 
@@ -108,7 +108,7 @@ begin
   tp = ThreadPool.new(10)
   80.times do |n|
     tp.post do
-      # pretend now that we are aquiring a super
+      # pretend now that we are acquiring a super
       # important resource, like a database transaction
       sleep 3
       puts "finishing job number #{n}"
@@ -187,7 +187,7 @@ Running our example again, we get the following output:
 
 That's great. We were able to finish our important job and terminate the
 process gracefully. Also, as you can see in our example we actually posted 80
-jobs in the thread pool, but they where not executed. That means our
+jobs in the thread pool, but they were not executed. That means our
 `ThreadPool#shutdown` implementation kinda works. Yay!
 
 That's it.
@@ -241,7 +241,7 @@ Results in:
 
 We can see that Ruby was courteous enough to evaluate the `ensure` clauses
 in our threads before exiting, although the work itself was not finished.
-(which we know because we saw no "finishing job number X" in the output)
+(which we know because we saw no “finishing job number X” in the output)
 
 I **think** that if you have nested `ensure` clauses, all of them will be
 executed, but I did not test it. Yep, I'm pretty lazy.
