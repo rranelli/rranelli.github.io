@@ -2,7 +2,7 @@
 language: english
 layout: post
 comments: true
-title: 'Caveats interrupting Ruby code'
+title: 'Caveats for interrupting Ruby code'
 ---
 
 # <p hidden>caveats-with-ruby-interrupt<p hidden>
