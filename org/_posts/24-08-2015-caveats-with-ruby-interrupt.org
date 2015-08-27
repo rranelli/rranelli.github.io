@@ -8,7 +8,7 @@
 language: english
 layout: post
 comments: true
-title: 'Caveats interrupting Ruby code'
+title: 'Caveats for interrupting Ruby code'
 ---
 #+END_HTML
 
