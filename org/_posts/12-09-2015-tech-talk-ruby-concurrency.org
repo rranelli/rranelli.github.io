@@ -1,0 +1,31 @@
+#+OPTIONS: -*- eval: (org-jekyll-mode); eval: (writegood-mode) -*-
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: english
+layout: post
+comments: true
+title: 'tech talk ruby concurrency'
+---
+#+END_HTML
+
+* <p hidden>tech-talk-ruby-concurrency<p hidden>
+
+  *TL;DR*: I've given a talk recently (in pt-br) about the principles of Ruby
+  Concurrency. The video is shown bellow.
+
+  _<p hidden>excerpt-separator<p hidden>_
+
+  In this video I talk about what Ruby has in the box for concurrent programming,
+  and share some of my +pain+ experience in the subject. Enjoy my awkwardness:
+
+  @@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/jd1FpNSwV6c" frameborder="0" allowfullscreen></iframe>@@
+
+  That's it.
+
+  ---
+
+  /footnotes come here/ (1)
