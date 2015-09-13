@@ -2,7 +2,7 @@
 language: english
 layout: post
 comments: true
-title: 'tech talk ruby concurrency'
+title: 'Tech talk ruby concurrency'
 ---
 
 # <p hidden>tech-talk-ruby-concurrency<p hidden>
