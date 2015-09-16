@@ -8,7 +8,7 @@
 language: english
 layout: post
 comments: true
-title: 'Tech talk ruby concurrency'
+title: 'Tech talk about concurrency in Ruby'
 ---
 #+END_HTML
 
