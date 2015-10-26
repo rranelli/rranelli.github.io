@@ -2,43 +2,43 @@
 language: english
 layout: post
 comments: true
-title: 'Writing your own password manager with `gnupg` and BASH'
+title: 'Writing your own password manager with gnupg and shell'
 ---
 
-# <p hidden>Writing your own password manager with \`gnupg\` and BASH<p hidden>
+# <p hidden>Writing your own password manager with gnupg and BASH<p hidden>
 
 **TL;DR**: In this post I will walk through the implementation of a simple, yet
 complete password manager in pure shell script. This may seem a daunting task,
-but as you will see, the important bit is already solved by `gnupg`, and all
-we need to do is to write some "clue" scripts.
+but as you will see, the important bits are already solved by `gnupg`, and all
+we need to do is to write some “glue” code.
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 ### Password managers
 
-Passwords are important. I think I don't need to convince you about that.
-Chances are that you never really though much about your password's safety.
-If you never did so, I recommend you to read [this great post](http://blog.codinghorror.com/your-password-is-too-damn-short/) by Jeff Atwood
-(of coding horror) to understand why you should care.
+Passwords are important. I think I don't need to convince you of that.
+Chances are that you never really though much about your password's safety,
+and if you never did so, I recommend you to read [this great post](http://blog.codinghorror.com/your-password-is-too-damn-short/) by Jeff
+Atwood (of coding horror) to understand why you should care.
 
-There are many services that provide you "password management in the cloud",
+There are many services that provide you “password management in the cloud”,
 like [Zoho's Vault](https://www.zoho.com/vault/?gclid%3DCKSskp2Ly8gCFQ8GkQod4WAGMw), [Lastpass](https://lastpass.com/), [Onepassword](https://agilebits.com/onepassword). I never really used any of these,
 and the very idea of storing my passwords in the cloud makes me cringe. (for
 no good reason actually. I'm not a security person). Also, none of these
-services are free (as in beer and as in speech), and they are too much
-expensive for my taste.
+services are free (as in beer and as in speech), and they are too expensive
+for my taste.
 
 As Jeff Atwood explains, your password should be long and random in order to
 give a bad time for anyone trying to crack it. We will be able to generate,
 store and remember passwords with, say, 64 random characters with the simple
 script we are going to write.
 
-### How do we store the passwords then?
+### What are we going to do then?
 
-Password management should be simple. Each password will live inside a `gpg`
-encrypted file whose name is the name of the password (Oh, RLY?). Being
-plain-text files, these files can be moved from computer to computer without
-any hassle. I do keep mines on Copy (FIXME: link).
+Password management should be simple. In our solution, each password will
+live inside a `gpg` encrypted file whose name is the name of the password
+(Oh, RLY?). Being plain-text files, these files can be moved from computer
+to computer without any hassle. I do keep mine on [Copy](https://copy.com?r%3DmvbJow).
 
 The minimum set of features we expect from our password manager are:
 
@@ -48,13 +48,37 @@ The minimum set of features we expect from our password manager are:
 -   List existing passwords.
 
 In order to secure the storage of our passwords, we are going to use `gnupg`
-and `gpg-agent` which are part of the GNU project (FIXME: links) and are
-Free (as in beer and as in speech).
+and `gpg-agent` which are part of the GNU project and are Free (as in beer
+and as in speech).
 
 ### First of all, what is this GPG thing?
 
-(FIXME: talk about gpg, what is gpg and things like that.) (FIXME: add a
-link to the great introduction we found!)
+If you're not familiar with what `PGP` and `GnuPG` are, check the [source of
+all knowledge](https://en.wikipedia.org/wiki/Pretty_Good_Privacy).
+
+> Pretty Good Privacy (PGP) is a data encryption and decryption computer program
+> that provides cryptographic privacy and authentication for data communication.
+> PGP is often used for signing, encrypting, and decrypting texts, e-mails, files,
+> directories, and whole disk partitions and to increase the security of e-mail
+> communications. It was created by Phil Zimmermann in 1991.
+>
+> PGP and similar software follow the OpenPGP standard (RFC 4880) for encrypting
+> and decrypting data.
+>
+> &#x2026;
+>
+> The Free Software Foundation has developed its own OpenPGP-compliant program
+> called GNU Privacy Guard (abbreviated GnuPG or GPG). GnuPG is freely available
+> together with all source code under the GNU General Public License (GPL) &#x2026;
+>
+> <div align="right"><i>
+>
+> Wikipedia wizards
+>
+> </i></div>
+
+There is also [this great introduction](http://www.ianatkinson.net/computing/gnupg.htm) on how to use `gnupg` to encrypt your
+important stuff.
 
 ### Encrypting a password (password-set)
 
@@ -63,7 +87,7 @@ the passphrase for the recipient's (which is yourself) key is cached, your
 private and public keys are trusted and are in the `gpg-agent`'s keyring.
 
 First, we need to define where the passwords are going to be stored and who
-is the "recipient" of the `gpg` encrypted text. We will store this
+is the “recipient” of the `gpg` encrypted text. We will store this
 information in environment variables:
 
 ```sh
@@ -74,7 +98,7 @@ export MIMIPASSS_RECIPIENT=renanranelli@gmail.com
 The options needed to encrypt some text with `gpg` are:
 
 ```sh
-gpg --recipient $RECIPIENT --armor --ooutput $OUTPUTFILE --encrypt $INTPUTFILE
+gpg --recipient $RECIPIENT --armor --output $OUTFILE --encrypt $INFILE
 ```
 
 The `--armor` when given will generate the encrypted file only with
@@ -90,8 +114,9 @@ mimipass-set() {
 }
 ```
 
-Here our `INTPUTFILE` is a named pipe generated by the `<(...)` bash syntax,
-which allow you to treat an arbitrary command output as it were a file.
+Here our `INTPUTFILE` is a named pipe generated by the `<(...)` bash syntax
+(this thing is called [process substitution](http://tldp.org/LDP/abs/html/process-sub.html)), which allow you to treat an
+arbitrary command output as a regular file (a named pipe actually).
 
 ```sh
 $ mimipass-set test       # ops. We forgot to set it. let's do it now
@@ -131,7 +156,7 @@ gpg --quiet --no-tty --use-agent --recipient $RECIPIENT --decrypt $FILE
 ```
 
 The names of the parameters are quite descriptive so I won't comment
-anything about then. Again, the only thing we need to provide is the name of
+anything about them. Again, the only thing we need to provide is the name of
 the password we want to recover:
 
 ```sh
@@ -148,14 +173,14 @@ mimipass-get() {
 
 Now, in order to recover our test password:
 
-```language
+```
 $ mimipass-get test
 # => 1234
 ```
 
-Easy peezy right? But having to select & coy the password from the terminal
+Easy peezy right? But having to select & copy the password from the terminal
 is quite tedious. We can send the password directly to the clipboard using
-`xclip` (FIXME: link)
+[xclip](http://linux.die.net/man/1/xclip)
 
 ```sh
 mimipass-copy() {
@@ -166,19 +191,20 @@ mimipass-copy() {
 
 And calling it:
 
-```language
+```
 $ mimipass-copy test
 # => Password for $1 sent to the clipboard.
 ```
 
-You're now have your password in your <kbd>C-v</kbd>.
+You're now have your password in your `C-v` (or `C-y` if you use the best
+text editor :troll:).
 
 After creating a bunch of passwords, we need to check out which passwords we
 have in store. Let's write now the password listing feature.
 
 ### Listing existing passwords
 
-This one is easy, and we only need shell globbing:
+This one is easy, and we only need [shell globbing](http://www.tldp.org/LDP/abs/html/globbingref.html):
 
 ```sh
 mimipass-list() {
@@ -203,8 +229,9 @@ Awesome. Let's move on to the last feature: generating a new password.
 
 ### Generating a random password
 
-There are many available solutions to generating random passwords. (FIXME:
-more options). I am going to use `openssl` to generate the random password.
+There are many available solutions to generating random passwords. I'm no
+expert, so I won't talk about them. I am going to use `openssl` to generate
+the random password.
 
 You can generate a random string of 128 printable characters with `openssl`
 using the following command:
@@ -250,7 +277,7 @@ $ mimipass get test2      # it works!
 # => OVv5FQi5maQlgrAfJtn8E+rldsGNgfazrbF/HLX4WvskwHpmm8wiPuxIRq96Edy+
 ```
 
-And that's it. We have covered all of the features we listed in less than 40
+And that's it. We have covered all the features we listed in less than 40
 lines of shell script. We were able to do this because `gpg-agent` did all
 the heavy lifting for us.
 
