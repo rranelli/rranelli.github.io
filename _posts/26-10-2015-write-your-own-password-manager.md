@@ -21,12 +21,14 @@ Chances are that you never really though much about your password's safety,
 and if you never did so, I recommend you to read [this great post](http://blog.codinghorror.com/your-password-is-too-damn-short/) by Jeff
 Atwood (of coding horror) to understand why you should care.
 
-There are many services that provide you “password management in the cloud”,
-like [Zoho's Vault](https://www.zoho.com/vault/?gclid%3DCKSskp2Ly8gCFQ8GkQod4WAGMw), [Lastpass](https://lastpass.com/), [Onepassword](https://agilebits.com/onepassword). I never really used any of these,
-and the very idea of storing my passwords in the cloud makes me cringe. (for
-no good reason actually. I'm not a security person). Also, none of these
-services are free (as in beer and as in speech), and they are too expensive
-for my taste.
+There are many services that provide you "password management in <span class="underline">their</span>
+cloud", like [Zoho's Vault](https://www.zoho.com/vault/?gclid%3DCKSskp2Ly8gCFQ8GkQod4WAGMw), [Lastpass](https://lastpass.com/), [1Password](https://agilebits.com/onepassword). (**EDIT**: Actually, 1Password
+does **not** store your passwords as correctly noted by @fnando in the
+comments. Sorry for the bad research :/). I never really used any of these,
+and the very idea of storing my passwords behind a vendor's ~~wall~~ cloud
+[makes me cringe](https://blog.lastpass.com/2015/06/lastpass-security-notice.html/). (for no good reason actually. I'm not a security person).
+Also, none of these services are free (as in beer and as in speech), and
+they are too much expensive for my taste.
 
 As Jeff Atwood explains, your password should be long and random in order to
 give a bad time for anyone trying to crack it. We will be able to generate,
