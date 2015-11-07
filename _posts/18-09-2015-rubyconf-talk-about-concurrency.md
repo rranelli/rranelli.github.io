@@ -15,6 +15,8 @@ I survived and people seemed to like it.
 
 Here are the [slides for the talk](https://t.co/erCs8uRPvb).
 
+EDIT: The video has been released [here](https://www.eventials.com/locaweb/nao-tema-o-gil-o-que-ruby-tem-em-sua-caixa-para-programacao-concorrente-com-renan-ranelli/). Too bad you need to login to see it ;/
+
 That's it.
 
 &#x2014;

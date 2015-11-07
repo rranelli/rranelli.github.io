@@ -22,6 +22,8 @@ title: 'My talk @ RubyConf Brazil about concurrency in Ruby'
 
   Here are the [[https://t.co/erCs8uRPvb][slides for the talk]].
 
+  EDIT: The video has been released [[https://www.eventials.com/locaweb/nao-tema-o-gil-o-que-ruby-tem-em-sua-caixa-para-programacao-concorrente-com-renan-ranelli/][here]]. Too bad you need to login to see it ;/
+
   That's it.
 
   ---
