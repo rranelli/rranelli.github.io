@@ -8,17 +8,16 @@ title: 'Writing a process pool in Bash'
 # <p hidden>writing-a-process-pool-in-bash<p hidden>
 
 **TL;DR**: In this post I will show how one can achieve the equivalent of a
-"process pool" to run many processes in parallel in `Bash`. Think of a thread
+“process pool” to run many processes in parallel in `Bash`. Think of a thread
 pool, but for running individual processes. In a next post, I will show we can
-use this "process pool" to build a tool that will help you manage tons of git
+use this “process pool” to build a tool that will help you manage tons of git
 repositories.
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
-`Bash` is awesome, and I love it. If you read this blog you probably know that
-already. In this post we will leverage `Bash`'s job-control capabilities and
-extend it to create a full fledged "process pool". Think of a thread pool, but
-for processes.
+`Bash` is awesome, and I love it. In this post we will leverage `Bash`'s
+job-control capabilities and extend it to create a full fledged “process
+pool”. Think of a thread pool, but for processes.
 
 ## What are you even trying to do?
 
@@ -40,7 +39,7 @@ thread pool in `Ruby`. Here I am going to do mostly the same thing but using
 `Bash` instead.
 
 I will call the function that will do all of the heavy lifting `parallel`.
-First, let's write the code needed to read "commands" from stdin (one command
+First, let's write the code needed to read “commands” from `stdin` (one command
 per line), and execute it:
 
 ```sh
@@ -129,7 +128,7 @@ Running the script yields:
 #=> this && echo && echo is completely; echo broken
 ```
 
-Which is definitely not what we want. In order to execute the line as if it
+which is definitely not what we want. In order to execute the line as if it
 were typed in the shell, we need to resort to [eval](http://ss64.com/bash/eval.html):
 
 ```sh
@@ -164,7 +163,7 @@ the messages.
 
 ## Using a limited amount of processes
 
-Finally we get to the "pool" part.
+Finally, we get to the “pool” part.
 
 We need to bound the number of processes we run. If we were to give an input of
 1000 lines to our `parallel` function we would fork 1000 processes right
@@ -173,7 +172,7 @@ away, which does not seem like a good idea right?
 Since we don't have anything similar to a thread-safe queue like `Ruby`'s
 `Queue` class in `Bash`, we will need to write our own solution.
 
-The pseudo-code for this "rate-limited" pool is something like this:
+The pseudo-code for this “rate-limited” pool is something like this:
 
 ```
 while: there are still processes to run
@@ -355,6 +354,6 @@ That's it.
 ls -1 $CODE_DIR | xargs -n1 -I{} git -C $CODE_DIR/{} pull --rebase
 ```
 
-But that would happen in a sequential fashion and would take ages. The
-approach with a "process pool" is better performance-wise. But if you don't
-have that many repositories or don't mind the time, by all means use it.
+But that would happen sequentially and would take ages. The approach with a
+“process pool” is better performance-wise. But if you don't have that many
+repositories or don't mind the time, by all means use it.
