@@ -140,7 +140,7 @@ Here's a graphic representation of this. In the left side you can see what's
 been already inserted in the Bloom Filter, and to the right a query to see if
 the value is present in the filter.
 
-![img](//localhost:4000/public/bloom_filter.png)
+![img](//{{ site.url }}/public/bloom_filter.png)
 
 I've stole this amazing animation of bloom filters [from here](http://www.jasondavies.com/bloomfilter/).
 
