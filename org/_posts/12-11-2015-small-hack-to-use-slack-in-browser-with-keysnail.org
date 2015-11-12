@@ -1,0 +1,54 @@
+#+OPTIONS: -*- eval: (org-jekyll-mode); eval: (writegood-mode) -*-
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: english
+layout: post
+comments: true
+title: 'Small hack to use Slack in Firefox with Keysnail'
+---
+#+END_HTML
+
+* <p hidden>small-hack-to-use-slack-in-browser-with-keysnail<p hidden>
+
+  *TL;DR*: In (*very*) brief post I describe how you can fix the behaviour of
+  your =C-k= binding in [[https://github.com/mooz/keysnail][Keysnail]] when using [[https://slack.com][Slack]] in the browser.
+
+  _<p hidden>excerpt-separator<p hidden>_
+
+  If you use [[https://github.com/mooz/keysnail][Keysnail]] you probably have your =C-k= key bound to
+  =comand.killLine= to emulate Emacs' default behaviour. The problem is that
+  Slack binds =C-k= and =C-t= ^1 to the nice _quick switch bar_ and it gives you
+  no way of changing that.
+
+  In order to make Keysnail's =C-k= work when editing text areas and recover the
+  default behavior of Slack's =C-k=, I was able to hack this small snippet which
+  should be added to your =.keysnail.js= file:
+
+#+begin_src js
+// This fixes the issue where `C-k`
+// does not work with slack out of global mode
+key.setGlobalKey('C-k', function (ev) {
+    content
+        .window
+        .document
+        .getElementById("quick_switcher_btn")
+        .click();
+});
+#+end_src
+
+  This event handler will get the =div= with =id= equal to =quick_switcher_btn=
+  and issue a =click= event to it.
+
+  It's the first time in my life where I was able to use Firefox's developer
+  tools to do something useful.
+
+  That's it.
+
+  ---
+
+  (1) Really?? A default binding to =C-t=? WTF people! Please, think of those
+  who do *not* use OSX for a second...
