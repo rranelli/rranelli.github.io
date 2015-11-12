@@ -41,7 +41,12 @@ key.setGlobalKey('C-k', function (ev) {
 #+end_src
 
   This event handler will get the =div= with =id= equal to =quick_switcher_btn=
-  and issue a =click= event to it.
+  and issue a =click= event to it, which is the exact element you =click= to
+  show the _quick switch bar_:
+
+  [[http://{{ site.url }}/public/slack_quick_switch.png]]
+
+  Ugly, but functional.
 
   It's the first time in my life where I was able to use Firefox's developer
   tools to do something useful.
