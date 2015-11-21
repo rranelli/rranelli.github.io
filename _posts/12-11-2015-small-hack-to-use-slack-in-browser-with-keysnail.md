@@ -7,8 +7,8 @@ title: 'Small hack to use Slack in Firefox with Keysnail'
 
 # <p hidden>small-hack-to-use-slack-in-browser-with-keysnail<p hidden>
 
-**TL;DR**: In (**very**) brief post I describe how you can fix the behaviour of
-your `C-k` binding in [Keysnail](https://github.com/mooz/keysnail) when using [Slack](https://slack.com) in the browser.
+**TL;DR**: In this (**very**) brief post I describe how you can make your `C-k`
+binding in [Keysnail](https://github.com/mooz/keysnail) play nice with [Slack](https://slack.com)'s `C-k`.
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
