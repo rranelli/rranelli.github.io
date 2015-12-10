@@ -12,10 +12,11 @@ industrial engineering projects (which I had the {dis,}pleasure of working for
 two and a half years after graduating). I also talk about the stuff I'm
 studying, the stuff I code in Emacs and other brain dumps.
 
-I'm currently working full-time with Ruby at [Locaweb](http://www.locaweb.com.br) as a software engineer. I
-also know Java, Lisp (Clojure and Emacs lisp), Javascript, a little of Scala,
-F#, Haskell and a bunch of C#. I Never touched PHP, and did almost no front-end
-work. I'm currently learning [Elixir](http://elixir-lang.org/) and I'm loving it!
+I'm currently developing the next generation HR platform with Elixir & Erlang at
+[Xerpa](http://www.xerpa.com.br/), after a long time working with Ruby at [Locaweb](http://www.locaweb.com.br/). I also know Java, Lisp
+(Clojure and Emacs lisp), Javascript, a little of Scala, F#, Haskell and a bunch
+of C#. I Never touched PHP, and did almost no front-end work. I'm currently
+learning [Elixir](http://elixir-lang.org/) and I'm loving it!
 
 During college I worked with *advanced process control* in a research group.
 There I had the opportunity to program in widely different environments, from
