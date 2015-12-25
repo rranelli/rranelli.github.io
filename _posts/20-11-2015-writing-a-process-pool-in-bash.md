@@ -26,9 +26,9 @@ my repositories at Github with a single command. ^1
 
 To do that, we need to:
 
-1.  Query github's api to get the addresses of all your personal repositories
+1.  Query Github's api to get the addresses of all your personal repositories
 2.  Format the commands to clone all of these repositories locally
-3.  Run those commands in parallel, so that it won't take ages.
+3.  Run those commands in parallel, so that the whole process won't take ages
 
 In this post we are going to focus on part 3.
 
@@ -39,8 +39,8 @@ thread pool in `Ruby`. Here I am going to do mostly the same thing but using
 `Bash` instead.
 
 I will call the function that will do all of the heavy lifting `parallel`.
-First, let's write the code needed to read “commands” from `stdin` (one command
-per line), and execute it:
+First, let's write the code needed to read “commands” from `stdin` (one
+command per line), and execute it:
 
 ```sh
 parallel() {
@@ -158,15 +158,15 @@ Running the script yields:
 #=> work!
 ```
 
-It works. Note that running the script multiple times will change the order of
-the messages.
+It works. Note that running the script multiple times will change the order
+of the messages.
 
 ## Using a limited amount of processes
 
 Finally, we get to the “pool” part.
 
-We need to bound the number of processes we run. If we were to give an input of
-1000 lines to our `parallel` function we would fork 1000 processes right
+We need to bound the number of processes we run. If we were to give an input
+of 1000 lines to our `parallel` function we would fork 1000 processes right
 away, which does not seem like a good idea right?
 
 Since we don't have anything similar to a thread-safe queue like `Ruby`'s
