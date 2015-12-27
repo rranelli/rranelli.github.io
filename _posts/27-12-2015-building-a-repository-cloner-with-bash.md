@@ -9,17 +9,23 @@ title: 'Building a repository cloner with Bash'
 
 **TL;DR**: In another entry of the “you shouldn't use `Bash` for that” series we
 will build a script to discover & clone all of your Github repositories. We
-will use the concurrent ~~thread~~ process pool we developed in a [previous post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/)
+will use the concurrent ~~thread~~ process pool we developed in a
+[previous
+post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/)
 
 <span class="underline"><p hidden>excerpt-separator<p hidden></span>
 
 I probably am over-stretching my `Bash` usage in these posts, but writing
 `Bash` is so fun I can't help myself. In this post we will use `Bash` in
-conjunction with the amazing [curl](https://github.com/bagder/curl) and [jq](https://stedolan.github.io/jq/) libraries to explore [Github's api](https://developer.github.com/v3/) and
-automatically discover and clone all of your personal git repositories. No
-more copy-and-paste of `ssh-urls` from Github.
+conjunction with the amazing [curl](https://github.com/bagder/curl) and
+[jq](https://stedolan.github.io/jq/) libraries to explore
+[Github's api](https://developer.github.com/v3/) and automatically discover
+and clone all of your personal git repositories. No more copy-and-paste of
+`ssh-urls` from Github.
 
-In a [previous post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/) we outlined the process to develop such tool as this:
+In a
+[previous
+post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/) we outlined the process to develop such tool as this:
 
 1.  Query Github's api to get the addresses of all your personal repositories
 2.  Format the commands to clone all of these repositories locally
@@ -35,15 +41,16 @@ its no surprise at all. Part of Github's success is that a great number of
 apps integrate with it using its api. Github acts like a “hub” for
 code-related stuff (oh, rly?).
 
-Below we set some required environment variables and the repository `url` for
-your user.
+Below we set some required environment variables and the repository index
+`url` for your user.
 
 ```sh
 set -euo pipefail
-GITHUB_USER=rranelli
+
 GITHUB_API_TOKEN=$(mimipass get github-api-token)
 CODE_DIR=$HOME/gh
 
+GITHUB_USER=rranelli
 repos_url="https://api.github.com/users/$GITHUB_USER/repos"
 ```
 
@@ -91,8 +98,8 @@ find some tool to parse it. We will use `jq` to do that. `jq` is like `sed`
 but for `application/json` instead of `text/plain`.
 
 I won't walk you on how to use `jq`. You can learn 90% of what you will need
-by reading the [manual](https://stedolan.github.io/jq/manual/). We can grab all the `ssh_urls` with the '`.[] |
-   .ssh_url`' `jq` expression:
+by reading the [manual](https://stedolan.github.io/jq/manual/) for 10 minutes. We can grab all the `ssh_urls` with the
+'`.[] | .ssh_url`' `jq` expression:
 
 ```sh
 curl -sS -H "${auth_header}" ${repos_url} | jq '.[] | .ssh_url'
@@ -295,10 +302,11 @@ The final version of our script is then:
 
 ```sh
 set -euo pipefail
-GITHUB_USER=rranelli
+
 GITHUB_API_TOKEN=$(mimipass get github-api-token)
 CODE_DIR=$HOME/gh
 
+GITHUB_USER=rranelli
 repos_url="https://api.github.com/users/$GITHUB_USER/repos"
 auth_header="Authorization: token $GITHUB_API_TOKEN"
 POOL_SIZE=10
@@ -376,7 +384,7 @@ fetch-repos "${repos_url}" \
   | parallel
 ```
 
-## Setting up upstream remotes for forked repositories
+## Enhancements and exercises for the reader
 
 One of the most tedious tasks I encountered when dealing with forks is to set
 up the “upstream” remote repository correctly. Since all the info we need to
@@ -389,6 +397,23 @@ script [over here](https://github.com/rranelli/linuxsetup/blob/86323b9/scripts/g
 
 The script linked above also handles `git pull` ing all the repositories
 concurrently. It's worth taking a look.
+
+Another simple extension to the script is to allow one to clone repositories
+from an organization. Only one line needs to change:
+
+```diff
+-repos_url="https://api.github.com/users/$GITHUB_USER/repos"
++repos_url=${REPOS_URL:-"https://api.github.com/users/$GITHUB_USER/repos"}
+```
+
+With this you're able to override the `repos_url` variable by invoking the
+script with `REPOS_URL` set like this:
+
+```sh
+REPOS_URL=https://api.github.com/orgs/my_cool_org/repos ./gitmulticast.sh
+```
+
+And voilá. Everything will work just fine :+1:.
 
 That's it.
 

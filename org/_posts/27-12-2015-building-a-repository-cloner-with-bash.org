@@ -16,17 +16,23 @@ title: 'Building a repository cloner with Bash'
 
   *TL;DR*: In another entry of the “you shouldn't use =Bash= for that” series we
   will build a script to discover & clone all of your Github repositories. We
-  will use the concurrent +thread+ process pool we developed in a [[http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/][previous post]]
+  will use the concurrent +thread+ process pool we developed in a
+  [[http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/][previous
+  post]]
 
   _<p hidden>excerpt-separator<p hidden>_
 
   I probably am over-stretching my =Bash= usage in these posts, but writing
   =Bash= is so fun I can't help myself. In this post we will use =Bash= in
-  conjunction with the amazing [[https://github.com/bagder/curl][curl]] and [[https://stedolan.github.io/jq/][jq]] libraries to explore [[https://developer.github.com/v3/][Github's api]] and
-  automatically discover and clone all of your personal git repositories. No
-  more copy-and-paste of =ssh-urls= from Github.
+  conjunction with the amazing [[https://github.com/bagder/curl][curl]] and
+  [[https://stedolan.github.io/jq/][jq]] libraries to explore
+  [[https://developer.github.com/v3/][Github's api]] and automatically discover
+  and clone all of your personal git repositories. No more copy-and-paste of
+  =ssh-urls= from Github.
 
-  In a [[http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/][previous post]] we outlined the process to develop such tool as this:
+  In a
+  [[http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/][previous
+  post]] we outlined the process to develop such tool as this:
 
   1. Query Github's api to get the addresses of all your personal repositories
   2. Format the commands to clone all of these repositories locally
@@ -42,16 +48,17 @@ title: 'Building a repository cloner with Bash'
    apps integrate with it using its api. Github acts like a “hub” for
    code-related stuff (oh, rly?).
 
-   Below we set some required environment variables and the repository =url= for
-   your user.
+   Below we set some required environment variables and the repository index
+   =url= for your user.
 
 #+name: environment
 #+begin_src sh
 set -euo pipefail
-GITHUB_USER=rranelli
+
 GITHUB_API_TOKEN=$(mimipass get github-api-token)
 CODE_DIR=$HOME/gh
 
+GITHUB_USER=rranelli
 repos_url="https://api.github.com/users/$GITHUB_USER/repos"
 #+end_src
 
@@ -107,8 +114,8 @@ curl -sS -H "${auth_header}" ${repos_url}
    but for =application/json= instead of =text/plain=.
 
    I won't walk you on how to use =jq=. You can learn 90% of what you will need
-   by reading the [[https://stedolan.github.io/jq/manual/][manual]]. We can grab all the =ssh_urls= with the '=.[] |
-   .ssh_url=' =jq= expression:
+   by reading the [[https://stedolan.github.io/jq/manual/][manual]] for 10 minutes. We can grab all the =ssh_urls= with the
+   '=.[] | .ssh_url=' =jq= expression:
 
 #+begin_src sh :noweb yes strip-export :results code :exports both
 <<environment>>
@@ -334,7 +341,7 @@ Cloning into 'emacs-dotfiles'...
 <<final>>
    #+end_src
 
-** Setting up upstream remotes for forked repositories
+** Enhancements and exercises for the reader
 
    One of the most tedious tasks I encountered when dealing with forks is to set
    up the “upstream” remote repository correctly. Since all the info we need to
@@ -347,6 +354,23 @@ Cloning into 'emacs-dotfiles'...
 
    The script linked above also handles =git pull= ing all the repositories
    concurrently. It's worth taking a look.
+
+   Another simple extension to the script is to allow one to clone repositories
+   from an organization. Only one line needs to change:
+
+#+begin_src diff
+-repos_url="https://api.github.com/users/$GITHUB_USER/repos"
++repos_url=${REPOS_URL:-"https://api.github.com/users/$GITHUB_USER/repos"}
+#+end_src
+
+   With this you're able to override the =repos_url= variable by invoking the
+   script with =REPOS_URL= set like this:
+
+#+begin_src sh
+REPOS_URL=https://api.github.com/orgs/my_cool_org/repos ./gitmulticast.sh
+#+end_src
+
+   And voilá. Everything will work just fine :+1:.
 
    That's it.
 
