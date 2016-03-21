@@ -34,7 +34,11 @@ author:
   github:
     repo: https://github.com/rranelli/rranelli.github.io
 
-page_list:  { 'About':'/about','Archive':'/archive', 'CV':'/cv/en.pdf','Feed':'/atom.xml' }
+page_list:  { 'About':'/about',
+              'Archive':'/archive',
+              # 'CV':'/cv/en.pdf',
+              'Feed':'/atom.xml'
+            }
 
 footer-links:
   github: rranelli
