@@ -24,7 +24,7 @@ title: 'My talk @ devinsantos2015 -- There is Life Beyond OOP'
   too many talks with titles similar to the latter I decided to go on with the
   former name.
 
-  @@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/njAMVB02Ag0?list=PLM2OMbGXLeu82-C1t8hMq4tRCQwGPQ1gQ" frameborder="0" allowfullscreen></iframe>@@
+  @@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/njAMVB02Ag0?list=PLM2OMbGXLeu82-C1t8hMq4tRCQwGPQ1gQt=0" frameborder="0" allowfullscreen></iframe>@@
 
   In this talk I try to explain why people are talking so much about functional
   programming in the recent years and why this is expected given what is going
