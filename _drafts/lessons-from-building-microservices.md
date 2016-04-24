@@ -157,11 +157,15 @@ parallel and stuff. Functional Reactive Programming is going mainstream. Benj
 christensen is working on making FRP polyglot (some kind of standardization
 probably).
 
-# <p hidden>lessons-from-building-microservices<p hidden>
+<p hidden>
+
+# lessons-from-building-microservices
+
+</p>
 
 **TL;DR**:
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 *rest of the content*
 

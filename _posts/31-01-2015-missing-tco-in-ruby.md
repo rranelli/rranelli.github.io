@@ -5,13 +5,17 @@ comments: true
 title: 'Missing TCO in Ruby'
 ---
 
-# <p hidden>Missing TCO in Ruby<p hidden>
+<p hidden>
+
+# Missing TCO in Ruby
+
+</p>
 
 **TL;DR**: Today I the lack of tail call optimization in ruby bit me. This post
 shows that despite the elegance of recursive solutions, one has to protect
 {him,her}self against the dreaded StackOverflowError.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 I have started the course [Algorithms: Design and Analysis, Part 1](https://www.coursera.org/course/algo) from
 [Coursera](http://coursera.org) last week. The first programming assignment was to implement the

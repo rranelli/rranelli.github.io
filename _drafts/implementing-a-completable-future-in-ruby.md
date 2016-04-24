@@ -5,7 +5,9 @@ comments: true
 title: 'Implementing a Completablefuture in Ruby'
 ---
 
-# <p hidden>implementing-a-completable-future-in-ruby<p hidden>
+<p hidden>
+
+# implementing-a-completable-future-in-ruby<p hidden>
 
 **TL;DR**: In a [FIXME: previous post on thread pools] we showed how one could
 go about implementing a thread pool in Ruby. The downside of the `ThreadPool`
@@ -15,7 +17,7 @@ advised people to use a `CompletableFuture` when faced with such need. In this
 post I will show a simple yet complete implementation of a
 `CompletableFuture`.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ### CompletableFuture
 

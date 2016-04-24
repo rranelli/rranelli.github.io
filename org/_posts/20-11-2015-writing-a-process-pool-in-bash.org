@@ -12,7 +12,9 @@ title: 'Writing a process pool in Bash'
 ---
 #+END_HTML
 
-* <p hidden>writing-a-process-pool-in-bash<p hidden>
+<p hidden>
+* writing-a-process-pool-in-bash
+</p>
 
   *TL;DR*: In this post I will show how one can achieve the equivalent of a
   “process pool” to run many processes in parallel in =Bash=. Think of a thread
@@ -20,7 +22,7 @@ title: 'Writing a process pool in Bash'
   use this “process pool” to build a tool that will help you manage tons of git
   repositories.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   =Bash= is awesome, and I love it. In this post we will leverage =Bash='s
   job-control capabilities and extend it to create a full fledged “process

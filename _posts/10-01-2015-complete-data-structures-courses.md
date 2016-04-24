@@ -5,13 +5,17 @@ comments: true
 title: 'Complete Data Structures Courses'
 ---
 
-# <p hidden>Complete Data Structures Courses<p hidden>
+<p hidden>
+
+# Complete Data Structures Courses
+
+</p>
 
 **TL;DR**: The internet is amazing and you can learn almost anything you want
 for free and with the best material out there. Today the lack of formal
 education is much less of a barrier than it used to be.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 This week I was looking for a course in [Coursera](http://coursera.org/) and [EDX](https://www.edx.org/) about data
 structures, the kind of course you take at your first year in Computer

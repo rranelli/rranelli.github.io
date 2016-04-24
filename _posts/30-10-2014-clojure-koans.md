@@ -5,11 +5,15 @@ comments: true
 title: 'Aprendendo por exemplo: Koans e afins'
 ---
 
-# <p hidden>Aprendendo por exemplo: Koans e afins<p hidden>
+<p hidden>
+
+# Aprendendo por exemplo: Koans e afins
+
+</p>
 
 **TL;DR**: [Clojure koans](http://clojurekoans.com/) é da hora. [Programming Clojure](https://pragprog.com/book/shcloj2/programming-clojure) é da hora também.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Depois de decidir encarar o SICP como expliquei no post anterior, resolvi
 aprender mais alguns detalhes da biblioteca padrão de Clojure. Lembrei que

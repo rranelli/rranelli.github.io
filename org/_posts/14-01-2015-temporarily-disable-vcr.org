@@ -12,14 +12,16 @@ title: 'Temporarily Disable VCR'
 ---
 #+END_HTML
 
-* <p hidden>Temporarily Disable VCR<p hidden>
+<p hidden>
+* Temporarily Disable VCR
+</p>
 
   *TL;DR*: If you control your application's “external” dependencies, turning
   off VCR on your build server can increase the integration exercise of your
   applications for virtually zero cost. In this post I will show how you can
   disable VCR in your test suite with an environment variable.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   In the project I'm currently working on we have two Rails applications that
   are tightly related. One application acts as a /validator-on-steroids/ and

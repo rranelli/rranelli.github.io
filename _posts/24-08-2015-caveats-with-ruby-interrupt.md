@@ -5,12 +5,16 @@ comments: true
 title: 'Caveats for interrupting Ruby code'
 ---
 
-# <p hidden>caveats-with-ruby-interrupt<p hidden>
+<p hidden>
+
+# caveats-with-ruby-interrupt
+
+</p>
 
 **TL;DR**: In this brief post I will highlight a problem I faced recently with
 Ruby while handling interrupts in multi-threaded code.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 When Ruby processes receive one of the [Unix signals](https://en.wikipedia.org/wiki/Unix_signal) those are handled by
 raising a (or a subclass of) [SignalException](http://ruby-doc.org/core-2.2.0/SignalException.html).

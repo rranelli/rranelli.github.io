@@ -12,14 +12,16 @@ title: 'Bloom Filters in Elixir'
 ---
 #+END_HTML
 
-* <p hidden>bloom-filter-in-elixir<p hidden>
+<p hidden>
+* bloom-filter-in-elixir
+</p>
 
   *TL;DR*: One of the things I like to do when learning a new language is to
   implement fundamental data structures in them like stacks, heaps, hash tables,
   and so on. In this post, I am going to show you how I implemented a [[http://en.wikipedia.org/wiki/Bloom_filter][Bloom
   Filter]] in [[http://elixir-lang.org/][Elixir]] and talk about the experience.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 ** Elixir? Is this a drink?
 

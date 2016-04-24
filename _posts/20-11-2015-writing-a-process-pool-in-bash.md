@@ -5,7 +5,11 @@ comments: true
 title: 'Writing a process pool in Bash'
 ---
 
-# <p hidden>writing-a-process-pool-in-bash<p hidden>
+<p hidden>
+
+# writing-a-process-pool-in-bash
+
+</p>
 
 **TL;DR**: In this post I will show how one can achieve the equivalent of a
 “process pool” to run many processes in parallel in `Bash`. Think of a thread
@@ -13,7 +17,7 @@ pool, but for running individual processes. In a next post, I will show we can
 use this “process pool” to build a tool that will help you manage tons of git
 repositories.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 `Bash` is awesome, and I love it. In this post we will leverage `Bash`'s
 job-control capabilities and extend it to create a full fledged “process

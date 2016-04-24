@@ -12,11 +12,13 @@ title: "Poor man's Future in Ruby"
 ---
 #+END_HTML
 
-* <p hidden>Poor man's Future in Ruby<p hidden>
+<p hidden>
+* Poor man's Future in Ruby
+</p>
 
   *TL;DR*: Futures são da hora.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   Hoje tivemos uma sessão de
   coding-dojo/live-coding/um-cara-codando-e-outros-reclamando no trabalho e nos

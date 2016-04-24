@@ -5,14 +5,18 @@ comments: true
 title: 'Writing your own password manager with gnupg and shell'
 ---
 
-# <p hidden>Writing your own password manager with gnupg and BASH<p hidden>
+<p hidden>
+
+# Writing your own password manager with gnupg and BASH
+
+</p>
 
 **TL;DR**: In this post I will walk through the implementation of a simple, yet
 complete password manager in pure shell script. This may seem a daunting task,
 but as you will see, the important bits are already solved by `gnupg`, and all
 we need to do is to write some “glue” code.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ### Password managers
 

@@ -12,14 +12,16 @@ title: 'Makefiles and Debugging them'
 ---
 #+END_HTML
 
-* <p hidden>Makefiles & Debugging them<p hidden>
+<p hidden>
+* Makefiles & Debugging them
+</p>
 
   *TL;DR*: Makefiles are awesome, but debugging them is quite a pain when you're
   getting started with them. In this post I will explain how I made my Debian Pc
   setup 100% automatic using a simple Makefile. I will also give starters some
   tips on how to organize and debug Makefiles.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 ** What is Make ?
 

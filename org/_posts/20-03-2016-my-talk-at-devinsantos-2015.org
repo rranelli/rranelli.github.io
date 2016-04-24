@@ -12,12 +12,14 @@ title: 'My talk @ devinsantos2015 -- There is Life Beyond OOP'
 ---
 #+END_HTML
 
-* <p hidden>My talk @ DevInSantos2015 -- There is life beyond OOP<p hidden>
+<p hidden>
+* My talk @ DevInSantos2015 -- There is life beyond OOP
+</p>
 
   *TL;DR*: The talk I gave last November @ DevInSantos was just released. See
   the link to the video & slides below
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   The title of the talk is "There is life beyond OOP", but it could also have
   been "Why you should care about functional programming". Since there are just

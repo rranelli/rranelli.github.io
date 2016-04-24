@@ -12,7 +12,9 @@ title: 'Building a repository cloner with Bash'
 ---
 #+END_HTML
 
-* <p hidden>building-a-repository-cloner-with-bash<p hidden>
+<p hidden>
+* building-a-repository-cloner-with-bash
+</p>
 
   *TL;DR*: In another entry of the “you shouldn't use =Bash= for that” series we
   will build a script to discover & clone all of your Github repositories. We
@@ -20,7 +22,7 @@ title: 'Building a repository cloner with Bash'
   [[http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/][previous
   post]]
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   I probably am over-stretching my =Bash= usage in these posts, but writing
   =Bash= is so fun I can't help myself. In this post we will use =Bash= in

@@ -5,14 +5,18 @@ comments: true
 title: 'A guide to measuring your Elixir app'
 ---
 
-# <p hidden>measuring-your-elixir-application<p hidden>
+<p hidden>
 
-**TL;DR**: This post is a follow up to a talk I gave at the last "São Paulo's
-Elixir Users Group" Meetup, which I unfortunately forgot to record. In this
-post I will briefly describe how we collect and visualize metrics at [Xerpa](http://www.xerpa.com.br/)
-using `InfluxDB`, `Elixometer`, and `Grafana`.
+# measuring-your-elixir-application
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+</p>
+
+**TL;DR**: This post is a more through follow up to a talk I gave at the last
+"São Paulo's Elixir Users Group" Meetup, which I unfortunately forgot to
+record. In this post I will extensibly describe how we collect and visualize
+metrics at [Xerpa](http://www.xerpa.com.br/) using `InfluxDB`, `Elixometer`, and `Grafana`.
+
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Disclaimer: This will be a **long** post. Brace yourselves.
 
@@ -70,10 +74,14 @@ that's what we use at Xerpa.
 
 ### Manually reporting individual metrics
 
-`>` Show where to collect data from **every** request in phoenix. Point to the
-broken guys blog post.
+`>` Show how easy it is to time individual functions
+
+`>` Show how you can count stuff
 
 ### Measuring every single request to phoenix
+
+`>` Show where to collect data from **every** request in phoenix. Point to the
+broken guys blog post.
 
 ## 2nd step: Storing the metrics somewhere
 
@@ -86,6 +94,8 @@ broken guys blog post.
 ## 3rd step: Visualizing the metrics
 
 `>` Talk a little about Grafana.
+
+`>` "One weird trick to visualize counters from different nodes"
 
 ## N'th step: Where to go from here
 

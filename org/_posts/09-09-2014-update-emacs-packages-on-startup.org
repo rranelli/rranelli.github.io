@@ -13,7 +13,7 @@ title: Atualizando os pacotes do Emacs
 ---
 #+END_HTML
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 Se você usa o [[http://melpa.milkbox.net/][Melpa]], provavelmente já se deparou com a situação em que percebeu
 os seus pacotes bem desatualizados. Isso acontece por que para atualizar os

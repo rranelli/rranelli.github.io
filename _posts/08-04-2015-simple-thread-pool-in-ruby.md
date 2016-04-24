@@ -5,14 +5,18 @@ comments: true
 title: 'Simple Thread Pool in Ruby'
 ---
 
-# <p hidden>simple-thread-pool-in-ruby<p hidden>
+<p hidden>
+
+# simple-thread-pool-in-ruby
+
+</p>
 
 **TL;DR**: In this post I will show how one could implement a simple [Thread Pool](http://en.wikipedia.org/wiki/Thread_pool_pattern)
 in Ruby. With this thread pool implementation, We will implement a
 *parallel-ish* task runner. Of course this implementation is not "industrial
 strength", but it is a fun exercise nonetheless.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ## What the heck is a thread pool ?
 

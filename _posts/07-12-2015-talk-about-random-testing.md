@@ -5,12 +5,16 @@ comments: true
 title: 'Tech-Talk about random testing'
 ---
 
-# <p hidden>tech-talk-about-random-testing<p hidden>
+<p hidden>
+
+# tech-talk-about-random-testing
+
+</p>
 
 **TL;DR**: Just found out that the talk (pt-br) I gave about Random Testing @
 Locaweb was made public. The links to both video and slides are shown below.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Random testing is one of those weird techniques that turn out to be quite
 useful & Interesting.

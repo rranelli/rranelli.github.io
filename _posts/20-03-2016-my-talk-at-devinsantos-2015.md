@@ -5,12 +5,16 @@ comments: true
 title: 'My talk @ devinsantos2015 -- There is Life Beyond OOP'
 ---
 
-# <p hidden>My talk @ DevInSantos2015 &#x2013; There is life beyond OOP<p hidden>
+<p hidden>
+
+# My talk @ DevInSantos2015 &#x2013; There is life beyond OOP
+
+</p>
 
 **TL;DR**: The talk I gave last November @ DevInSantos was just released. See
 the link to the video & slides below
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 The title of the talk is "There is life beyond OOP", but it could also have
 been "Why you should care about functional programming". Since there are just

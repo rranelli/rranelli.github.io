@@ -12,7 +12,9 @@ title: 'Tail Call Optimization in Ruby'
 ---
 #+END_HTML
 
-* <p hidden>Tail Call Optimization in Ruby<p hidden>
+<p hidden>
+* Tail Call Optimization in Ruby
+</p>
 
   *TL;DR*: In a previous [[http://{{site.url}}/2015/01/31/missing-tco-in-ruby/][post]] I ranted about how I got bitten by the lack of [[http://en.wikipedia.org/wiki/Tail_call][TCO]]
   (Tail call optimization) in Ruby. Turns out Ruby actually has support for [[http://en.wikipedia.org/wiki/Tail_call][TCO]],
@@ -20,7 +22,7 @@ title: 'Tail Call Optimization in Ruby'
   with it and how it saved my life in the fourth programming assignment of
   [[https://www.coursera.org/course/algo][Algorithms: Design and Analysis, Part 1]] from [[http://coursera.org][Coursera]].
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
     TCO is already available in Ruby since the 1.9.x releases. There are reasons
   for it not to be enabled by default. You can check some discussion in the

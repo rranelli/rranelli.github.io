@@ -12,14 +12,16 @@ title: 'Writing a Redis client in pure bash, part 2'
 ---
 #+END_HTML
 
-* <p hidden>writing-a-redis-client-in-pure-bash-part-2<p hidden>
+<p hidden>
+* writing-a-redis-client-in-pure-bash-part-2
+</p>
 
   *TL;DR*: In a [[http://{{site.url}}/2015/07/27/writing-a-redis-client-in-pure-bash-part-1/][previous post]] we built a Redis REPL from scratch using pure
   bash. In this post we will walk through a refactoring of the original code to
   turn it into something resembling a library. I will also show some more bash
   niceties as we go along.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 
 ** The problem

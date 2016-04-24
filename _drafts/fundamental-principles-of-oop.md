@@ -5,7 +5,11 @@ comments: true
 title: 'A reflection over the fundamental principles of OOP'
 ---
 
-# <p hidden>fundamental-principles-of-oop<p hidden>
+<p hidden>
+
+# fundamental-principles-of-oop
+
+</p>
 
 **TL;DR**: In this post I will discuss the fundamental principles of object
 orientation in a language-agnostic way. By understanding those principles, I
@@ -13,7 +17,7 @@ claim that you will be able to create better object oriented designs. I will
 explain the difference between `messages` and `methods`, what is a dispatch
 function and some other things too.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Object oriented programming is probably the most used programming paradigm for
 writing web applications and enterprise software. Despite this fact, it is

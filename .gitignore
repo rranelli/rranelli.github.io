@@ -11,3 +11,5 @@ _site
 
 ## Intermediate documents:
 *.dvi
+
+.jekyll-metadata

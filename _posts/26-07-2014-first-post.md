@@ -5,7 +5,7 @@ comments: true
 title: Primeiro Post
 ---
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Esse é o primeiro post do meu primeiro blog. Depois de passar um bom tempo sem
 escrever nada na vida, resolvi me organizar para dividir conteúdo interessante e

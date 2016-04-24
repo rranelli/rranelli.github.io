@@ -12,11 +12,13 @@ title: 'Masters of Doom'
 ---
 #+END_HTML
 
-* <p hidden>Masters of Doom<p hidden>
+<p hidden>
+* Masters of Doom
+</p>
 
   *TL;DR*: Leia [[http://en.wikipedia.org/wiki/Masters_of_Doom][Masters of Doom]].
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   Ontem terminei de ler o fantástico livro [[http://en.wikipedia.org/wiki/Masters_of_Doom][Masters of Doom]]. O livro conta a
   história do [[http://en.wikipedia.org/wiki/John_Carmack][John Carmack]] e do [[http://en.wikipedia.org/wiki/John_Romero][John Romero]], que são os sujeitos por trás da Id

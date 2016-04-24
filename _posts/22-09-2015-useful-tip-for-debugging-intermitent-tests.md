@@ -5,13 +5,17 @@ comments: true
 title: 'Useful tip for debugging intermitent tests'
 ---
 
-# <p hidden>useful-tip-for-debugging-intermitent-tests<p hidden>
+<p hidden>
+
+# useful-tip-for-debugging-intermitent-tests
+
+</p>
 
 **TL;DR**: Its a terrible pain to debug tests that break intermittently. I've
 been using a simple script to run tests in an infinite loop and stop when they
 break. Read on and I will explain how it works.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 The main idea is to have a function that will run a command in an infinite
 loop and stop when it's exit status is different than 0. You can also use

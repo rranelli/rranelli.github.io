@@ -5,7 +5,7 @@ comments: true
 title: Monkey patch de briqueixon with me
 ---
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Quem trabalha com linguagens dinâmicas sabe dos perigos do [monkey patch](http://en.wikipedia.org/wiki/Monkey_patch). Apesar
 de restringir esse tipo de recurso apenas aos casos em que há um ganho
@@ -30,35 +30,35 @@ A resposta para a chamada que traz os repositórios públicos do usuário `:owne
     {
       "scm": "git",
       "links": {
-	"self": {
-	  "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork"
-	},
-	"html": {
-	  "href": "https://bitbucket.org/evzijst/atlassian-connect-fork"
-	},
-	"clone": [
-	  {
-	    "href": "https://bitbucket.org/evzijst/atlassian-connect-fork.git",
-	    "name": "https"
-	  },
-	  {
-	    "href": "ssh://git@bitbucket.org/evzijst/atlassian-connect-fork.git",
-	    "name": "ssh"
-	  }
-	],
-	"pullrequests": {
-	  "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork/pullrequests"
-	}
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork"
+        },
+        "html": {
+          "href": "https://bitbucket.org/evzijst/atlassian-connect-fork"
+        },
+        "clone": [
+          {
+            "href": "https://bitbucket.org/evzijst/atlassian-connect-fork.git",
+            "name": "https"
+          },
+          {
+            "href": "ssh://git@bitbucket.org/evzijst/atlassian-connect-fork.git",
+            "name": "ssh"
+          }
+        ],
+        "pullrequests": {
+          "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork/pullrequests"
+        }
       },
       "language": "",
       "parent": {
-	"links": {
-	  "self": {
-	    "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect"
-	  },
-	},
-	"full_name": "evzijst/atlassian-connect",
-	"name": "atlassian-connect"
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect"
+          },
+        },
+        "full_name": "evzijst/atlassian-connect",
+        "name": "atlassian-connect"
       },
       "full_name": "evzijst/atlassian-connect-fork",
       "has_issues": false,

@@ -5,7 +5,7 @@ comments: true
 title: Atualizando os pacotes do Emacs
 ---
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Se você usa o [Melpa](http://melpa.milkbox.net/), provavelmente já se deparou com a situação em que percebeu
 os seus pacotes bem desatualizados. Isso acontece por que para atualizar os

@@ -12,7 +12,7 @@ title: Keysnail
 ---
 #+END_HTML
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 Já a um tempo não estava satisfeito com os atalhos para navegação no
 google-chrome, principalmente agora que estou bastante acostumado com o estilo

@@ -5,7 +5,11 @@ comments: true
 title: 'Composable Validations'
 ---
 
-# <p hidden>Composable Validations<p hidden>
+<p hidden>
+
+# Composable Validations
+
+</p>
 
 **TL;DR**: In this post I will try to show why understanding multiple
 programming paradigms is useful and important (and also fun!). This post
@@ -13,7 +17,7 @@ tackles the common problem of aggregating validation results in a
 comprehensible return value. The problem we solve here is almost the same as
 the one solved by `ActiveRecord`'s `errors`.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ### Chained validations
 
@@ -127,32 +131,32 @@ import Control.Monad
 
 type ValidationError = [String]
 data Validated a = Errors (ValidationError, a)
-		 | Valid a
-		 deriving Show
+                 | Valid a
+                 deriving Show
 
 instance Monad Validated where
   return a = Valid a
   a >>= f = case a of
-	     Errors (vrs, val) ->
-	       case f val of
-		 Errors (vrs', val') -> Errors (vrs ++ vrs', val')
-		 Valid val' -> Valid val'
-	     Valid val ->
-	       case f val of
-		 Errors (vrs', val') -> Errors (vrs', val')
-		 Valid val' -> Valid val'
+             Errors (vrs, val) ->
+               case f val of
+                 Errors (vrs', val') -> Errors (vrs ++ vrs', val')
+                 Valid val' -> Valid val'
+             Valid val ->
+               case f val of
+                 Errors (vrs', val') -> Errors (vrs', val')
+                 Valid val' -> Valid val'
 
 predicateToValidator :: (a -> Bool) -> ValidationError -> (a -> Validated a)
 predicateToValidator f verr = \x -> if f x then
-				      Valid x
-				    else
-				      Errors (verr, x)
+                                      Valid x
+                                    else
+                                      Errors (verr, x)
 
 biggerValidator :: (Ord a, Show a) => a -> a -> Validated a
 biggerValidator limit value = if value < limit then
-				 Errors ([(show value) ++ " is not bigger than " ++ (show limit)], value)
-			      else
-				 Valid value
+                                 Errors ([(show value) ++ " is not bigger than " ++ (show limit)], value)
+                              else
+                                 Valid value
 
 biggerThan42 :: Int -> Validated Int
 biggerThan42 = biggerValidator 42
@@ -165,8 +169,8 @@ biggerThan84 = biggerValidator 84
 
 isValid :: Validated a -> Bool
 isValid = \v -> case v of
-		 Valid _ -> True
-		 Errors _ -> False
+                 Valid _ -> True
+                 Errors _ -> False
 
 shouldBeTrue = isValid $ (return 41) >>= smallerThan84
 -- #=> true
@@ -288,29 +292,29 @@ RSpec.describe Validation do
       it { expect(with.errors.count).to eq(1) }
 
       context 'when chaining validations' do
-	subject(:chained_with) { with.with(validator) }
+        subject(:chained_with) { with.with(validator) }
 
-	let(:validator) { BiggerThan84 }
+        let(:validator) { BiggerThan84 }
 
-	it { is_expected.to be_a(Validation::Error) }
-	it { is_expected.not_to be_valid }
+        it { is_expected.to be_a(Validation::Error) }
+        it { is_expected.not_to be_valid }
 
-	it 'accumulates all errors' do
-	  expect(chained_with.errors.count).to eq(2)
-	end
+        it 'accumulates all errors' do
+          expect(chained_with.errors.count).to eq(2)
+        end
       end
 
       context 'using Array#reduce' do
-	let(:validators) { [BiggerThan84, BiggerThan42] }
+        let(:validators) { [BiggerThan84, BiggerThan42] }
 
-	subject(:reduced) { validators.reduce(validation, &:with) }
+        subject(:reduced) { validators.reduce(validation, &:with) }
 
-	it { is_expected.to be_a(Validation::Error) }
-	it { is_expected.not_to be_valid }
+        it { is_expected.to be_a(Validation::Error) }
+        it { is_expected.not_to be_valid }
 
-	it 'accumulates all errors' do
-	  expect(reduced.errors.count).to eq(2)
-	end
+        it 'accumulates all errors' do
+          expect(reduced.errors.count).to eq(2)
+        end
       end
     end
   end

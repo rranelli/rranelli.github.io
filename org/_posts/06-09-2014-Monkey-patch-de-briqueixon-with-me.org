@@ -13,7 +13,7 @@ title: Monkey patch de briqueixon with me
 ---
 #+END_HTML
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 Quem trabalha com linguagens dinâmicas sabe dos perigos do [[http://en.wikipedia.org/wiki/Monkey_patch][monkey patch]]. Apesar
 de restringir esse tipo de recurso apenas aos casos em que há um ganho

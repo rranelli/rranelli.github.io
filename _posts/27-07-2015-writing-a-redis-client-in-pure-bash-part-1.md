@@ -5,7 +5,11 @@ comments: true
 title: 'Writing a Redis client in pure bash, part 1'
 ---
 
-# <p hidden>Writing a Redis client in pure bash<p hidden>
+<p hidden>
+
+# Writing a Redis client in pure bash
+
+</p>
 
 **TL;DR**: After 180 hours of Witcher 3 gameplay, it's time to get back to
 reality. In this post I will walk through the implementation of a simple `cli`
@@ -13,7 +17,7 @@ for Redis using nothing but pure Bash script. This post has absolutely no
 practical implications other than providing an example to explain some of
 Bash's nice features.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ## The motivation for Bash
 

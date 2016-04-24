@@ -1,7 +1,7 @@
 # Dependencies
-markdown: redcarpet
+markdown: kramdown
 
-redcarpet:
+kramdown:
   extensions:
    - no_intra_emphasis
    - fenced_code_blocks
@@ -19,12 +19,12 @@ redcarpet:
 title: Milhouse
 tagline: on software, engineering, and Emacs.
 url: milhouseonsoftware.com
-paginate: 5
+paginate: 7
 baseurl: /
 exclude: ["*.org"]
 permalink: pretty
 
-excerpt_separator: "<p hidden>excerpt-separator<p hidden>"
+excerpt_separator: '<p hidden> <span class="underline">excerpt-separator</span> </p>'
 
 author:
   name: Renan Ranelli
@@ -42,3 +42,6 @@ page_list:  { 'About':'/about',
 footer-links:
   github: rranelli
   twitter: renanranelli
+
+gems:
+  - jekyll-paginate

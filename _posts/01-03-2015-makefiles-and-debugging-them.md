@@ -5,14 +5,18 @@ comments: true
 title: 'Makefiles and Debugging them'
 ---
 
-# <p hidden>Makefiles & Debugging them<p hidden>
+<p hidden>
+
+# Makefiles & Debugging them
+
+</p>
 
 **TL;DR**: Makefiles are awesome, but debugging them is quite a pain when you're
 getting started with them. In this post I will explain how I made my Debian Pc
 setup 100% automatic using a simple Makefile. I will also give starters some
 tips on how to organize and debug Makefiles.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ## What is Make ?
 
@@ -88,13 +92,13 @@ following target:
 ```makefile
 elixir: $(MODULE_DIR)/elixir
 $(MODULE_DIR)/elixir: | code
-	wget 'http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_esl/esl-erlang_17.4-2~ubuntu~precise_amd64.deb'
-	$(SUDO) dpkg -i esl-erlang_17.4-2~ubuntu~precise_amd64.deb
+        wget 'http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_esl/esl-erlang_17.4-2~ubuntu~precise_amd64.deb'
+        $(SUDO) dpkg -i esl-erlang_17.4-2~ubuntu~precise_amd64.deb
 
-	cd $(HOME)/code/elixir && make clean test
+        cd $(HOME)/code/elixir && make clean test
 
-	rm esl-erlang_17.4-2~ubuntu~precise_amd64*
-	$(touch-module)
+        rm esl-erlang_17.4-2~ubuntu~precise_amd64*
+        $(touch-module)
 ```
 
 This target depends on the `code` target, that clones all of my Github and
@@ -158,7 +162,7 @@ Recently, I changed most of the targets' prerequisites to
 ```makefile
 elixir: code $(MODULE_DIR)/elixir
 $(MODULE_DIR)/elixir:
-	# stuff...
+        # stuff...
 ```
 
 to
@@ -166,7 +170,7 @@ to
 ```makefile
 elixir: $(MODULE_DIR)/elixir | code
 $(MODULE_DIR)/elixir:
-	# stuff...
+        # stuff...
 ```
 
 The former configuration would recompile Emacs if I modify the `packages` or
@@ -193,7 +197,7 @@ The correct definitions should have been:
 ```makefile
 elixir: $(MODULE_DIR)/elixir
 $(MODULE_DIR)/elixir: | code
-	# stuff...
+        # stuff...
 ```
 
 Other useful option to consider using is the `-W` or `--what-if` flag.
@@ -259,8 +263,8 @@ FOO := $(warning Right-hand side of a simple variable)bar
 BAZ = $(warning Right-hand side of a recursive variable)boo
 
 $(warning A target)target: $(warning In a prerequisite list)makefile $(BAZ)
-	$(warning In a command script)
-	ls
+        $(warning In a command script)
+        ls
 $(BAZ):
 ```
 

@@ -12,12 +12,14 @@ title: 'Tech-Talk about random testing'
 ---
 #+END_HTML
 
-* <p hidden>tech-talk-about-random-testing<p hidden>
+<p hidden>
+* tech-talk-about-random-testing
+</p>
 
   *TL;DR*: Just found out that the talk (pt-br) I gave about Random Testing @
   Locaweb was made public. The links to both video and slides are shown below.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   Random testing is one of those weird techniques that turn out to be quite
   useful & Interesting.

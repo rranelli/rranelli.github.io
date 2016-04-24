@@ -5,14 +5,18 @@ comments: true
 title: 'Live coding a multithreaded job executor'
 ---
 
-# <p hidden>live-coding-a-multithreaded-job-executor<p hidden>
+<p hidden>
+
+# live-coding-a-multithreaded-job-executor
+
+</p>
 
 **TL;DR**: Last week I gave a talk (in pt-br) at the local Ruby user group which
 is a variation of what I did at Rubyconf Brazil 2015. In this talk I live-code
 a thread-pool and a (**very**) simple background job processor emulating some of
 Sidekiq's interface.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 The video is here:
 

@@ -12,7 +12,7 @@ title: Org-mode e Jekyll
 ---
 #+END_HTML
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 No primeiro post do blog eu comentei que seria legal usar o =org-mode= para
 publicar o blog, e que isso não parecia simples. Acabei entrando um pouco no

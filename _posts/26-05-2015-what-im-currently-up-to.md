@@ -5,14 +5,18 @@ comments: true
 title: "What I'm currently up to"
 ---
 
-# <p hidden>what-im-currently-up-to<p hidden>
+<p hidden>
+
+# what-im-currently-up-to
+
+</p>
 
 **TL;DR**: Its been a while since I last posted something over here. In this
 post I will tell the interested reader what I'm up to recently. If you're
 going to consider something from this post, consider this: Stop everything
 you're doing and go play The Witcher 3.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 In the last month I've been doing a lot of work related study, mostly in the
 realm of concurrency, multithreading and stuff like that. Because of that, I'm

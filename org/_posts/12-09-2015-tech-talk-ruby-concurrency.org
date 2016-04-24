@@ -12,12 +12,14 @@ title: 'Tech talk about concurrency in Ruby'
 ---
 #+END_HTML
 
-* <p hidden>tech-talk-ruby-concurrency<p hidden>
+<p hidden>
+* tech-talk-ruby-concurrency
+</p>
 
   *TL;DR*: I've given a talk recently (in pt-br) about the principles of Ruby
   Concurrency. The video is shown bellow.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   In this video I talk about what Ruby has in the box for concurrent programming,
   and share some of my +pain+ experience in the subject. Enjoy my awkwardness:

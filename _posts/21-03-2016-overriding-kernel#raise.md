@@ -5,14 +5,18 @@ comments: true
 title: 'Overriding Kernel#raise in Ruby'
 ---
 
-# <p hidden>overriding-kernel#raise in Ruby<p hidden>
+<p hidden>
+
+# overriding-kernel#raise in Ruby
+
+</p>
 
 **TL;DR**: If you've spent more than 16 seconds in the `Ruby` ecosystem you
 probably have heard that “everything in Ruby is an object” and “every
 operation is a method call”. In this post I will show how can you take
 advantage of this fact to help you debug things like, say, acceptance tests.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 (After a long time writing nothing, I come back to remember the three readers
 of this blog that I still live. I have at least 5 posts in the stove right now

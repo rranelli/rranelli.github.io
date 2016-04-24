@@ -5,11 +5,15 @@ comments: true
 title: "Poor man's Future in Ruby"
 ---
 
-# <p hidden>Poor man's Future in Ruby<p hidden>
+<p hidden>
+
+# Poor man's Future in Ruby
+
+</p>
 
 **TL;DR**: Futures são da hora.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Hoje tivemos uma sessão de
 coding-dojo/live-coding/um-cara-codando-e-outros-reclamando no trabalho e nos
@@ -26,13 +30,13 @@ module GitMulticast
   class Task
     class Runner
       def initialize(tasks)
-	@tasks = tasks
+        @tasks = tasks
       end
 
       def run!
-	tasks
-	  .map(&method(:future))
-	  .map(&:get)
+        tasks
+          .map(&method(:future))
+          .map(&:get)
       end
 
       protected
@@ -40,22 +44,22 @@ module GitMulticast
       attr_reader :tasks
 
       def future(task)
-	PoorMansFuture.new { task.call }
+        PoorMansFuture.new { task.call }
       end
 
       class PoorMansFuture
-	def initialize
-	  @thread = Thread.new do
-	    Thread.current[:output] = yield
-	  end
-	end
+        def initialize
+          @thread = Thread.new do
+            Thread.current[:output] = yield
+          end
+        end
 
-	def get
-	  thread.join
-	  thread[:output]
-	end
+        def get
+          thread.join
+          thread[:output]
+        end
 
-	attr_reader :thread
+        attr_reader :thread
       end
     end
   end

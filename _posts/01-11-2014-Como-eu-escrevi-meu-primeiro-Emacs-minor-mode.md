@@ -4,7 +4,11 @@ layout: post
 title: 'Como eu escrevi meu primeiro minor-mode para o Emacs'
 ---
 
-# <p hidden>Como eu escrevi meu primeiro minor-mode para o Emacs<p hidden>
+<p hidden>
+
+# Como eu escrevi meu primeiro minor-mode para o Emacs
+
+</p>
 
 **TL;DR**: Em algumas horas eu escrevi o `maven-test-mode` fazendo uso do já
 extremamente bizurado `compilation-mode`. Este post descreve o histórico que
@@ -12,7 +16,7 @@ me fez decidir escrever o `maven-test-mode` e algumas coisas interessantes que
 eu aprendi no caminho. O `minor-mode` está disponível no [Github](https://github.com/rranelli/rranelli.github.io) e é
 distribuído no [Melpa](http://melpa.org/#/maven-test-mode).
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 Apesar do que muita gente imagina, customizar o Emacs não é tão complicado. A
 maior dificuldade na verdade é encontrar qual a *feature* já implementada que
@@ -136,8 +140,8 @@ Com isso, bastam 23 linhas e 960 caracteres:
 (defun maven-test-toggle-get-target-filename ()
 "If visiting a Java class file, returns it's associated test filename. If visiting a test file, returns it's associated Java class filename"
   (let* ((subs (if (maven-test-is-test-file-p)
-		   (maven-test-test-to-class-subs)
-		 maven-test-class-to-test-subs)))
+                   (maven-test-test-to-class-subs)
+                 maven-test-class-to-test-subs)))
     (s-replace-all subs (buffer-file-name))))
 
 (defun maven-test-is-test-file-p ()
@@ -191,16 +195,16 @@ a classe e vice versa.
       "Compilation mode for Maven output."
       (set (make-local-variable 'compilation-error-regexp-alist)
            (append '(java-tst-stack-trace java-src-stack-trace)
-    	       compilation-error-regexp-alist))
+                   compilation-error-regexp-alist))
 
       (set (make-local-variable 'compilation-error-regexp-alist-alist)
            (append '((java-tst-stack-trace
-    		  "<regexp muito louca que fornece o file-name no match 3>"
-    		  maven-test-java-tst-stack-trace-regexp-to-filename 3)
-    		 (java-src-stack-trace
-    		  "<regexp muito louca que fornece o file-name no match 3>"
-    		  maven-test-java-src-stack-trace-regexp-to-filename 3))
-    	       compilation-error-regexp-alist-alist)))
+                      "<regexp muito louca que fornece o file-name no match 3>"
+                      maven-test-java-tst-stack-trace-regexp-to-filename 3)
+                     (java-src-stack-trace
+                      "<regexp muito louca que fornece o file-name no match 3>"
+                      maven-test-java-src-stack-trace-regexp-to-filename 3))
+                   compilation-error-regexp-alist-alist)))
     ```
 
     `make-local-variable` cria um escopo dinâmico e isola o resto do mundo

@@ -12,11 +12,13 @@ title: 'Aprendendo por exemplo: Koans e afins'
 ---
 #+END_HTML
 
-* <p hidden>Aprendendo por exemplo: Koans e afins<p hidden>
+<p hidden>
+* Aprendendo por exemplo: Koans e afins
+</p>
 
   *TL;DR*: [[http://clojurekoans.com/][Clojure koans]] é da hora. [[https://pragprog.com/book/shcloj2/programming-clojure][Programming Clojure]] é da hora também.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   Depois de decidir encarar o SICP como expliquei no post anterior, resolvi
   aprender mais alguns detalhes da biblioteca padrão de Clojure. Lembrei que

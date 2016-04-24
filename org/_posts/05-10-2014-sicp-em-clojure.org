@@ -12,13 +12,15 @@ title: SICP em Clojure
 ---
 #+END_HTML
 
-* <p hidden>SICP em Clojure<p hidden>
+<p hidden>
+* SICP em Clojure
+</p>
 
   *TL;DR*: Vou encarar o desafio de resolver *todos* os exercícios do [[https://mitpress.mit.edu/sicp/full-text/book/book.html][SICP]] em
   Clojure e postar o progresso por aqui. Se você se interessar por que, continue
   lendo.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   Neste post eu vou explicar como algumas threads de estudo culminaram na minha
   decisão de encarar a jornada do [[https://mitpress.mit.edu/sicp/full-text/book/book.html][SICP]] em [[clojure.org][Clojure]]. Vou tentar passar a

@@ -12,12 +12,14 @@ title: 'Small hack to use Slack in Firefox with Keysnail'
 ---
 #+END_HTML
 
-* <p hidden>small-hack-to-use-slack-in-browser-with-keysnail<p hidden>
+<p hidden>
+* small-hack-to-use-slack-in-browser-with-keysnail
+</p>
 
   *TL;DR*: In this (*very*) brief post I describe how you can make your =C-k=
   binding in [[https://github.com/mooz/keysnail][Keysnail]] play nice with [[https://slack.com][Slack]]'s =C-k=.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   If you use [[https://github.com/mooz/keysnail][Keysnail]] you probably have your =C-k= key bound to
   =comand.killLine= to emulate Emacs' default behaviour. The problem is that

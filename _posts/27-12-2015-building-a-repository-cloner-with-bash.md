@@ -5,7 +5,11 @@ comments: true
 title: 'Building a repository cloner with Bash'
 ---
 
-# <p hidden>building-a-repository-cloner-with-bash<p hidden>
+<p hidden>
+
+# building-a-repository-cloner-with-bash
+
+</p>
 
 **TL;DR**: In another entry of the “you shouldn't use `Bash` for that” series we
 will build a script to discover & clone all of your Github repositories. We
@@ -13,7 +17,7 @@ will use the concurrent ~~thread~~ process pool we developed in a
 [previous
 post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/)
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 I probably am over-stretching my `Bash` usage in these posts, but writing
 `Bash` is so fun I can't help myself. In this post we will use `Bash` in

@@ -12,11 +12,13 @@ title: 'The Duality Between Object Oriented And Functional Programming'
 ---
 #+END_HTML
 
-* <p hidden>The Duality Between Object Oriented And Functional Programming<p hidden>
+<p hidden>
+* The Duality Between Object Oriented And Functional Programming
+</p>
 
   *TL;DR*:
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
   [FIXME: Introduce stuff by talking about your talk and how you spoke with
   someone afterwards and suggested that he would look for other ways of looking

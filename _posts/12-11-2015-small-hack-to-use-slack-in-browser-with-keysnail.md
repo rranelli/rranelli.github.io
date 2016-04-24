@@ -5,12 +5,16 @@ comments: true
 title: 'Small hack to use Slack in Firefox with Keysnail'
 ---
 
-# <p hidden>small-hack-to-use-slack-in-browser-with-keysnail<p hidden>
+<p hidden>
+
+# small-hack-to-use-slack-in-browser-with-keysnail
+
+</p>
 
 **TL;DR**: In this (**very**) brief post I describe how you can make your `C-k`
 binding in [Keysnail](https://github.com/mooz/keysnail) play nice with [Slack](https://slack.com)'s `C-k`.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 If you use [Keysnail](https://github.com/mooz/keysnail) you probably have your `C-k` key bound to
 `comand.killLine` to emulate Emacs' default behaviour. The problem is that

@@ -5,7 +5,11 @@ comments: true
 title: 'Tail Call Optimization in Ruby'
 ---
 
-# <p hidden>Tail Call Optimization in Ruby<p hidden>
+<p hidden>
+
+# Tail Call Optimization in Ruby
+
+</p>
 
 **TL;DR**: In a previous [post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) I ranted about how I got bitten by the lack of [TCO](http://en.wikipedia.org/wiki/Tail_call)
 (Tail call optimization) in Ruby. Turns out Ruby actually has support for [TCO](http://en.wikipedia.org/wiki/Tail_call),
@@ -13,7 +17,7 @@ but it's not enabled by default. In this post I will talk about my experience
 with it and how it saved my life in the fourth programming assignment of
 [Algorithms: Design and Analysis, Part 1](https://www.coursera.org/course/algo) from [Coursera](http://coursera.org).
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
   TCO is already available in Ruby since the 1.9.x releases. There are reasons
 for it not to be enabled by default. You can check some discussion in the
@@ -128,16 +132,16 @@ class Graph
       reached.push(head)
 
       next_nodes = head
-	.adjacent_nodes
-	.reject(&:visited?)
+        .adjacent_nodes
+        .reject(&:visited?)
 
-	# By pushing the head again, we have the
-	# oportunity to set the recording
-	# time in the future,f after all the other
-	# adjacent nodes are already processed
+        # By pushing the head again, we have the
+        # oportunity to set the recording
+        # time in the future,f after all the other
+        # adjacent nodes are already processed
 
-	stack.push(head)
-	stack.push(*next_nodes)
+        stack.push(head)
+        stack.push(*next_nodes)
     end
 
     dfs(stack, reached)
@@ -179,13 +183,13 @@ require 'method_source'
       fn = instance_method(name)
 
       RubyVM::InstructionSequence.compile_option = {
-	tailcall_optimization: true,
-	trace_instruction: false
+        tailcall_optimization: true,
+        trace_instruction: false
       }
 
       iseq = RubyVM::InstructionSequence.new(<<-EOS)
       class #{self}
-	#{fn.source}
+        #{fn.source}
       end
       EOS
 

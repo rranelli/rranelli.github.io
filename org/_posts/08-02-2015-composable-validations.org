@@ -12,7 +12,9 @@ title: 'Composable Validations'
 ---
 #+END_HTML
 
-* <p hidden>Composable Validations<p hidden>
+<p hidden>
+* Composable Validations
+</p>
 
   *TL;DR*: In this post I will try to show why understanding multiple
   programming paradigms is useful and important (and also fun!). This post
@@ -20,7 +22,7 @@ title: 'Composable Validations'
   comprehensible return value. The problem we solve here is almost the same as
   the one solved by =ActiveRecord='s =errors=.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 *** Chained validations
 

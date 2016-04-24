@@ -12,7 +12,9 @@ title: 'Writing a Redis client in pure bash, part 1'
 ---
 #+END_HTML
 
-* <p hidden>Writing a Redis client in pure bash<p hidden>
+<p hidden>
+* Writing a Redis client in pure bash
+</p>
 
   *TL;DR*: After 180 hours of Witcher 3 gameplay, it's time to get back to
   reality. In this post I will walk through the implementation of a simple =cli=
@@ -20,7 +22,7 @@ title: 'Writing a Redis client in pure bash, part 1'
   practical implications other than providing an example to explain some of
   Bash's nice features.
 
-  _<p hidden>excerpt-separator<p hidden>_
+  <p hidden> _excerpt-separator_ </p>
 
 ** The motivation for Bash
 

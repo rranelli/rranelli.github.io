@@ -5,14 +5,18 @@ comments: true
 title: 'Module prepend as around advices'
 ---
 
-# <p hidden>module-prepend-as-around-advices<p hidden>
+<p hidden>
+
+# module-prepend-as-around-advices
+
+</p>
 
 **TL;DR**: In this post I will show how you can achieve something like `aspect
   oriented programming`'s (AOP) *around advice* by using plain Ruby modules. I
 will show examples where this technique can be used to DRY out your code by
 centralizing cross-cutting concerns.
 
-<span class="underline"><p hidden>excerpt-separator<p hidden></span>
+<p hidden> <span class="underline">excerpt-separator</span> </p>
 
 ### Introduction
 
