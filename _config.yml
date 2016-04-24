@@ -2,14 +2,13 @@
 markdown: redcarpet
 
 redcarpet:
-  extensions: [
-  "no_intra_emphasis",
-  "fenced_code_blocks",
-  "autolink",
-  "strikethrough",
-  "superscript",
-  "footnotes"
-  ]
+  extensions:
+   - no_intra_emphasis
+   - fenced_code_blocks
+   - autolink
+   - strikethrough
+   - superscript
+   - footnotes
   auto_ids:      true
   footnote_nr:   1
   entity_output: as_char
