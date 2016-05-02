@@ -1,5 +1,7 @@
 _site
 
+/.bundle/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
