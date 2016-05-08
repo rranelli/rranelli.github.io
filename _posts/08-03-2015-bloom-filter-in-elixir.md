@@ -155,7 +155,7 @@ defmodule BloomFilter do
   import PewPewPow
   use Bitwise
 
-  def make_filter(size) do
+  def new(size) do
     hashers = [make_hasher(2, size), make_hasher(3, size)]
     {0, hashers}
   end
@@ -222,7 +222,7 @@ defmodule BloomFilterTest do
   doctest BloomFilter
 
   test "can make a filter" do
-    assert is_tuple BloomFilter.make_filter(3)
+    assert is_tuple BloomFilter.new(3)
   end
 
   test "can unite filters" do
@@ -246,7 +246,7 @@ defmodule BloomFilterTest do
   end
 
   test "can add to filter" do
-    seed = BloomFilter.make_filter(32)
+    seed = BloomFilter.new(32)
 
     flt = ['a', 'b', 'c', 'ab', 'cd', 'de']
     |> (&(Enum.reduce &1, seed, fn e, acc -> BloomFilter.add acc, e end)).()
@@ -284,7 +284,7 @@ familiar to us former {C#,Java} programmers.
 
 Please ignore my total disregard to the hash functions and to the number of
 those. Just imagine that we would just pass a list of hashing functions to
-`BloomFilter.make_filter`. My example is also only capable of hashing
+`BloomFilter.new`. My example is also only capable of hashing
 strings. We can change this by just modifying the function returned by
 `make_hasher`, but I won't do it because I'm lazy.
 
