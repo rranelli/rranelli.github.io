@@ -25,6 +25,6 @@ Here is the video (in pt-br):
   src="https://www.youtube.com/embed/mMVrUbwV9oo" frameborder="0"
   allowfullscreen></iframe>
 
-Here are the [slides](https://speakerdeck.com/rranelli/random-testing-what-it-is-and-why-it-matters) for the talk.
+Here are the [slides](https://speakerdeck.com/rranelli/locaweb-techtalks-2015-random-testing-what-it-is-and-why-it-matters) for the talk.
 
 That's it.
