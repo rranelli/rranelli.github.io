@@ -1,0 +1,111 @@
+#+OPTIONS: -*- eval: (org-jekyll-mode); -*-
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: brasileiro
+layout: post
+comments: true
+title: 'Como o milhouse virou desenvolvedor de software (pt-br)'
+---
+#+END_HTML
+
+<p hidden>
+* como-o-milhouse-virou-desenvolvedor-de-software
+  </p>
+
+  *TL;DR*: Toda vez que conto para as pessoas que eu comecei minha carreira como
+  engenheiro e não como desenvolvedor de software me deparo com certo espanto.
+  Depois de explicar a epopeia, não é incomum ouvir "você devia escrever sobre
+  isso!". Esse post é o resultado de eu seguir o conselho dessas pessoas. Enjoy.
+  =)
+
+  <p hidden> _excerpt-separator_ </p>
+
+  (FIXME: as opiniões aqui são pessoais e refletem a forma bem particular de como
+  eu me /senti/ em várias situações. É bem possível que coisas que eu coloque aqui
+  não reflitam a "verdade")
+
+  (FIXME: "Eu to ligado. Eu {tenho,tive} {sorte,privilégios} pra caralho. Eu sou
+  branco, cis, hétero, com curso superior e só comecei a trabalhar com 21 anos.
+  De nenhuma forma eu quero que esse post soe como um "se eu consigo vc também
+  consegue". Como disse um grande amigo: branquelo hetero joga a vida no /easy/.
+  Eu consegui pivotar de carreira e de certa forma fazer o bullshit do "follow
+  your dreams".)
+
+** Early days do Milhouse
+
+   Essa história começa quando eu fui pra faculdade. Por alguma bizarrice que eu
+   não entendo até hoje, eu consegui, mesmo não sabendo estudar direito, ser o
+   terceiro último aprovado no vestibular p/ engenharia química da UNICAMP
+   (FIXME link).
+
+   (FIXME: SCISSOSRS) Eu digo bizarrice por que quando eu entrei na faculdade eu
+   tive uma epifânia olhando para os colegas: "Como raios que eu consegui ser
+   aprovado no mesmo lugar que esses caras?? Eles são *muito* mais espertos que
+   eu". Acredito que essa foi sem dúvida a constatação mais esperta dos meus
+   primeiros 17 anos de vida.
+
+   Na faculdade eu tinha uma visão bem simplista e ingenua do mundo: Quem
+   "souber o que ta fazendo" (seja lá que raios isso significasse) vai se "dar
+   bem na vida". Pra mim, isso significava ter boas notas, bom desempenho
+   acadêmico e entender *de verdade* o que era ensinado na faculdade. Pra esse
+   fim, eu basicamente não fiz outra coisa na faculdade além de *estudar*.
+   Circulei mais de 1100 livros na biblioteca, (FIXME: imagem??), fiz iniciação
+   científica por 4 anos, e comecei as disciplinas do mestrado antes mesmo de me
+   formar. Para mim, isso seria a garantia de sucesso profissional absoluto.
+   Hora, eu estava entre as top5 maiores notas da classe, e tudo o mais. O que
+   mais eu poderia fazer? (Pensa num /meritocrateen/ Era o Milhouse de 19 anos.)
+
+   Mais adiante vou explicar como a vida desconstruiu essa visão tonta do mundo.
+
+** Milhouse arrumando um trampo
+
+   No terceiro ano da faculdade participei de uma competição chamada "maratona
+   Chemtech de engenharia" (link). A competição consistia de um treinamento de 6
+   (ou 8, não lembro) semanas com atividades "p/ nota" toda semana. Fui
+   selecionado para a equipe da Unicamp junto com um grande amigo. Seguimos as
+   etapas, e terminamos em terceiro lugar na competição, ficando atrás da equipe
+   da UFF e da UNB. Era a primeira vez que eu ganhara algo "relevante" na vida
+   através do meu próprio esforço. Eu sentia que nada poderia me parar, que
+   minha teoria do sucesso estava sendo comprovada e tudo mais.
+
+   Depois de umas semanas, a Chemtech me ligou e me ofereceu uma vaga de estágio
+   no escritório de São Paulo. A Chemtech {é,era} um escritório de engenharia de
+   projetos industriais especializado em indústrias de processo (/you know/,
+   aqueles lugares que engenheiros químicos trabalham, com uma torre altona
+   soltando "foguinho"). Foi a pira da galáxia. A Chemtech era a empresa que eu
+   sempre quis trabalhar, e que diziam só contratar os "melhores dos melhores",
+   e que lá tinha a "seleção brasileira de engenharia".
+
+   "A Vida deu certo". #sqn.
+
+** Milhouse trampando
+
+   (FIXME: Copiando papel)
+
+   (FIXME: mérito é a porra. Sujeito assustado com medo de perder o emprego podando
+   e cortando as asas da molecada jovem)
+
+** Como (e porque) comecei a programar
+*** (post do truta militar dos helicoptero que tem uma historia muito mais zica que a sua.)
+** Virando ~menino~ programador "de verdade" ^1
+
+
+
+** QconSP, um fone beats e um emprego maneiro
+** Locaweb e o pânico de "não vou sobrevier ao contrato de experiência"
+*** A importância fenomenal de GENTE.
+*** Se ligando que "credencial" não significa rosca.
+*** Se ligando que tem gente no mundo que não teve o mesmo privilégio que você. E que "merito é o caralho".
+*** Se ligando que tem nego MUITO TRETA nesse mundo, e o bagulho é aprender com eles
+** O Xerpa e a lousa branca
+** Conclusões
+
+    That's it.
+
+    ---
+
+    /footnotes come here/ (1) Isso é uma referência ao Pinnochio.

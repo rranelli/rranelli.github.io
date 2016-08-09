@@ -1,0 +1,127 @@
+#+OPTIONS: -*- eval: (org-jekyll-mode); -*-
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: english
+layout: post
+comments: true
+title: 'Sending shell code across the wire'
+---
+#+END_HTML
+
+<p hidden>
+* sending-shell-code-across-the-wire
+  </p>
+
+  *TL;DR*: It is often the case when we're doing some sort of shell based
+  automation that we define some {helper,utility} functions. When we are running
+  code in remote machines, those functions are not available remotely, which for
+  me is very annoying. In this post, I will show some clever ways we can abuse
+  Bash to send those functions *across the wire* and have then available in our
+  remote shells.
+
+  <p hidden> _excerpt-separator_ </p>
+
+  I have done my fair share of Bash-based automation and today I'm much more
+  inclined to use a less-fun and more-professional tool like *Ansible* to deal
+  with these sorts of tasks. Nevertheless, sometimes it is more {productive,fun} to
+  just hack-your-way in Bash.
+
+  Let's consider the following problem to illustrate our use-case:
+
+  Suppose that we submit one package to our package repository and want to
+  ensure that some machines have the submitted version installed. Because of
+  some sort of weird caching and replication, the machines won't see the newly
+  submitted packages right away, and we need to "busy-wait" for them to be
+  available and then proceed with the installation.
+
+  (I had to solve this exact problem when dealing with dynamic provisioning of our
+  testing environment & CI infrastructure at Locaweb.)
+
+  We solve this problem (locally) with the following code:
+
+#+begin_src sh
+#!/bin/bash
+set -euo pipefail # set bash strict-mode for a saner experience
+
+now() { date +%s ;}
+red_echo() { echo -e "\e[0;31m$@\e[0m" }
+
+env_verify() {
+  # Check if the given environment variables are set.
+  local error=""
+  set +u
+  for var in "$@"; do
+    [[ ! -v "$var" ]] && error="${error}${var} environment variable is not set\n"
+  done
+  [ ! -z "$error" ] && { red_echo "$error"; exit 1 ;} || return 0
+}
+
+env_verify DEPLOY_PACKAGE_NAME DEPLOY_PACKAGE_HOST
+
+set +u
+version=$DEPLOY_PACKAGE_VERSION
+default_distro=${DEPLOY_PACKAGE_DISTRO:-stable}
+set -u
+
+get_distro_for() {
+  # Find out which distro has the provided version. This is important for some
+  # reason I can't recall
+  package=$1
+  version=$2
+
+  sudo apt-cache madison "$package" \
+      | grep "$version" \
+      | awk '{ gsub(/\/main$/, "", $6); print $6 }' \
+      | head -n1
+}
+
+with_spin_lock() {
+  # Tries to execute command with exit status 0 for $1 seconds
+  deadline=$(( $(now) + $1 ))
+  shift;
+  while [[ $(now) -le "$deadline" ]]; do
+    red_echo "trying \"$@\" ..."
+    { $@ && return 0 ;} || sleep $(( $RANDOM % 10 + 1 ))
+  done
+  return 1
+}
+
+# exported_funs=(
+#   now with_spin_lock get_distro_for red_echo
+# )
+# ssh "$DEPLOY_PACKAGE_HOST" <<EOF
+# $(declare -f $exported_funs)
+
+if [ -n "$version" ]; then
+  distro=\$(get_distro_for "$DEPLOY_PACKAGE_NAME" "$version")
+
+  if [ -z "\$distro" ]; then
+    red_echo "Couldn't get distro for $version. Calling apt-get update"
+    with_spin_lock 180 sudo apt-get update -q
+    distro=\$(get_distro_for "$DEPLOY_PACKAGE_NAME" "$version")
+  fi
+
+  # break out of the deployment if I can't still find the version
+  [ -z "\$distro" ] && red_echo "Can't find version $version" && exit 1
+else
+  red_echo "Version wasn't set, so we're installing from the distro *${default_distro}*"
+  distro=${default_distro}
+  with_spin_lock 180 sudo apt-get update -q
+fi
+
+  red_echo "finally, calling apt-get install"
+  with_spin_lock 180 sudo apt-get install "$DEPLOY_PACKAGE_NAME/\$distro" -y --force-yes
+# EOF
+#+end_src
+
+
+  That's it.
+
+  ---
+
+  /footnotes come here/
+  (1)
