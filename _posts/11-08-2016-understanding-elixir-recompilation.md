@@ -73,9 +73,9 @@ defmodule C do
 end
 ```
 
-It is obvious that if `B`'s code changes, we need to re-evaluate its macros
-when expanding them as part of `A`'s compilation. This relationship between
-`A` and `B` is called a `compile-time dependency`.
+If `B`'s code changes, we need to re-evaluate its macros when expanding them
+as part of `A`'s compilation. This relationship between `A` and `B` is called
+a `compile-time dependency`.
 
 A **very** important, and somewhat tricky, fact you need to understand is:
 Because arbitrary code can be executed on `macro-expansion` time, whenever
@@ -116,7 +116,7 @@ end
 
 That means that whenever `C` changes, we need to recompile `A`. Notice that
 `B` itself does not need to be recompiled. The previous example indicates
-that the `run-time` dependencies of modules which you depend on
+that the `runtime` dependencies of modules which you depend on
 `compile-time` become `compile-time` dependencies themselves:
 
 ```
@@ -129,7 +129,7 @@ macros, this fact is a very big deal.
 ## Finding out **what** is being recompiled
 
 The good thing about software is that claims about the behavior of systems
-are **verifiable**. One tool that can help you verify and understand the
+are \*verifiable\*sim. One tool that can help you verify and understand the
 behavior I described previously is `inotify`. When I was debugging the
 recompilation problems in my app, I used the following command:
 
@@ -149,7 +149,7 @@ $ inotifywait -rm -e MODIFY _build/dev/ | grep 'comptest/ebin/ .*\.beam$'
 # => _build/dev/lib/comptest/ebin/ MODIFY Elixir.A.beam
 ```
 
-This is great to give you insight on what is **actually** happening under the
+This is great to give you insight on what is actually happening under the
 rug.
 
 ## Finding out **when** things should be recompiled
@@ -232,7 +232,7 @@ end
 ## macro_no_depend.ex
 defmodule Macroz do
   defmacro macro(x) do
-    if B.b > 0 do
+    if CompileDep > 0 do
       quote do
         unquote(x) + 1
       end
@@ -245,7 +245,7 @@ defmodule Macroz do
 
   defmacro macro_no_depend do
     quote do
-      C.a
+      RuntimeDep.a
     end
   end
 end
@@ -374,8 +374,8 @@ digraph "xref graph" {
 
 ### 3. When implementing protocols
 
-When implementing a protocol, the file which defines will have a
-compile-time dependency depends on both the protocol and the module.
+When implementing a protocol, the file which defines it will have a
+compile-time dependency on both the protocol and the module.
 
 If you have the following code:
 
@@ -510,7 +510,7 @@ example showing how this attribute is used to implement Elixir's Unicode
 support.
 
 This dependency relationship is not shown at the `xref` output, but you can
-verify that it works using the `inotifywait` command I told you about.
+verify that it works using the `inotifywait` command shown previously.
 
 ## Tricks I used to untangle my real-world code base and general advice.
 
