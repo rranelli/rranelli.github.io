@@ -128,10 +128,9 @@ macros, this fact is a very big deal.
 
 ## Finding out **what** is being recompiled
 
-The good thing about software is that claims about the behavior of systems
-are \*verifiable\*sim. One tool that can help you verify and understand the
-behavior I described previously is `inotify`. When I was debugging the
-recompilation problems in my app, I used the following command:
+One tool that can help you verify and understand the behavior I described
+previously is `inotify`. When I was debugging the recompilation problems in
+my app, I used the following command:
 
 ```sh
 inotifywait -rm -e MODIFY _build/dev/ | grep 'my-app-name/ebin/ .*\.beam$'
@@ -171,13 +170,16 @@ $ mix xref graph --format dot
 
 The generated output file for the previous example would be:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/a.ex"
   "lib/a.ex" -> "lib/b.ex" [label="(compile)"]
   "lib/b.ex" -> "lib/c.ex"
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/1.png)
 
 As you can see, the `compile-time` dependency between `a.ex` and `c.ex` is
 not readily visible in the output, even though it exists as we were able to
@@ -194,7 +196,7 @@ of my effort. In the next sessions I will describe the occasions into which
 
 ## When compile-time dependencies are created and why
 
-### 0. When a module is "seen" in the macro expansion (ja\_serializer & ecto)
+### 0. When a module is "seen" in the macro expansion
 
 Whenever a module is "seen" when evaluating the macro expansion phase of the
 compilation, a compile-time dependency is created regardless of whether you
@@ -253,8 +255,9 @@ end
 
 Running `xref` will yield:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/compile_dep.ex"
   "lib/runtime_dep.ex"
   "lib/macroz.ex"
@@ -264,6 +267,8 @@ digraph "xref graph" {
   "lib/uses_macro.ex" -> "lib/runtime_dep.ex"
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/2.png)
 
 As you can see, the `UsesMacro` does have a compile-time dependency on
 `Macroz` and a **runtime** dependency on `RuntimeDep`. `Macroz` **does not**
@@ -296,19 +301,22 @@ end
 
 Running `xref` will yield:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/schema_a.ex"
   "lib/schema_a.ex" -> "lib/schema_b.ex" [label="(compile)"]
   "lib/schema_b.ex"
 }
 ```
 
+![img](//{{ site.url }}/public/recompilation/3.png)
+
 This ended up being an [issue](https://github.com/elixir-ecto/ecto/issues/1610) in Ecto's github repository. We had similar
 issues with other libraries too (like [ja\_serializer](https://github.com/AgilionApps/ja_serializer)). Beware when providing
 module references to macros.
 
-### 1. When using structs with the `:{}` syntax
+### 1. When using structs with the `:%{}` syntax
 
 Whenever you use the `%MyStruct{}` you add a compile-time dependency. That
 happens because the keys passed when building a struct this way are checked
@@ -333,13 +341,16 @@ end
 
 Running `xref` will yield:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/struct_a.ex"
   "lib/b.ex" -> "lib/struct_a.ex" [label="(compile)"]
   "lib/b.ex"
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/4.png)
 
 ### 2. When {import,require}-ing a module
 
@@ -364,13 +375,16 @@ end
 
 Running `xref` will yield:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/a.ex"
   "lib/imports_a.ex"
   "lib/imports_a.ex" -> "lib/a.ex" [label="(compile)"]
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/5.png)
 
 ### 3. When implementing protocols
 
@@ -405,8 +419,9 @@ end
 
 Running `xref` will yield:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/implz.ex"
   "lib/implz.ex" -> "lib/protocolz.ex" [label="(compile)"]
   "lib/implz.ex" -> "lib/struct_a.ex" [label="(compile)"]
@@ -416,6 +431,8 @@ digraph "xref graph" {
   "lib/depends_on_protocolz.ex" -> "lib/protocolz.ex"
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/6.png)
 
 Notice that **using** the protocol does not imply in a compile-time
 dependency.
@@ -441,13 +458,16 @@ end
 
 Running `xref graph` yields:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/behaviorz.ex"
   "lib/use_behavs.ex"
   "lib/use_behavs.ex" -> "lib/behaviorz.ex" [label="(compile)"]
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/7.png)
 
 No surprises here.
 
@@ -471,13 +491,16 @@ end
 
 Running `xref` will yield:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/type_a.ex"
   "lib/type_b.ex"
   "lib/type_b.ex" -> "lib/type_a.ex" [label="(compile)"]
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/8.png)
 
 That was unexpected and I think it limits a lot of the benefits of typespecs
 in large codebases&#x2026;
@@ -539,12 +562,15 @@ end
 
 The dependency graph would be:
 
-```
+```none
 digraph "xref graph" {
+
   "lib/schema_a.ex"
   "lib/schema_b.ex"
 }
 ```
+
+![img](//{{ site.url }}/public/recompilation/9.png)
 
 Although this is possible, you need to make sure that it is **safe** to "break"
 the dependency. If you call anything on the "concat"'d module, you risk

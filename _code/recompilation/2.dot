@@ -1,0 +1,11 @@
+
+digraph "xref graph" {
+rankdir=LR
+  "lib/compile_dep.ex"
+  "lib/runtime_dep.ex"
+  "lib/macroz.ex"
+  "lib/macroz.ex" -> "lib/compile_dep.ex"
+  "lib/uses_macro.ex"
+  "lib/uses_macro.ex" -> "lib/macroz.ex" [label="(compile)"]
+  "lib/uses_macro.ex" -> "lib/runtime_dep.ex"
+}

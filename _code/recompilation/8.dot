@@ -1,0 +1,7 @@
+
+digraph "xref graph" {
+rankdir=LR
+  "lib/type_a.ex"
+  "lib/type_b.ex"
+  "lib/type_b.ex" -> "lib/type_a.ex" [label="(compile)"]
+}
