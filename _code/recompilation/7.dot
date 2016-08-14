@@ -1,0 +1,7 @@
+
+digraph "xref graph" {
+rankdir=LR
+  "lib/behaviorz.ex"
+  "lib/use_behavs.ex"
+  "lib/use_behavs.ex" -> "lib/behaviorz.ex" [label="(compile)"]
+}

@@ -1,0 +1,11 @@
+
+digraph "xref graph" {
+rankdir=LR
+  "lib/implz.ex"
+  "lib/implz.ex" -> "lib/protocolz.ex" [label="(compile)"]
+  "lib/implz.ex" -> "lib/struct_a.ex" [label="(compile)"]
+  "lib/protocolz.ex"
+  "lib/struct_a.ex"
+  "lib/depends_on_protocolz.ex"
+  "lib/depends_on_protocolz.ex" -> "lib/protocolz.ex"
+}

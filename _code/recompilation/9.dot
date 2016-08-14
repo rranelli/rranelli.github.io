@@ -1,0 +1,5 @@
+
+digraph "xref graph" {
+  "lib/schema_a.ex"
+  "lib/schema_b.ex"
+}
