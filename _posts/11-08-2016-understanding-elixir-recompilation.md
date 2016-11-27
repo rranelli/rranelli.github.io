@@ -25,7 +25,7 @@ happier.
 
 In the next sections I will describe why recompilation happens and the process
 & tools that I used to untangle to code-base and avoid the massive
-recompilations we where seeing.
+recompilations we were seeing.
 
 All of the examples in this post are available in my [Github](https://github.com/rranelli/comptest).
 
