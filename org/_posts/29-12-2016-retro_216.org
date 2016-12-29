@@ -1,0 +1,325 @@
+#+OPTIONS: -*- eval: (org-jekyll-mode); -*-
+#+AUTHOR: Renan Ranelli (renanranelli@gmail.com)
+#+OPTIONS: toc:nil n:3
+#+STARTUP: oddeven
+#+STARTUP: hidestars
+#+BEGIN_HTML
+---
+language: brasileiro
+layout: post
+comments: true
+title: 'Retrospectiva 2016'
+---
+#+END_HTML
+
+<p hidden>
+* Retrospectiva 2016
+  </p>
+
+  *TL;DR*: Seguindo a dica do [[https://twitter.com/pothix][@pothix]], nesse post eu vou falar sobre as
+  palestras e sobre os principais acontecidos de 2016. Em resumo, 2016 foi o
+  melhor e pior ano da minha vida. 2016 foi bizarro.
+
+  <p hidden> _excerpt-separator_ </p>
+
+  Vou separar esse post em 2 partes: +a que deu bom+ /trabalho/ e +a que deu
+  ruim+ /vida/.
+
+** Trabalho
+
+   Profissionalmente, 2016 foi o *melhor ano de todos os tempos*. Dessa vez eu
+   tive certeza *de verdade* que consigo fazer a diferença trabalhando com
+   tecnologia e que deixar a engenharia química pra traz foi a melhor coisa que
+   já fiz.
+
+   No final de 2015 eu sai da Locaweb e fui pra Xerpa, o que sem dúvida foi uma
+   decisão bem feliz. Sem dúvida, a experiência de estar em uma startup desde o
+   começo é algo que desmontou várias das minhas certezas e mudou
+   fundamentalmente o jeito que eu penso sobre construir software.
+
+   Fizemos bastante coisa, erramos bastante e acertamos bastante. Vi coisas que
+   eu jurava que não iam dar certo funcionar lindamente e coisas que estavam
+   "certas" fracassarem miseravelmente. Lançamos a Xerpa [[http://www.xerpa.com.br/departamento-pessoal/]["freemium"]] em dezembro,
+   então você já pode entrar no site e testar/contratar. E tudo isso com a
+   equipe que é de longe a mais firmeza que eu já vi. Valeu muito a pena.
+
+   Esse ano eu bati o recorde de palestras, uma delas inclusive na gringolândia.
+
+   Foram 18 palestras. Pra quem queria morrer ao falar em público em 2014 e até
+   hoje bate o pânico na hora de falar com desconhecidos (e principalmente com
+   desconhecidas), acho que foi um excelente progresso.
+
+   Segue abaixo um resumo de cada em ordem cronológica
+
+**** [[https://youtu.be/dQPGk6h59zs][GuruSP/ElugSP -- From Ruby to Elixir: What now?]]
+
+     No primeiro encontro do ElugSP em janeiro, falei sobre as minhas primeiras
+     impressões sobre Elixir depois de trabalhar um bom tempo com Ruby. Falei
+     sobre o que diferencia as linguagens, quais as vantagens e desvantagens de
+     cada uma e os tipos de problemas que enfrentamos.
+
+**** [[https://speakerdeck.com/rranelli/elug-sp-2016-measuring-your-elixir-application][ElugSP -- Measuring your Elixir App]]
+
+     No segundo encontro do ElugSP falei sobre métricas e como +fazemos+
+     fazíamos p/ coletá-las na Xerpa. Apresentação foi rápida com live-coding, e
+     tiveram várias perguntas, o que geralmente é raro. Uma versão melhorada foi
+     apresentada na Elixir Conf US (mais detalhes pra frente)
+
+**** [[https://speakerdeck.com/rranelli/encontro-locaweb-2016-adotando-novas-tecnologias][Encontro Locaweb -- Adotando novas tecnologias: como não tornar o sonho em pesadelo]]
+
+     Tive a felicidade de ser convidado pra falar no encontro Locaweb desse ano.
+     Foram 5 apresentações no total: Belo Horizonte, Recife, Curitiba, Porto
+     Alegre e São Paulo. Conheci pessoas maneiras, quase perdi avião 2x, almocei
+     em lugares legais e escapei um pouco do trabalho.
+
+     Foi uma experiência singular por que eu dividi o palco com gente que foi
+     super referência quando eu tava mudando de carreira: [[https://twitter.com/georgeguimaraes][@georgegimaraes]],
+     [[https://twitter.com/akitaonrails][@akitaonrails]], [[https://twitter.com/rla4][@rla4]]. Foi o meu momento "subi na vida". (leia [[https://www.facebook.com/DinhoEscritor/posts/506683846209083][esse texto
+     incrível]] do Anderson França se você não entendeu a referência)
+
+     Foi a primeira vez que eu repeti apresentações e fiquei feliz com a melhora
+     que isso traz. Acho que é por isso que pessoas ensaiam.
+
+**** [[https://speakerdeck.com/rranelli/tdc-floripa-2016-unlocking-the-power-of-the-unix-shell][TDC Floripa -- Unlocking the power of the Unix shell]]
+
+     Na trilha Ruby do TDC Florianópolis falei sobre shell scripting. Quem
+     acompanha o blog ou trabalhou comigo sabe que tenho uma obsessão pouco
+     saudável sobre o tema, e nessa talk aproveitei pra compartilhar um pouco
+     dela.
+
+     Na primeira metade explico quais os principais conceitos que encontram-se
+     em shell scripting usando Bash como referência. Na segunda metade da
+     apresentação, fiz um live-coding construindo um shell mínimo com as
+     principais features que apresentei anteriormente.
+
+     Apesar de o live coding não ter sido um desastre terrível, achei que a
+     apresentação não tinha sido boa. A plateia parecia dispersa e não muito
+     interessada. Não os culpo: durante toda a carreira conheci só uma pessoa
+     com interesse comparável por shell scripting.
+
+     Bizarramente, meses depois recebi o resultado da "pesquisa de satisfação"
+     da talk. Fiquei com resultado 9.4 (de 0 a 10). Estranhamente as pessoas
+     parecem ter gostado. Ou só as que gostaram avaliaram.
+
+**** [[https://speakerdeck.com/rranelli/tdc-floripa-2016-elixir-in-production-the-experience-at-xerpa][TDC Floripa -- Elixir in production: Our experience at Xerpa]]
+
+     Na trilha de programação funcional falei mais profundamente sobre a
+     experiência de trabalhar com Elixir na Xerpa, na época com 6 meses de casa.
+     Foi basicamente uma releitura da apresentação do ElugSP, mas com menos foco
+     em Ruby e mais foco em explicar Elixir.
+
+     Fiquei bem satisfeito com a apresentação. O tempo p/ perguntas foi excedido
+     furiosamente (com sorte era a talk antes do almoço) e houveram vários
+     questionamentos bons. Fui avaliado por 10 pessoas e todas avaliaram com
+     nota máxima em todos os quesitos :). Vitória!
+
+**** [[https://speakerdeck.com/rranelli/rupy-campinas-2016-designing-concurrent-applications][RuPy Campinas -- Design of concurrent applications]]
+
+     Participei pela primeira vez do RuPy campinas como convidado, sendo a
+     ultima palestra do evento. Fui bastante ambicioso no tema, e acho que
+     acabei não atingindo minha espectativa. Acredito que acabei caindo naquele
+     espaço de "quem já sabe do que estou falando não aprende nada" e "quem não
+     sabe não entende nada". Na minha opinião foi a pior talk do ano =(.
+
+**** [[https://speakerdeck.com/rranelli/tdc2016-sp-theres-life-beyond-oop][TDC SP -- There's life beyond OOP]]
+
+     Repeteco da talk no devinsantos 2015. Re-fiz os exemplos e adicionei uma
+     crítica à galera que advoga que "programação funcional é o jeito CERTO de
+     fazer software". Experimentei um outro jeito, um pouco melhor talvez, de
+     explicar concorrência (que nem de longe é tão legal quanto o [[https://youtu.be/t3BW7YBi1CQ][malabarismo]] do
+     Bruno Volcov).
+
+**** [[https://youtu.be/3KhzyDDju0Q][ElixirConfUS -- Measuring your Elixir App]]
+
+     O momento que recebi o e-mail dizendo que tinha sido aceito pra falar na
+     gringolândia foi certamente o momento mais feliz do ano. Foi uma sensação
+     de "a vida deu certo" misturado com "AQUI É BRASIL PORRA!" e "[[https://youtu.be/45U2fjfru1E][digdin
+     digdin]], so foda". Literalmente corri no escritório dando high-five nas
+     pessoas que não entendiam nada. O que era mais legal era que a conferência
+     ia acontecer exatamente na semana em que faria aniversário de 10 anos de
+     namoro. Era a desculpa perfeita pra levar a patroa pra passear na Disney (a
+     conf era literalmente NA DISNEY).
+
+     Passada a euforia, caiu a ficha:
+
+     Primeira apresentação em inglês. Pensei: tudo bem, pega nada, é só
+     praticar.
+
+     Chegando na conferência BATEU O PÂNICO FODA. Alias, não pratiquei.
+
+     Os primeiros minutos eu estava completamente aterrorizado (como vc pode
+     perceber no vídeo). No final, deu tudo certo e acredito que falei pouca
+     bobagem. Não tive coragem de fazer live-coding, então acabei gravando -- e
+     fazendo jus a tradição, terminei a gravação 25 minutos antes de sair p/ o
+     aeroporto.
+
+     Ouvi de mais de um gringo que a apresentação foi boa, que aprenderam algo e
+     que o inglês tava firmeza. A brotheragem dos gringos foi boa pra recuperar
+     a auto-estima.
+
+     Várias vezes falei "guys" p/ me referir a plateia, mesmo sabendo que não é
+     gender-neutral. Perdão pelo vacilo.
+
+     Apesar de o rolê ter sido um super sucesso, logo depois veio o
+     "fundo-do-poço 2016". Felicidade de pobre dura pouco, já dizia o sábio.
+     Mais sobre isso na ultima sessão do post.
+
+     Agradecimentos especiais ao incrível Paulo Henrique -- aka melhor chefe --
+     por ter me liberado 1 semana pra passear.
+
+**** [[https://speakerdeck.com/rranelli/elixirconf-2016-measuring-your-elixir-app][RubyConf -- Measuring your Elixir App]]
+
+     Repeteco da talk da ElixirConf. Mandei outras 4 propostas pra Rubyconf, o
+     danado do akita foi selecionar LOGO a mesma que foi selecionada pra
+     Elixirconf. Basicamente repeti a apresentação sem o fator pânico anglófono.
+
+**** ElugSP -- Dry-run deployments of our frontend
+
+     Apresentação super rápida de como usamos ETS p/ manter a "versão corrente"
+     do nosso front-end spa na Xerpa e forçar o cliente e fazer um reload caso
+     esteja com uma versão antiga.
+
+**** PagSeguroDevs -- There's life beyond OOP
+
+     Apresentação em um meetup promovido pelo PagSeguro sobre programação
+     funcional. Um dos organizadores viu a minha talk do devinsantos do ano
+     passado e resolveu me convidar para apresentá-la no meetup.
+
+     O Meetup foi na sede da iMasters e foi bem bacana. Revi amiguinhos e *tinha
+     cerveja*. Aparentemente as pessoas gostaram bastante da talk.
+
+**** ElugSp -- How protocols actually work
+
+     /Esse dia foi loko/. No dia anterior tinha rolado o aniversário do [[https://twitter.com/noteu][@noteu]].
+     Sai do bar quase 05:00, e cheguei em casa depois das 06:00. O Meetup do
+     ElugSP começaria em 3 horas. Dormi quase nada e fui pro evento. Sorte que
+     minha talk seria a ultima, então daria tempo de tomar bastante café e não
+     cair morto na frente da galera.
+
+     Essa talk teve 4 slides, e o resto foi em live-coding. Fui apresentando
+     passo a passo como usando meta-programação em Elixir é possível implementar
+     o mecanismo de protocolos da linguagem. Deve vir um blog post sobre isso em
+     algum ponto do futuro. Ta tudo pronto só falta escrever.
+
+     Eu tava bem zureta na verdade. Rouco, com ressaca e reflexos lentos, depois
+     de beber a noite inteira. Fico na dúvida se as pessoas perceberam minha
+     condição. Os deuses do live-coding sorriram pra mim aquele dia.
+
+**** LambdaIO/SP -- There's life beyond OOP
+
+     Fui convidado a abrir o primeiro evento do LambdaIO em São Paulo -- que ano
+     que vem deve virar LambdaIO Conf -- com a "existe vida além de OO"
+     repaginada.
+
+     Aparentemente deu certo e teve até gente mandando currículo pra firma
+     dizendo "vi a talk achei legal quero trabalhar ai".
+
+     Devo confessar que essa talk tava na minha lista de "piores talks".
+     Estranhamente parece ter sido a que mais fez sucesso. Vai entender.
+
+**** Locaneers -- O que aprendeu o mimi na startup-lândia
+
+     Pra fechar o ano, o pessoal da Locaweb fez um evento interno e chamaram
+     umas pessoas de fora pra apresentar. Foi super legal rever os amiguinhos,
+     subir no escritório e ter um gostinho da zueira infinita que acontecia no
+     lugar que batizou o `Milhouse`.
+
+     Uma curiosidade: quando subi no escritório pude "sentir o cheiro" do lugar.
+     Dizem que quando você sente o cheiro de um lugar é pq ele não é mais
+     familiar. Lembro que foi o mesmo cheiro que senti no dia que fui fazer
+     entrevista, e no primeiro dia +traumático+ de trabalho lá. Maior nostalgia.
+
+     Aproveitei pra fazer algo mais "em família" e falar de forma bem informal
+     sobre o que aprendi no 1 ano longe da Locaweb. Falei sobre como é diferente
+     trabalhar em startup, das coisas que são melhores e das coisas que são
+     piores.
+
+     Espero poder contribuir com o pessoal da Locaweb no futuro. Sem dúvida, se
+     não tivessem apostado em mim na época em que eu não sabia o que era
+     `bundler`, eu não estaria aqui hoje escrevendo besteira.
+
+** Vida
+
+*** Everything old is new again
+
+    Outra coisa bem legal que aconteceu nesse ano foi ter recebido o contato de um
+    /bixo/ da faculdade que esta trilhando o mesmo caminho de largar a engenharia
+    química e virar programador. O brother me encontrou no facebook e pediu pra
+    tirar dúvidas sobre a área.
+
+    Parece que entrei em uma máquina do tempo e falo comigo mesmo 4 anos atrás:
+    são as mesmas dúvidas, as mesmas perguntas, as mesmas incertezas e os
+    mesmos medos. O brother ainda fez o TCC com o mesmo professor que me
+    orientou por 4 anos, na área que eu quase fiz mestrado.
+
+    Fico extremamente feliz de conseguir ajudar alguém na transição. Fica a
+    sensação de ter sobrevivido e estar na po
+
+    Se você ainda não desistiu de ler o post, deve estar se perguntando: Por que
+    raios 2016 foi um ano merda então? Só falou de coisa boa!
+
+    Pois bem. Dois dias após o retorno da ElixirConf me deparei com a seguinte
+    realidade:
+
+*** Depois de 10 anos juntos, tinha acabado. Divórcio.
+
+    Foi tudo bem fulminante. Em um dia ela disse "quero terminar, vou embora".
+    No outro já não estava mais lá.
+
+    As semanas subsequentes foram infernais. não conseguia raciocinar, tinha
+    raiva de tudo, de repente batia o pânico e vontade de correr e chorar -- o
+    que acontecera algumas vezes. Nada mais fazia sentido, nada mais tinha
+    graça e eu lembrava dela *a todo instante*. Voltei a beber, e bebi no
+    estilo daquela musica da [[https://open.spotify.com/track/1XSuGvrfOylZlU76MeE5EC][Clarice]].
+
+    Tenho sorte de ter tanta gente incrível na minha vida que me aguentou e
+    ajudou. Eu sempre mandei muito mal em fazer amigos, não sei como consegui
+    ter tanta gente firmeza do meu lado. Se pá é Karma. Se pá é sorte mesmo.
+
+*** Aftermath
+
+    Passado um tempo e tendo recuperado parte da sanidade, são essas as
+    sequelas:
+
+    - Comecei a fazer musculação. Estou tentando correr 2.5~3.0 km todo dia.
+      Isso é bem chocante pra quem lembra que eu subia 2 lances de escada e já
+      perdia o ar.
+
+    - Perdi 5kg. Não sei quanto disso foi a /deprê/ e quanto foi o exercício.
+
+    - Parei de enrolar em fui no médico e estou finalmente tratando de
+      problemas de saúde conhecidos.
+
+    - Tive que redefinir *todas* as minhas senhas. Não coloquem nome de
+      namorad{o,a} no meio da senha. Se terminar, da um trabalho escroto mudar.
+      E se não mudar você fica relembrando quando digita a senha e isso é ruim.
+
+    - Voltei a beber. Descobri também que derrubo coisas quando bebo demais.
+
+    - Pela primeira vez fui em uma "festa da firma" e fiquei bêbado. (não era a
+      minha firma). Valeu [[https://twitter.com/rondy][@rondy]].
+
+    - Deixei a [[https://s-media-cache-ak0.pinimg.com/564x/fe/b9/cb/feb9cb67e421b17d47f68be46d51b830.jpg][barba]] crescer. Descobri que depois de um tempo para de coçar.
+
+    - Me deparo novamente com o pânico da juventude de "chegar nas minas".
+      Tutoriais na internet parecem não ajudar. A luta segue.
+
+    - Não perdi o emprego. (brigado Paulo Henrique s2)
+
+    - Botei zilhares de séries em dia. Vikings é muito bom!
+
+    - Agora eu pago o aluguel inteiro e ta doendo.
+
+    Obrigado demais aos amiguinhos que fizeram a diferença na tempestade, em
+    especial: meu chefe (melhor chefe) Paulo Henrique, meu companheiro de
+    backend [[https://twitter.com/nirev][@nirev]], o companheiro de rolê errado e bebedeira [[https://twitter.com/andrewhr][@andrewhr]], o
+    brother mais engraçado do mundo [[https://twitter.com/squiter][@squiter]], o casal mais maneiro
+    [[https://twitter.com/mjcoffeeholick][@mjcoffeeholick]] e [[https://twitter.com/noteu][@noteu]], e o cara mais brotheragem da faculdade Ricardo
+    Chachá.
+
+    Que 2017 tenha menos desgraçamento da cabeça, que eu mantenha meu emprego e
+    que o joelho não pare de funcionar.
+
+    That's it.
+
+    ---
