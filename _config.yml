@@ -35,7 +35,7 @@ author:
 
 page_list:  { 'About':'/about',
               'Archive':'/archive',
-              # 'CV':'/cv/en.pdf',
+              'CV':'/cv/en.pdf',
               'Feed':'/atom.xml'
             }
 
@@ -43,5 +43,5 @@ footer-links:
   github: rranelli
   twitter: renanranelli
 
-gems:
+plugins:
   - jekyll-paginate
