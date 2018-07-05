@@ -20,7 +20,6 @@ title: Milhouse
 tagline: on software, engineering, and Emacs.
 url: milhouseonsoftware.com
 paginate: 7
-baseurl: /
 exclude: ["*.org"]
 permalink: pretty
 

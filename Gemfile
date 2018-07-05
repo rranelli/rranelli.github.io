@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.5.0'
 
 group :development do
   gem 'jekyll', '~> 3.1'
