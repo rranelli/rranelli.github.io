@@ -69,7 +69,7 @@ Those “zombie” transactions seemed to appear around
   the fact that we were not *shutting down* our thread pools properly when
   restarting the application.
 
-In a [previous post](http://{{site.url}}/2015/04/08/simple-thread-pool-in-ruby/) we developed a simple thread pool in Ruby. I will use that
+In a [previous post](/2015/04/08/simple-thread-pool-in-ruby/) we developed a simple thread pool in Ruby. I will use that
 implementation to illustrate the point of this post. ^3
 
 I will reproduce that implementation here for your convenience:

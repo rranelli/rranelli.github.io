@@ -73,7 +73,7 @@ auth_header="Authorization: token $GITHUB_API_TOKEN"
    being rate-limited. Generating this token is easy and you can find
    instructions [[https://help.github.com/articles/creating-an-access-token-for-command-line-use/][here]]. Here I am storing my private token in a “password
    management system” I wrote myself called =mimipass=. You can see the details
-   of its construction in [[http://{{site.url}}/2015/10/26/write-your-own-password-manager/][this post]].
+   of its construction in [[/2015/10/26/write-your-own-password-manager/][this post]].
 
    To fetch the repositories we use the tried-and-true =curl=:
 

@@ -11,7 +11,7 @@ title: 'Tail Call Optimization in Ruby'
 
 </p>
 
-**TL;DR**: In a previous [post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) I ranted about how I got bitten by the lack of [TCO](http://en.wikipedia.org/wiki/Tail_call)
+**TL;DR**: In a previous [post](/2015/01/31/missing-tco-in-ruby/) I ranted about how I got bitten by the lack of [TCO](http://en.wikipedia.org/wiki/Tail_call)
 (Tail call optimization) in Ruby. Turns out Ruby actually has support for [TCO](http://en.wikipedia.org/wiki/Tail_call),
 but it's not enabled by default. In this post I will talk about my experience
 with it and how it saved my life in the fourth programming assignment of
@@ -35,7 +35,7 @@ this [SO question](http://stackoverflow.com/questions/3616483/why-does-the-jvm-s
 
 ### A non-aesthetic problem
 
-In a [previous post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) I ranted about how the lack of TCO forced me to modify my
+In a [previous post](/2015/01/31/missing-tco-in-ruby/) I ranted about how the lack of TCO forced me to modify my
 implementation of a list merge subroutine. You can say that I was
 over-zealous about such stylistic details, and I wouldn't disagree.
 
@@ -348,7 +348,7 @@ Sweet.
 
 ### Some pitfalls
 
-This section will get back to the [previous post](http://{{site.url}}/2015/01/31/missing-tco-in-ruby/) that I ranted about the
+This section will get back to the [previous post](/2015/01/31/missing-tco-in-ruby/) that I ranted about the
 “lack” of TCO in Ruby &#x2013; which we now know how to circumvent.
 
 When I was applying TCO to the merge subroutine described there, I stumbled

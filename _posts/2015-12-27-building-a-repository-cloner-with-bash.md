@@ -15,7 +15,7 @@ title: 'Building a repository cloner with Bash'
 will build a script to discover & clone all of your Github repositories. We
 will use the concurrent ~~thread~~ process pool we developed in a
 [previous
-post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/)
+post](/2015/11/20/writing-a-process-pool-in-bash/)
 
 <p hidden> <span class="underline">excerpt-separator</span> </p>
 
@@ -29,7 +29,7 @@ and clone all of your personal git repositories. No more copy-and-paste of
 
 In a
 [previous
-post](http://{{site.url}}/2015/11/20/writing-a-process-pool-in-bash/) we outlined the process to develop such tool as this:
+post](/2015/11/20/writing-a-process-pool-in-bash/) we outlined the process to develop such tool as this:
 
 1.  Query Github's api to get the addresses of all your personal repositories
 2.  Format the commands to clone all of these repositories locally
@@ -62,7 +62,7 @@ You will need to generate a private api token for Github in order to avoid
 being rate-limited. Generating this token is easy and you can find
 instructions [here](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Here I am storing my private token in a “password
 management system” I wrote myself called `mimipass`. You can see the details
-of its construction in [this post](http://{{site.url}}/2015/10/26/write-your-own-password-manager/).
+of its construction in [this post](/2015/10/26/write-your-own-password-manager/).
 
 To fetch the repositories we use the tried-and-true `curl`:
 

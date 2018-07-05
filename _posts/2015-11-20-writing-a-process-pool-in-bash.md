@@ -38,7 +38,7 @@ In this post we are going to focus on part 3.
 
 ## Reading commands to execute from `stdin`
 
-In a [previous post](http://{{site.url}}/2015/04/08/simple-thread-pool-in-ruby/) I have shown how you would go about writing a simple
+In a [previous post](/2015/04/08/simple-thread-pool-in-ruby/) I have shown how you would go about writing a simple
 thread pool in `Ruby`. Here I am going to do mostly the same thing but using
 `Bash` instead.
 

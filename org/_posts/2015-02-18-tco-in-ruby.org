@@ -16,7 +16,7 @@ title: 'Tail Call Optimization in Ruby'
 * Tail Call Optimization in Ruby
 </p>
 
-  *TL;DR*: In a previous [[http://{{site.url}}/2015/01/31/missing-tco-in-ruby/][post]] I ranted about how I got bitten by the lack of [[http://en.wikipedia.org/wiki/Tail_call][TCO]]
+  *TL;DR*: In a previous [[/2015/01/31/missing-tco-in-ruby/][post]] I ranted about how I got bitten by the lack of [[http://en.wikipedia.org/wiki/Tail_call][TCO]]
   (Tail call optimization) in Ruby. Turns out Ruby actually has support for [[http://en.wikipedia.org/wiki/Tail_call][TCO]],
   but it's not enabled by default. In this post I will talk about my experience
   with it and how it saved my life in the fourth programming assignment of
@@ -354,7 +354,7 @@ end
 
 *** Some pitfalls
 
-    This section will get back to the [[http://{{site.url}}/2015/01/31/missing-tco-in-ruby/][previous post]] that I ranted about the
+    This section will get back to the [[/2015/01/31/missing-tco-in-ruby/][previous post]] that I ranted about the
     “lack” of TCO in Ruby -- which we now know how to circumvent.
 
     When I was applying TCO to the merge subroutine described there, I stumbled
