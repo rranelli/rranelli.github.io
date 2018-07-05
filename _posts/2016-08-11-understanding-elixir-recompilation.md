@@ -179,7 +179,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/1.png)
+![img](//public/recompilation/1.png)
 
 As you can see, the `compile-time` dependency between `a.ex` and `c.ex` is
 not readily visible in the output, even though it exists as we were able to
@@ -268,7 +268,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/2.png)
+![img](//public/recompilation/2.png)
 
 As you can see, the `UsesMacro` does have a compile-time dependency on
 `Macroz` and a **runtime** dependency on `RuntimeDep`. `Macroz` **does not**
@@ -310,7 +310,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/3.png)
+![img](//public/recompilation/3.png)
 
 This ended up being an [issue](https://github.com/elixir-ecto/ecto/issues/1610) in Ecto's github repository. We had similar
 issues with other libraries too (like [ja\_serializer](https://github.com/AgilionApps/ja_serializer)). Beware when providing
@@ -350,7 +350,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/4.png)
+![img](//public/recompilation/4.png)
 
 ### 2. When {import,require}-ing a module
 
@@ -384,7 +384,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/5.png)
+![img](//public/recompilation/5.png)
 
 ### 3. When implementing protocols
 
@@ -432,7 +432,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/6.png)
+![img](//public/recompilation/6.png)
 
 Notice that **using** the protocol does not imply in a compile-time
 dependency.
@@ -467,7 +467,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/7.png)
+![img](//public/recompilation/7.png)
 
 No surprises here.
 
@@ -500,7 +500,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/8.png)
+![img](//public/recompilation/8.png)
 
 That was unexpected and I think it limits a lot of the benefits of typespecs
 in large codebases&#x2026;
@@ -570,7 +570,7 @@ digraph "xref graph" {
 }
 ```
 
-![img]({{ site.url }}/public/recompilation/9.png)
+![img](//public/recompilation/9.png)
 
 Although this is possible, you need to make sure that it is **safe** to "break"
 the dependency. If you call anything on the "concat"'d module, you risk

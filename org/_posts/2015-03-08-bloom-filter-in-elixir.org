@@ -153,7 +153,7 @@ Wikipedia Wizards
    been already inserted in the Bloom Filter, and to the right a query to see if
    the value is present in the filter.
 
-   [[http://{{ site.url }}//public/bloom_filter.png]]
+   [[//public/bloom_filter.png]]
 
    I've stole this amazing animation of bloom filters [[http://www.jasondavies.com/bloomfilter/][from here]].
 

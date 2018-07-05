@@ -41,7 +41,7 @@ This event handler will get the `div` with `id` equal to `quick_switcher_btn`
 and issue a `click` event to it, which is the exact element you `click` to
 show the <span class="underline">quick switch bar</span>:
 
-![img](//{{ site.url }}/public/slack_quick_switch.png)
+![img](//public/slack_quick_switch.png)
 
 Ugly, but functional.
 

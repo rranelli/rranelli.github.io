@@ -46,7 +46,7 @@ key.setGlobalKey('C-k', function (ev) {
   and issue a =click= event to it, which is the exact element you =click= to
   show the _quick switch bar_:
 
-  [[http://{{ site.url }}/public/slack_quick_switch.png]]
+  [[http://public/slack_quick_switch.png]]
 
   Ugly, but functional.
 
