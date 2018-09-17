@@ -11,6 +11,10 @@ title: Understanding Elixir's recompilation
 
 </p>
 
+**EDIT**: I've presented a much more up-to-date version of this blogpost in
+ElixirConf 2018; You can check it out [here](https://www.youtube.com/watch?v=hqaxMZAwbBA)
+
+
 **TL;DR**: Recently we at [Xerpa](http://www.xerpa.com.br/) became victims of a very annoying problem:
 Whenever we were to change a file in our Elixir project, we would be faced
 with the re-compilation of more than 200 files. After a lot of struggle, I've
